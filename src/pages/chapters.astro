@@ -1,0 +1,475 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="CCRA Chapters" description="Find a CCRA chapter near you. 16 chapters across the United States, Puerto Rico, and South Korea supporting Dragon Soldiers and the Chemical Corps community.">
+
+  <!-- HERO -->
+  <section style="background: var(--color-void); padding: 6rem 1.5rem 2rem; text-align: center;">
+    <div style="max-width: 800px; margin: 0 auto;" class="fade-up">
+      <p class="section-label" style="color: var(--color-dragon-gold); text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.875rem; margin-bottom: 0.75rem;">Local Chapters</p>
+      <h1 class="section-title" style="color: var(--color-ivory); font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">CCRA Chapters</h1>
+      <div class="gold-line" style="width: 80px; height: 3px; background: var(--color-dragon-gold); margin: 0 auto 1.5rem;"></div>
+      <p style="color: var(--color-ash); font-size: 1.125rem; line-height: 1.7; max-width: 640px; margin: 0 auto;">
+        16 chapters across the nation and overseas — connecting Dragon Soldiers, families, and supporters. Click a marker or chapter name to learn more.
+      </p>
+    </div>
+  </section>
+
+  <!-- MAP + LIST -->
+  <section style="background: var(--color-bunker); padding: 2rem 1.5rem 5rem;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+
+      <!-- MAP -->
+      <div class="fade-up" style="margin-bottom: 2rem;">
+        <div id="chapter-map" style="width: 100%; height: 520px; border-radius: 8px; border: 1px solid var(--color-gunmetal); overflow: hidden;"></div>
+      </div>
+
+      <!-- CHAPTER LIST + DETAIL PANEL -->
+      <div id="chapters-container" style="display: grid; grid-template-columns: 1fr; gap: 1.5rem;">
+
+        <!-- CHAPTER LIST -->
+        <div id="chapter-list" class="fade-up">
+          <h2 style="color: var(--color-ivory); font-size: 1.25rem; font-weight: 700; margin-bottom: 1.25rem;">All Chapters</h2>
+          <div id="chapter-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.75rem;">
+            <!-- Filled by JS -->
+          </div>
+        </div>
+
+        <!-- DETAIL PANEL (hidden by default) -->
+        <div id="chapter-detail" style="display: none;">
+          <button id="detail-close" style="background: none; border: 1px solid var(--color-gunmetal); color: var(--color-ash); padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; transition: all 0.2s;" onmouseover="this.style.borderColor='var(--color-dragon-gold)';this.style.color='var(--color-dragon-gold)'" onmouseout="this.style.borderColor='var(--color-gunmetal)';this.style.color='var(--color-ash)'">&larr; All Chapters</button>
+          <div id="detail-content" style="background: var(--color-command); border: 1px solid var(--color-gunmetal); border-radius: 8px; padding: 2.5rem;">
+            <!-- Filled by JS -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- START A CHAPTER -->
+  <section style="background: var(--color-void); padding: 5rem 1.5rem;">
+    <div style="max-width: 960px; margin: 0 auto;" class="fade-up">
+      <div style="background: var(--color-command); border: 1px solid var(--color-gunmetal); border-radius: 8px; padding: 2.5rem;">
+        <h2 style="color: var(--color-dragon-gold); font-size: 1.5rem; font-weight: 700; margin-bottom: 0.75rem;">Start a Local Chapter</h2>
+        <div class="gold-line" style="width: 50px; height: 3px; background: var(--color-dragon-gold); margin-bottom: 1.25rem;"></div>
+        <p style="color: var(--color-bone); line-height: 1.8; margin-bottom: 1rem;">
+          Interested in starting a CCRA chapter in your area? Begin by reading the Chapter Constitution and Bylaws section of the Local Chapter Establishment Policy. Your local chapter will fall under Private Organization regulations if located on a military installation.
+        </p>
+        <p style="color: var(--color-bone); line-height: 1.8; margin-bottom: 1.5rem;">
+          Approval must be obtained from the local Installation Commander. Once approved, send a formal request to the CCRA national office to obtain a Chapter Charter.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; padding-top: 1rem; border-top: 1px solid var(--color-gunmetal);">
+          <div>
+            <span style="color: var(--color-dragon-gold); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;">Contact</span>
+            <p style="color: var(--color-ivory); font-weight: 600; margin-top: 0.25rem;"><a href="tel:5733290600" style="color: var(--color-ivory); text-decoration: none;">(573) 329-0600</a></p>
+          </div>
+          <div>
+            <span style="color: var(--color-dragon-gold); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;">Email</span>
+            <p style="color: var(--color-ivory); font-weight: 600; margin-top: 0.25rem;"><a href="mailto:ccramanager@embarqmail.com" style="color: var(--color-ivory); text-decoration: none;">ccramanager@embarqmail.com</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leaflet CSS/JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <style>
+    /* Leaflet overrides for dark theme */
+    #chapter-map .leaflet-control-zoom a {
+      background: var(--color-command) !important;
+      color: var(--color-dragon-gold) !important;
+      border-color: var(--color-gunmetal) !important;
+    }
+    #chapter-map .leaflet-control-attribution {
+      background: rgba(10,10,10,0.8) !important;
+      color: var(--color-ash) !important;
+      font-size: 0.6rem !important;
+    }
+    #chapter-map .leaflet-control-attribution a {
+      color: var(--color-ash) !important;
+    }
+    .chapter-card {
+      background: var(--color-command);
+      border: 1px solid var(--color-gunmetal);
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      text-decoration: none;
+      display: block;
+    }
+    .chapter-card:hover, .chapter-card.active {
+      border-color: var(--color-dragon-gold);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(197,163,85,0.08);
+    }
+    .chapter-card:hover .ch-name, .chapter-card.active .ch-name {
+      color: var(--color-dragon-gold) !important;
+    }
+    .chapter-marker {
+      background: transparent !important;
+      border: none !important;
+    }
+    .marker-dot {
+      width: 14px;
+      height: 14px;
+      background: var(--color-dragon-gold);
+      border: 2px solid #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 12px rgba(197,163,85,0.5), 0 0 24px rgba(197,163,85,0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .marker-dot:hover, .marker-dot.active {
+      transform: scale(1.4);
+      box-shadow: 0 0 20px rgba(197,163,85,0.8), 0 0 40px rgba(197,163,85,0.4);
+    }
+    .marker-dot.overseas {
+      background: #8bb4d9;
+      box-shadow: 0 0 12px rgba(139,180,217,0.5);
+    }
+    .marker-dot.overseas:hover, .marker-dot.overseas.active {
+      box-shadow: 0 0 20px rgba(139,180,217,0.8), 0 0 40px rgba(139,180,217,0.4);
+    }
+    .leaflet-popup-content-wrapper {
+      background: var(--color-command) !important;
+      border: 1px solid var(--color-gunmetal) !important;
+      border-radius: 6px !important;
+      color: var(--color-ivory) !important;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.5) !important;
+    }
+    .leaflet-popup-tip {
+      background: var(--color-command) !important;
+      border: 1px solid var(--color-gunmetal) !important;
+      box-shadow: none !important;
+    }
+    .leaflet-popup-content {
+      margin: 0.75rem 1rem !important;
+      font-family: 'Inter', sans-serif !important;
+    }
+    @media (min-width: 768px) {
+      #chapters-container {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
+
+  <script is:inline>
+    const chapters = [
+      {
+        id: "watson", name: "MG Gerald G. Watson Chapter", state: "Alabama", city: "Anniston, AL",
+        lat: 33.66, lng: -85.83, overseas: false,
+        president: "John Clark",
+        description: "Formed to bring together people with a past connection to the US Army Chemical School while it was at Fort McClellan, AL. Membership is comprised of Dragon Soldiers serving in the surrounding area, active and retired military personnel of all Services, and Government Service employees.",
+        purposes: ["Foster appreciation of the history and tradition of the Chemical Corps", "Provide a forum to maintain ties with former Chemical Corps members", "Provide presentations on historical and current CBRN events", "Conduct charitable, educational, and social programs"],
+        url: "https://www.ccrassn.org/mgwatson/"
+      },
+      {
+        id: "ohana", name: "Hawaii 'Ohana' Chapter", state: "Hawaii", city: "Mililani, HI",
+        lat: 21.45, lng: -158.0, overseas: false,
+        president: "LTC Michael Ramsey", established: "18 September 2019",
+        description: "Dedicated to preserve and promote the history and traditions of the U.S. Army Chemical Corps while supporting the Soldiers and Families by maintaining Honor, Integrity, and Legacy. Enables mentorship, networking, professional development, and community outreach across the Island of Oahu.",
+        board: {"President": "LTC Michael Ramsey", "Vice President": "SSG David Haynes", "Secretary": "SFC Shamal McCoy", "Treasurer": "CPL Dante Barnes"},
+        address: "CCRA Hawaii Chapter, 95-1507 Ainamakua Dr., Mililani, Hawaii 96789",
+        url: "https://www.ccrassn.org/hawaiiohana/"
+      },
+      {
+        id: "midamerica", name: "Mid-America CBRN Response Enterprise", state: "Illinois", city: "Macomb, IL",
+        lat: 40.46, lng: -90.67, overseas: false,
+        established: "17 October 2015",
+        description: "Determined to preserve and promote the history and traditions of the U.S. Army Chemical Corps and the DoD CBRN Response Enterprise. Enables mentorship, networking, professional development, scholarship, benevolence, and community outreach across the vast Mid-America Region spanning over fifteen states.",
+        board: {"President": "COL John Wesley Strain II", "Vice President": "MAJ Joseph Lee Bright", "Secretary": "LTC Matthew E. Muse", "Treasurer": "CW3 David G. Henzler"},
+        url: "https://www.ccrassn.org/mid-america-cbrn-response-enterprise/"
+      },
+      {
+        id: "bluegrass", name: "Bluegrass Chapter", state: "Kentucky", city: "Kentucky",
+        lat: 37.84, lng: -84.27, overseas: false,
+        president: "MAJ Travis Huber", established: "2016",
+        description: "Formed to bring together people assigned to or living in Kentucky as well as those in the surrounding areas. Membership is open to retirees and active duty personnel of all services, current or former government civilians, and anyone associated with the US Army Chemical Corps.",
+        url: "https://www.ccrassn.org/bluegrass-chapter/"
+      },
+      {
+        id: "yankee", name: "Yankee Chapter", state: "Massachusetts", city: "Massachusetts",
+        lat: 42.36, lng: -71.06, overseas: false,
+        established: "2012",
+        description: "Formed to bring together people assigned to or associated with the US Army Chemical Corps in the New England and surrounding area. Membership is open to retirees and active duty personnel of all services, current or former government civilians, and anyone associated with the US Army Chemical School.",
+        url: "https://www.ccrassn.org/yankee-chapter/"
+      },
+      {
+        id: "ozark", name: "Ozark Chapter", state: "Missouri", city: "Fort Leonard Wood, MO",
+        lat: 37.74, lng: -92.13, overseas: false,
+        president: "Frank Lewis",
+        description: "Formed to bring together people assigned to or associated with the US Army Chemical School at Fort Leonard Wood, Missouri. The only requirement to become a member is to be a member of the CCRA.",
+        board: {"President": "Frank Lewis", "VP / Operations": "Tim Harris", "Treasurer": "Jimmy Williams", "Membership": "Sharon McCann", "Scholarships": "Saugat Brookshire", "Webmaster": "Joy Pennington"},
+        address: "PO Box 317, Fort Leonard Wood, MO 65473",
+        email: "president@ozarkccra.org",
+        url: "https://www.ccrassn.org/ozark-chapter/"
+      },
+      {
+        id: "area52", name: "Area 52", state: "Nevada", city: "Nevada",
+        lat: 39.16, lng: -119.77, overseas: false,
+        description: "The Area 52 chapter serves the Dragon Soldier community in the Nevada region. Contact the CCRA national office for more information about this chapter.",
+      },
+      {
+        id: "mountainwarrior", name: "Mountain Warrior Chapter", state: "New York", city: "Fort Drum, NY",
+        lat: 44.05, lng: -75.77, overseas: false,
+        description: "Formed to bring together people assigned to or living near Fort Drum, New York. Membership is open to retirees and active duty personnel of all services, current or former government civilians, and anyone associated with the US Army Chemical Corps.",
+        url: "https://www.ccrassn.org/mountain-warrior/"
+      },
+      {
+        id: "srsoc", name: "Southeast Regional & Special Operations Chapter", state: "North Carolina", city: "Fort Bragg, NC",
+        lat: 35.14, lng: -79.0, overseas: false,
+        established: "16 January 2019",
+        description: "Mission is to preserve and promote the history and traditions of the U.S. Army Chemical Corps while supporting the Soldiers and Families by maintaining chapter legacy, enabling mentorship, networking, professional development, and community outreach.",
+        board: {"President": "SGM Jeffery D. Howard", "Vice President": "SGM Ricky Sierra", "Secretary": "Mr. Dave Dunlap", "Treasurer": "1SG Jeremy Lindstrom"},
+        address: "PO Box 1026, Spring Lake, NC 28390",
+        url: "https://www.ccrassn.org/srsoc/"
+      },
+      {
+        id: "centralok", name: "Central Oklahoma Chapter", state: "Oklahoma", city: "Oklahoma City, OK",
+        lat: 35.47, lng: -97.52, overseas: false,
+        president: "LTC Richard Flurry", established: "2020",
+        description: "Formed to bring together people assigned to or living near Oklahoma City, including those associated with the Fire Support Center of Excellence and 75th Fires Brigade at Fort Sill. Mission is to promote the Regiment, support deserving charities, and provide for professional development.",
+        board: {"President": "LTC Richard Flurry", "Vice President": "SFC Warren Williams", "Secretary": "SGM(R) Michael Treanor", "Treasurer": "SPC Zachary Price", "Programmer": "CPT Jack Palmer", "Technical Advisor": "BG(R) Jeff Winn"},
+        meeting: "First Friday of each quarter (Jan, Apr, Jul, Oct) at the Central Oklahoma National Guard Education Center",
+        address: "6800 North Kelly, Oklahoma City, Oklahoma",
+        email: "oklahomaccra@gmail.com",
+        url: "https://www.ccrassn.org/central-oklahoma-chapter/"
+      },
+      {
+        id: "dragonpirates", name: "Dragon Pirates Chapter", state: "Puerto Rico", city: "Puerto Rico",
+        lat: 18.22, lng: -66.59, overseas: true,
+        description: "The Dragon Pirates chapter serves the Dragon Soldier community in Puerto Rico. Contact the CCRA national office for more information about this chapter.",
+      },
+      {
+        id: "goldenwyverns", name: "Golden Wyverns", state: "South Carolina", city: "Greenville, SC",
+        lat: 34.85, lng: -82.40, overseas: false,
+        president: "Bob Mihelic", established: "4 May 2010",
+        description: "Formed to bring together people assigned to or living near Greenville, South Carolina. Membership is open to retirees and active duty personnel of all services, current or former government civilians, and anyone associated with the US Army Chemical Corps.",
+        url: "https://www.ccrassn.org/golden-wyvern/"
+      },
+      {
+        id: "morningcalm", name: "Morning Calm Chapter", state: "South Korea", city: "South Korea",
+        lat: 37.55, lng: 126.98, overseas: true,
+        description: "The Morning Calm chapter serves the Dragon Soldier community stationed in South Korea. Contact the CCRA national office for more information about this chapter.",
+      },
+      {
+        id: "lonestar", name: "Lone Star Dragon Chapter", state: "Texas", city: "San Antonio, TX",
+        lat: 29.42, lng: -98.49, overseas: false,
+        president: "COL(R) Conrad Striegl", established: "2018",
+        description: "Formed to bring together people assigned to or living near Fort Hood, Fort Bliss, and San Antonio, Texas. Membership is open to retirees and active duty personnel of all services, current or former government civilians, and anyone associated with the US Army Chemical Corps.",
+        phone: "(210) 213-3004",
+        email: "conrad.striegl5@gmail.com",
+        url: "https://www.ccrassn.org/lone-star/"
+      },
+      {
+        id: "jblm", name: "JBLM Chapter", state: "Washington", city: "DuPont, WA",
+        lat: 47.10, lng: -122.63, overseas: false,
+        president: "William Al Jackson",
+        description: "Formed to bring together people assigned to or living near Joint Base Lewis-McChord, Washington. Membership is open to retirees and active duty personnel of all services, current or former government civilians, and anyone associated with the US Army Chemical Corps.",
+        board: {"President": "William Al Jackson — (360) 539-8110", "Treasurer": "Paul R Knoop — (253) 279-2598", "Secretary": "Kristy R Moore — (253) 477-1726"},
+        address: "JBLM CCRA Chapter, P.O. Box 263, DuPont WA 98327",
+        phone: "(360) 539-8110",
+        url: "https://www.ccrassn.org/jblm-chapter/"
+      },
+      {
+        id: "spoehr", name: "LTG Thomas W. Spoehr Chapter", state: "Washington D.C.", city: "Washington, D.C.",
+        lat: 38.91, lng: -77.04, overseas: false,
+        president: "Mandy Lopez", established: "2008",
+        description: "Formed to bring together people assigned to or living near Washington, D.C. Mission is to promote the Regiment, support deserving charities, and provide for professional development. Membership is open to all associated with the US Army Chemical Corps.",
+        url: "https://www.ccrassn.org/ltg-thomas-w-spoehr-chapter/"
+      }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // ── MAP SETUP ──
+      const map = L.map('chapter-map', {
+        center: [38.5, -96],
+        zoom: 4,
+        minZoom: 2,
+        maxZoom: 10,
+        zoomControl: true,
+        scrollWheelZoom: true,
+        attributionControl: true
+      });
+
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
+        subdomains: 'abcd',
+        maxZoom: 19
+      }).addTo(map);
+
+      const markers = {};
+
+      chapters.forEach(ch => {
+        const dot = L.divIcon({
+          className: 'chapter-marker',
+          html: `<div class="marker-dot ${ch.overseas ? 'overseas' : ''}" data-id="${ch.id}"></div>`,
+          iconSize: [14, 14],
+          iconAnchor: [7, 7]
+        });
+
+        const marker = L.marker([ch.lat, ch.lng], { icon: dot }).addTo(map);
+
+        marker.bindPopup(`
+          <div style="font-family: 'Inter', sans-serif;">
+            <div style="font-weight: 700; color: #c5a355; font-size: 0.85rem; margin-bottom: 0.25rem;">${ch.name}</div>
+            <div style="font-size: 0.75rem; color: #8a8a8a;">${ch.city}</div>
+          </div>
+        `, { closeButton: false, offset: [0, -4] });
+
+        marker.on('click', () => showDetail(ch.id));
+        marker.on('mouseover', function() { this.openPopup(); });
+        marker.on('mouseout', function() { this.closePopup(); });
+
+        markers[ch.id] = marker;
+      });
+
+      // ── CHAPTER LIST ──
+      const grid = document.getElementById('chapter-grid');
+      chapters.forEach(ch => {
+        const card = document.createElement('div');
+        card.className = 'chapter-card';
+        card.dataset.id = ch.id;
+        card.innerHTML = `
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <div style="width: 8px; height: 8px; border-radius: 50; flex-shrink: 0; border-radius: 50%; background: ${ch.overseas ? '#8bb4d9' : '#c5a355'}; box-shadow: 0 0 8px ${ch.overseas ? 'rgba(139,180,217,0.4)' : 'rgba(197,163,85,0.4)'};"></div>
+            <div>
+              <div class="ch-name" style="color: var(--color-ivory); font-size: 0.9rem; font-weight: 600; line-height: 1.3;">${ch.name}</div>
+              <div style="color: var(--color-ash); font-size: 0.75rem; margin-top: 0.15rem;">${ch.city}${ch.president ? ' · ' + ch.president : ''}</div>
+            </div>
+          </div>
+        `;
+        card.addEventListener('click', () => showDetail(ch.id));
+        grid.appendChild(card);
+      });
+
+      // ── DETAIL PANEL ──
+      const detailEl = document.getElementById('chapter-detail');
+      const listEl = document.getElementById('chapter-list');
+      const contentEl = document.getElementById('detail-content');
+      const closeBtn = document.getElementById('detail-close');
+      let activeId = null;
+
+      closeBtn.addEventListener('click', () => {
+        detailEl.style.display = 'none';
+        listEl.style.display = 'block';
+        document.querySelectorAll('.chapter-card').forEach(c => c.classList.remove('active'));
+        document.querySelectorAll('.marker-dot').forEach(d => d.classList.remove('active'));
+        activeId = null;
+        // Reset map view
+        map.setView([38.5, -96], 4, { animate: true });
+      });
+
+      function showDetail(id) {
+        const ch = chapters.find(c => c.id === id);
+        if (!ch) return;
+        activeId = id;
+
+        // Highlight card
+        document.querySelectorAll('.chapter-card').forEach(c => c.classList.remove('active'));
+        const card = document.querySelector(`.chapter-card[data-id="${id}"]`);
+        if (card) card.classList.add('active');
+
+        // Highlight marker
+        document.querySelectorAll('.marker-dot').forEach(d => d.classList.remove('active'));
+        const dot = document.querySelector(`.marker-dot[data-id="${id}"]`);
+        if (dot) dot.classList.add('active');
+
+        // Pan map
+        map.setView([ch.lat, ch.lng], ch.overseas && ch.id === 'morningcalm' ? 5 : 7, { animate: true });
+
+        // Build detail HTML
+        let html = `
+          <div style="margin-bottom: 1.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+              <div style="width: 12px; height: 12px; border-radius: 50%; background: ${ch.overseas ? '#8bb4d9' : '#c5a355'}; box-shadow: 0 0 10px ${ch.overseas ? 'rgba(139,180,217,0.5)' : 'rgba(197,163,85,0.5)'};"></div>
+              <span style="color: var(--color-ash); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;">${ch.state}</span>
+            </div>
+            <h2 style="color: var(--color-dragon-gold); font-size: 1.5rem; font-weight: 700; margin-bottom: 0.25rem;">${ch.name}</h2>
+            <p style="color: var(--color-ash); font-size: 0.85rem;">${ch.city}${ch.established ? ' · Est. ' + ch.established : ''}</p>
+          </div>
+          <div class="gold-line" style="width: 50px; height: 3px; background: var(--color-dragon-gold); margin-bottom: 1.5rem;"></div>
+          <p style="color: var(--color-bone); line-height: 1.8; margin-bottom: 1.5rem;">${ch.description}</p>
+        `;
+
+        // President
+        if (ch.president) {
+          html += `
+            <div style="margin-bottom: 1.25rem; padding: 1rem; background: rgba(197,163,85,0.05); border-left: 3px solid var(--color-dragon-gold); border-radius: 0 4px 4px 0;">
+              <span style="color: var(--color-dragon-gold); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em;">Chapter President</span>
+              <p style="color: var(--color-ivory); font-weight: 600; font-size: 1rem; margin-top: 0.25rem;">${ch.president}</p>
+            </div>
+          `;
+        }
+
+        // Board members
+        if (ch.board) {
+          html += `<div style="margin-bottom: 1.5rem;">
+            <h3 style="color: var(--color-ivory); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem;">Leadership</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.5rem;">`;
+          for (const [role, person] of Object.entries(ch.board)) {
+            html += `<div style="padding: 0.5rem 0.75rem; background: rgba(255,255,255,0.02); border-radius: 4px;">
+              <span style="color: var(--color-dragon-gold); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em;">${role}</span>
+              <p style="color: var(--color-bone); font-size: 0.85rem; margin-top: 0.15rem;">${person}</p>
+            </div>`;
+          }
+          html += `</div></div>`;
+        }
+
+        // Purposes
+        if (ch.purposes) {
+          html += `<div style="margin-bottom: 1.5rem;">
+            <h3 style="color: var(--color-ivory); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem;">Mission</h3>
+            <ul style="list-style: none; padding: 0; margin: 0;">`;
+          ch.purposes.forEach(p => {
+            html += `<li style="color: var(--color-bone); padding: 0.35rem 0 0.35rem 1.25rem; position: relative; font-size: 0.9rem;">
+              <span style="position: absolute; left: 0; color: var(--color-dragon-gold);">◆</span>${p}
+            </li>`;
+          });
+          html += `</ul></div>`;
+        }
+
+        // Meeting info
+        if (ch.meeting) {
+          html += `<div style="margin-bottom: 1.25rem; padding: 1rem; background: rgba(197,163,85,0.05); border-left: 3px solid var(--color-dragon-gold); border-radius: 0 4px 4px 0;">
+            <span style="color: var(--color-dragon-gold); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em;">Meetings</span>
+            <p style="color: var(--color-bone); font-size: 0.9rem; margin-top: 0.25rem;">${ch.meeting}</p>
+          </div>`;
+        }
+
+        // Contact info row
+        let contactHtml = '';
+        if (ch.address) contactHtml += `<div><span style="color: var(--color-dragon-gold); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em;">Address</span><p style="color: var(--color-bone); font-size: 0.85rem; margin-top: 0.15rem;">${ch.address}</p></div>`;
+        if (ch.email) contactHtml += `<div><span style="color: var(--color-dragon-gold); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em;">Email</span><p style="color: var(--color-bone); font-size: 0.85rem; margin-top: 0.15rem;"><a href="mailto:${ch.email}" style="color: var(--color-dragon-gold); text-decoration: none;">${ch.email}</a></p></div>`;
+        if (ch.phone) contactHtml += `<div><span style="color: var(--color-dragon-gold); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em;">Phone</span><p style="color: var(--color-bone); font-size: 0.85rem; margin-top: 0.15rem;"><a href="tel:${ch.phone.replace(/[^\d+]/g, '')}" style="color: var(--color-dragon-gold); text-decoration: none;">${ch.phone}</a></p></div>`;
+        if (contactHtml) {
+          html += `<div style="display: flex; flex-wrap: wrap; gap: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--color-gunmetal); margin-top: 1.5rem;">${contactHtml}</div>`;
+        }
+
+        // Link to original site
+        if (ch.url) {
+          html += `<div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--color-gunmetal);">
+            <a href="${ch.url}" target="_blank" rel="noopener" style="color: var(--color-dragon-gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+              Visit Chapter Page
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>`;
+        }
+
+        contentEl.innerHTML = html;
+        listEl.style.display = 'none';
+        detailEl.style.display = 'block';
+
+        // Scroll to detail
+        detailEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  </script>
+
+</Layout>
