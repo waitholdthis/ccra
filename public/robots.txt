@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://waitholdthis.github.io/ccra/sitemap-index.xml

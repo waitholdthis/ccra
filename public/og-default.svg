@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#0a0a0f"/>
+  <rect x="0" y="0" width="1200" height="4" fill="#c5a355"/>
+  <rect x="0" y="626" width="1200" height="4" fill="#c5a355"/>
+  <!-- Radiation symbol -->
+  <circle cx="600" cy="260" r="60" fill="none" stroke="#c5a355" stroke-width="2" opacity="0.3"/>
+  <circle cx="600" cy="260" r="15" fill="#c5a355" opacity="0.4"/>
+  <!-- Title -->
+  <text x="600" y="380" text-anchor="middle" fill="#f5f0e8" font-family="system-ui, -apple-system, sans-serif" font-size="48" font-weight="700" letter-spacing="4">CCRA</text>
+  <text x="600" y="430" text-anchor="middle" fill="#c5a355" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="400" letter-spacing="6" text-transform="uppercase">CHEMICAL CORPS REGIMENTAL ASSOCIATION</text>
+  <text x="600" y="475" text-anchor="middle" fill="#8a8a8a" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="300">Heritage · Esprit de Corps · Image · Professionalism</text>
+  <!-- Gold line accent -->
+  <rect x="500" y="340" width="200" height="2" fill="#c5a355"/>
+</svg>

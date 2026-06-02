@@ -4,10 +4,34 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
 }
 
-const { title, description = 'Chemical Corps Regimental Association — Heritage, Esprit de Corps, Image, Professionalism. Supporting Dragon Soldiers and the US Army Chemical Corps since 1986.' } = Astro.props;
+const { title, description = 'Chemical Corps Regimental Association — Heritage, Esprit de Corps, Image, Professionalism. Supporting Dragon Soldiers and the US Army Chemical Corps since 1986.', ogImage } = Astro.props;
 const currentPath = Astro.url.pathname;
+const canonicalURL = new URL(currentPath, Astro.site);
+const fullTitle = `${title} | CCRA`;
+const ogImg = ogImage || new URL('/ccra/og-default.png', Astro.site).toString();
+
+// Organization structured data
+const orgSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Chemical Corps Regimental Association",
+  "alternateName": "CCRA",
+  "url": "https://waitholdthis.github.io/ccra/",
+  "description": "Professional association supporting Dragon Soldiers and the U.S. Army Chemical Corps since 1986.",
+  "foundingDate": "1986",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Fort Leonard Wood",
+    "addressRegion": "MO",
+    "addressCountry": "US"
+  },
+  "telephone": "+1-573-329-0600",
+  "email": "ccramanager@embarqmail.com",
+  "sameAs": []
+});
 ---
 
 <!DOCTYPE html>
@@ -16,7 +40,35 @@ const currentPath = Astro.url.pathname;
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content={description} />
-  <title>{title} | CCRA</title>
+  <title>{fullTitle}</title>
+
+  <!-- Canonical -->
+  <link rel="canonical" href={canonicalURL.toString()} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalURL.toString()} />
+  <meta property="og:image" content={ogImg} />
+  <meta property="og:site_name" content="Chemical Corps Regimental Association" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={fullTitle} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImg} />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/ccra/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/ccra/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/ccra/apple-touch-icon.png" />
+  <meta name="theme-color" content="#0a0a0f" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json" set:html={orgSchema} />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
