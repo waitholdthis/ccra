@@ -1,5 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const chapters = [
+  { id: "watson", name: "MG Gerald G. Watson Chapter", state: "Alabama", city: "Anniston, AL", overseas: false, president: "John Clark", description: "Formed to bring together people with a past connection to the US Army Chemical School while it was at Fort McClellan, AL." },
+  { id: "ohana", name: "Hawaii 'Ohana' Chapter", state: "Hawaii", city: "Mililani, HI", overseas: false, president: "LTC Michael Ramsey", description: "Dedicated to preserve and promote the history and traditions of the U.S. Army Chemical Corps while supporting the Soldiers and Families." },
+  { id: "midamerica", name: "Mid-America CBRN Response Enterprise", state: "Illinois", city: "Macomb, IL", overseas: false, description: "Determined to preserve and promote the history and traditions of the U.S. Army Chemical Corps and the DoD CBRN Response Enterprise." },
+  { id: "bluegrass", name: "Bluegrass Chapter", state: "Kentucky", city: "Kentucky", overseas: false, president: "MAJ Travis Huber", description: "Formed to bring together people assigned to or living in Kentucky as well as those in the surrounding areas." },
+  { id: "yankee", name: "Yankee Chapter", state: "Massachusetts", city: "Massachusetts", overseas: false, description: "Formed to bring together people assigned to or associated with the US Army Chemical Corps in the New England and surrounding area." },
+  { id: "ozark", name: "Ozark Chapter", state: "Missouri", city: "Fort Leonard Wood, MO", overseas: false, president: "Frank Lewis", description: "Formed to bring together people assigned to or associated with the US Army Chemical School at Fort Leonard Wood, Missouri." },
+  { id: "area52", name: "Area 52", state: "Nevada", city: "Nevada", overseas: false, description: "The Area 52 chapter serves the Dragon Soldier community in the Nevada region." },
+  { id: "mountainwarrior", name: "Mountain Warrior Chapter", state: "New York", city: "Fort Drum, NY", overseas: false, description: "Formed to bring together people assigned to or living near Fort Drum, New York." },
+  { id: "srsoc", name: "Southeast Regional & Special Operations Chapter", state: "North Carolina", city: "Fort Bragg, NC", overseas: false, description: "Mission is to preserve and promote the history and traditions of the U.S. Army Chemical Corps while supporting the Soldiers and Families." },
+  { id: "centralok", name: "Central Oklahoma Chapter", state: "Oklahoma", city: "Oklahoma City, OK", overseas: false, president: "LTC Richard Flurry", description: "Formed to bring together people assigned to or living near Oklahoma City." },
+  { id: "dragonpirates", name: "Dragon Pirates Chapter", state: "Puerto Rico", city: "Puerto Rico", overseas: true, description: "The Dragon Pirates chapter serves the Dragon Soldier community in Puerto Rico." },
+  { id: "goldenwyverns", name: "Golden Wyverns", state: "South Carolina", city: "Greenville, SC", overseas: false, president: "Bob Mihelic", description: "Formed to bring together people assigned to or living near Greenville, South Carolina." },
+  { id: "morningcalm", name: "Morning Calm Chapter", state: "South Korea", city: "South Korea", overseas: true, description: "The Morning Calm chapter serves the Dragon Soldier community stationed in South Korea." },
+  { id: "lonestar", name: "Lone Star Dragon Chapter", state: "Texas", city: "San Antonio, TX", overseas: false, president: "COL(R) Conrad Striegl", description: "Formed to bring together people assigned to or living near Fort Hood, Fort Bliss, and San Antonio, Texas." },
+  { id: "jblm", name: "JBLM Chapter", state: "Washington", city: "DuPont, WA", overseas: false, president: "William Al Jackson", description: "Formed to bring together people assigned to or living near Joint Base Lewis-McChord, Washington." },
+  { id: "spoehr", name: "LTG Thomas W. Spoehr Chapter", state: "Washington D.C.", city: "Washington, D.C.", overseas: false, president: "Mandy Lopez", description: "Formed to bring together people assigned to or living near Washington, D.C." },
+];
 ---
 
 <Layout title="CCRA Chapters" description="Find a CCRA chapter near you. 16 chapters across the United States, Puerto Rico, and South Korea supporting Dragon Soldiers and the Chemical Corps community.">
@@ -32,7 +51,18 @@ import Layout from '../layouts/Layout.astro';
         <div id="chapter-list" class="fade-up">
           <h2 style="color: var(--color-ivory); font-size: 1.25rem; font-weight: 700; margin-bottom: 1.25rem;">All Chapters</h2>
           <div id="chapter-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.75rem;">
-            <!-- Filled by JS -->
+            {chapters.map(ch => (
+              <div class="chapter-card" data-id={ch.id}>
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                  <div style={`width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; background: ${ch.overseas ? '#8bb4d9' : '#c5a355'}; box-shadow: 0 0 8px ${ch.overseas ? 'rgba(139,180,217,0.4)' : 'rgba(197,163,85,0.4)'};`}></div>
+                  <div>
+                    <div class="ch-name" style="color: var(--color-ivory); font-size: 0.9rem; font-weight: 600; line-height: 1.3;">{ch.name}</div>
+                    <div style="color: var(--color-ash); font-size: 0.75rem; margin-top: 0.15rem;">{ch.city}{ch.president ? ` · ${ch.president}` : ''}</div>
+                    <p style="color: var(--color-ash); font-size: 0.7rem; line-height: 1.5; margin-top: 0.35rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">{ch.description}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -383,23 +413,10 @@ import Layout from '../layouts/Layout.astro';
         map.fitBounds(bounds, { padding: [50, 50], maxZoom: 6 });
       }
 
-      // ── CHAPTER LIST ──
+      // ── CHAPTER LIST (attach click handlers to SSR-rendered cards) ──
       const grid = document.getElementById('chapter-grid');
-      chapters.forEach(ch => {
-        const card = document.createElement('div');
-        card.className = 'chapter-card';
-        card.dataset.id = ch.id;
-        card.innerHTML = `
-          <div style="display: flex; align-items: center; gap: 0.75rem;">
-            <div style="width: 8px; height: 8px; border-radius: 50; flex-shrink: 0; border-radius: 50%; background: ${ch.overseas ? '#8bb4d9' : '#c5a355'}; box-shadow: 0 0 8px ${ch.overseas ? 'rgba(139,180,217,0.4)' : 'rgba(197,163,85,0.4)'};"></div>
-            <div>
-              <div class="ch-name" style="color: var(--color-ivory); font-size: 0.9rem; font-weight: 600; line-height: 1.3;">${ch.name}</div>
-              <div style="color: var(--color-ash); font-size: 0.75rem; margin-top: 0.15rem;">${ch.city}${ch.president ? ' · ' + ch.president : ''}</div>
-            </div>
-          </div>
-        `;
-        card.addEventListener('click', () => showDetail(ch.id));
-        grid.appendChild(card);
+      document.querySelectorAll('.chapter-card').forEach(card => {
+        card.addEventListener('click', () => showDetail(card.dataset.id));
       });
 
       // ── DETAIL PANEL ──

@@ -182,9 +182,19 @@ const currentPath = Astro.url.pathname;
     const nav = document.getElementById('main-nav');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 80) {
-        nav?.classList.add('bg-[var(--color-void)]/95', 'backdrop-blur-xl', 'border-b', 'border-[var(--color-steel)]');
+        if (nav) {
+          nav.style.background = 'rgba(10,10,10,0.95)';
+          nav.style.backdropFilter = 'blur(24px)';
+          nav.style.WebkitBackdropFilter = 'blur(24px)';
+          nav.style.borderBottom = '1px solid var(--color-steel)';
+        }
       } else {
-        nav?.classList.remove('bg-[var(--color-void)]/95', 'backdrop-blur-xl', 'border-b', 'border-[var(--color-steel)]');
+        if (nav) {
+          nav.style.background = '';
+          nav.style.backdropFilter = '';
+          nav.style.WebkitBackdropFilter = '';
+          nav.style.borderBottom = '';
+        }
       }
     });
 
