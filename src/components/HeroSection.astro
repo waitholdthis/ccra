@@ -1,0 +1,24 @@
+---
+// HeroSection.astro — reusable hero banner
+interface Props {
+  label?: string;
+  title: string;
+  description?: string;
+  gradient?: string;
+}
+
+const { label, title, description, gradient = 'linear-gradient(135deg, var(--color-void) 0%, #0d1a0d 50%, var(--color-void) 100%)' } = Astro.props;
+---
+
+<section class="relative min-h-[50vh] flex items-center justify-center" style={`background: ${gradient};`}>
+  <div class="hero-overlay absolute inset-0"></div>
+  <div class="relative z-10 text-center max-w-4xl mx-auto px-6 pt-24">
+    {label && <div class="section-label mb-6">{label}</div>}
+    <h1 class="section-title mb-6">{title}</h1>
+    {description && (
+      <p class="text-[var(--color-ash)] text-lg max-w-2xl mx-auto">{description}</p>
+    )}
+    <slot />
+  </div>
+</section>
+<div class="gold-line"></div>

@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { site, navigation } from '../data/site';
 
 interface Props {
   title: string;
@@ -7,7 +8,7 @@ interface Props {
   ogImage?: string;
 }
 
-const { title, description = 'Chemical Corps Regimental Association — Heritage, Esprit de Corps, Image, Professionalism. Supporting Dragon Soldiers and the US Army Chemical Corps since 1986.', ogImage } = Astro.props;
+const { title, description = site.description, ogImage } = Astro.props;
 const currentPath = Astro.url.pathname;
 const canonicalURL = new URL(currentPath, Astro.site);
 const fullTitle = `${title} | CCRA`;
@@ -215,7 +216,7 @@ const orgSchema = JSON.stringify({
       <div class="gold-line mt-12 mb-8"></div>
 
       <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[var(--color-ash)]">
-        <div>© {new Date().getFullYear()} Chemical Corps Regimental Association. All rights reserved.</div>
+        <div>© {new Date().getFullYear()} {site.name}. All rights reserved.</div>
         <div class="flex items-center gap-2">
           <span>Heritage</span>
           <span class="text-[var(--color-dragon-gold)]">·</span>

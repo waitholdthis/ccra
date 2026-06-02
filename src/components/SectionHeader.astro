@@ -1,0 +1,19 @@
+---
+// SectionHeader.astro — reusable section title block
+interface Props {
+  label?: string;
+  title: string;
+  description?: string;
+  center?: boolean;
+}
+
+const { label, title, description, center = true } = Astro.props;
+const align = center ? 'text-center' : '';
+---
+
+<div class={`fade-up mb-16 ${align}`}>
+  {label && <div class="section-label mb-4">{label}</div>}
+  <h2 class="section-title">{title}</h2>
+  <div class="gold-line" style={center ? 'width: 60px; height: 3px; background: var(--color-dragon-gold); margin: 0 auto 1.5rem;' : 'width: 60px; height: 3px; background: var(--color-dragon-gold); margin-bottom: 1.5rem;'}></div>
+  {description && <p class="text-[var(--color-ash)] mt-4 max-w-2xl" style={center ? 'margin-left: auto; margin-right: auto;' : ''}>{description}</p>}
+</div>

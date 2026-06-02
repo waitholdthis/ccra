@@ -1,0 +1,28 @@
+---
+// CallToAction.astro — reusable CTA section
+interface Props {
+  label?: string;
+  title: string;
+  description: string;
+  buttonText: string;
+  buttonHref: string;
+  external?: boolean;
+}
+
+const { label = 'Get Involved', title, description, buttonText, buttonHref, external = false } = Astro.props;
+---
+
+<section class="py-24 bg-[var(--color-void)]">
+  <div class="max-w-4xl mx-auto px-6 lg:px-12 text-center fade-up">
+    <div class="section-label mb-4">{label}</div>
+    <h2 class="section-title mb-6">{title}</h2>
+    <p class="text-[var(--color-ash)] mb-10 max-w-xl mx-auto">{description}</p>
+    <a
+      href={buttonHref}
+      class="btn-solid"
+      {...(external ? { target: '_blank', rel: 'noopener' } : {})}
+    >
+      {buttonText}
+    </a>
+  </div>
+</section>

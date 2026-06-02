@@ -1,0 +1,35 @@
+---
+// EventCard.astro — reusable event card with calendar download
+interface Props {
+  date: string;
+  time: string;
+  title: string;
+  location?: string;
+  isoStart?: string;
+  isoEnd?: string;
+}
+
+const { date, time, title, location = 'Fort Leonard Wood, MO', isoStart, isoEnd } = Astro.props;
+const [month, day] = date.split(' ');
+---
+
+<div class="card-dark p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+  <div class="flex-shrink-0 w-20 h-20 flex flex-col items-center justify-center border border-[var(--color-dragon-gold)] bg-[rgba(197,163,85,0.06)]">
+    <span class="text-[var(--color-dragon-gold)] text-xs font-bold tracking-widest uppercase">{month}</span>
+    <span class="text-[var(--color-ivory)] text-2xl font-bold">{day}</span>
+  </div>
+  <div class="flex-1">
+    <h3 class="text-[var(--color-ivory)] font-semibold text-lg">{title}</h3>
+    <p class="text-[var(--color-ash)] text-sm mt-1">{time} · {location}</p>
+  </div>
+  {isoStart && isoEnd && (
+    <button
+      class="cal-btn text-[var(--color-dragon-gold)] text-xs tracking-widest uppercase font-semibold cursor-pointer bg-transparent border border-[var(--color-dragon-gold)] rounded px-3 py-2 transition-colors hover:bg-[rgba(197,163,85,0.1)]"
+      data-title={title}
+      data-start={isoStart}
+      data-end={isoEnd}
+    >
+      + Calendar
+    </button>
+  )}
+</div>
