@@ -32,11 +32,11 @@ import Layout from '../layouts/Layout.astro';
 
       <div class="grid gap-4 fade-up">
         {[
-          { date: 'JUN 2', time: '12:30 – 5:00 PM', title: 'CBRN 2026 Regimental Week Golf Tournament' },
-          { date: 'JUN 2', time: '5:00 – 7:00 PM', title: "2026 Commandant's Regimental Week Social" },
-          { date: 'JUN 3', time: '6:00 – 7:30 AM', title: 'US Army Chemical Corps 2026 Regimental Run' },
-          { date: 'JUN 3', time: '5:00 – 7:00 PM', title: 'Regimental Week Annual Social Meeting' },
-          { date: 'JUN 3', time: '6:00 – 8:00 PM', title: "2026 Regimental Week Regimental CSM's Social" },
+          { date: 'JUN 2', time: '12:30 – 5:00 PM', title: 'CBRN 2026 Regimental Week Golf Tournament', isoStart: '20260602T123000', isoEnd: '20260602T170000' },
+          { date: 'JUN 2', time: '5:00 – 7:00 PM', title: "2026 Commandant's Regimental Week Social", isoStart: '20260602T170000', isoEnd: '20260602T190000' },
+          { date: 'JUN 3', time: '6:00 – 7:30 AM', title: 'US Army Chemical Corps 2026 Regimental Run', isoStart: '20260603T060000', isoEnd: '20260603T073000' },
+          { date: 'JUN 3', time: '5:00 – 7:00 PM', title: 'Regimental Week Annual Social Meeting', isoStart: '20260603T170000', isoEnd: '20260603T190000' },
+          { date: 'JUN 3', time: '6:00 – 8:00 PM', title: "2026 Regimental Week Regimental CSM's Social", isoStart: '20260603T180000', isoEnd: '20260603T200000' },
         ].map((event) => (
           <div class="card-dark p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <div class="flex-shrink-0 w-20 h-20 flex flex-col items-center justify-center border border-[var(--color-dragon-gold)] bg-[rgba(197,163,85,0.06)]">
@@ -45,11 +45,16 @@ import Layout from '../layouts/Layout.astro';
             </div>
             <div class="flex-1">
               <h3 class="text-[var(--color-ivory)] font-semibold text-lg">{event.title}</h3>
-              <p class="text-[var(--color-ash)] text-sm mt-1">{event.time}</p>
+              <p class="text-[var(--color-ash)] text-sm mt-1">{event.time} · Fort Leonard Wood, MO</p>
             </div>
-            <div class="hidden sm:block text-[var(--color-dragon-gold)] text-xs tracking-widest uppercase font-semibold">
-              Upcoming
-            </div>
+            <button
+              class="cal-btn text-[var(--color-dragon-gold)] text-xs tracking-widest uppercase font-semibold hover:underline cursor-pointer bg-transparent border border-[var(--color-dragon-gold)] rounded px-3 py-2 transition-colors hover:bg-[rgba(197,163,85,0.1)]"
+              data-title={event.title}
+              data-start={event.isoStart}
+              data-end={event.isoEnd}
+            >
+              + Calendar
+            </button>
           </div>
         ))}
       </div>
@@ -112,3 +117,35 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
 </Layout>
+
+<script>
+  // .ics calendar download
+  document.querySelectorAll('.cal-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const title = btn.dataset.title;
+      const start = btn.dataset.start;
+      const end = btn.dataset.end;
+      const ics = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//CCRA//Events//EN',
+        'BEGIN:VEVENT',
+        `DTSTART:${start}`,
+        `DTEND:${end}`,
+        `SUMMARY:${title}`,
+        'LOCATION:Fort Leonard Wood\\, MO 65473',
+        'DESCRIPTION:Chemical Corps Regimental Association Event. Visit https://waitholdthis.github.io/ccra/news for details.',
+        'END:VEVENT',
+        'END:VCALENDAR'
+      ].join('\r\n');
+
+      const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = title.replace(/[^a-zA-Z0-9]/g, '_') + '.ics';
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+  });
+</script>

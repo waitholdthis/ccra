@@ -170,6 +170,65 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section style="background: var(--color-command); padding: 5rem 1.5rem;">
+    <div style="max-width: 800px; margin: 0 auto;" class="fade-up">
+      <p class="section-label" style="color: var(--color-dragon-gold); text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.875rem; margin-bottom: 0.75rem; text-align: center;">FAQ</p>
+      <h2 class="section-title" style="color: var(--color-ivory); font-size: 2rem; font-weight: 700; margin-bottom: 1rem; text-align: center;">Frequently Asked Questions</h2>
+      <div class="gold-line" style="width: 60px; height: 3px; background: var(--color-dragon-gold); margin: 0 auto 2.5rem;"></div>
+
+      <div id="faq-list" style="display: flex; flex-direction: column; gap: 0.75rem;">
+        <div class="faq-item" style="border: 1px solid var(--color-gunmetal); border-radius: 8px; overflow: hidden;">
+          <button class="faq-toggle" style="width: 100%; text-align: left; padding: 1.25rem; background: var(--color-void); border: none; color: var(--color-ivory); font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: inherit;">
+            <span>What's the difference between Annual and Lifetime membership?</span>
+            <span class="faq-icon" style="color: var(--color-dragon-gold); font-size: 1.25rem; transition: transform 0.3s;">+</span>
+          </button>
+          <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: var(--color-void);">
+            <p style="padding: 0 1.25rem 1.25rem; color: var(--color-ash); line-height: 1.7; margin: 0;">
+              Annual membership requires yearly renewal at $25. Lifetime membership is a one-time payment ($99–$150 depending on rank) that gives you permanent membership with no renewals. Most members choose Lifetime for the long-term value and to show enduring commitment to the Dragon Soldier family.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item" style="border: 1px solid var(--color-gunmetal); border-radius: 8px; overflow: hidden;">
+          <button class="faq-toggle" style="width: 100%; text-align: left; padding: 1.25rem; background: var(--color-void); border: none; color: var(--color-ivory); font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: inherit;">
+            <span>Do I need to be active duty to join?</span>
+            <span class="faq-icon" style="color: var(--color-dragon-gold); font-size: 1.25rem; transition: transform 0.3s;">+</span>
+          </button>
+          <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: var(--color-void);">
+            <p style="padding: 0 1.25rem 1.25rem; color: var(--color-ash); line-height: 1.7; margin: 0;">
+              No. Membership is open to active duty, Reserve, Guard, retired, veteran, civilian employees, cadets, and friends and family of the Chemical Corps. Anyone who supports the Dragon Soldier mission is welcome.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item" style="border: 1px solid var(--color-gunmetal); border-radius: 8px; overflow: hidden;">
+          <button class="faq-toggle" style="width: 100%; text-align: left; padding: 1.25rem; background: var(--color-void); border: none; color: var(--color-ivory); font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: inherit;">
+            <span>Are my dues tax-deductible?</span>
+            <span class="faq-icon" style="color: var(--color-dragon-gold); font-size: 1.25rem; transition: transform 0.3s;">+</span>
+          </button>
+          <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: var(--color-void);">
+            <p style="padding: 0 1.25rem 1.25rem; color: var(--color-ash); line-height: 1.7; margin: 0;">
+              Yes. The CCRA is a 501(c)(3) nonprofit corporation. All membership dues and donations are tax-deductible to the fullest extent of the law.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item" style="border: 1px solid var(--color-gunmetal); border-radius: 8px; overflow: hidden;">
+          <button class="faq-toggle" style="width: 100%; text-align: left; padding: 1.25rem; background: var(--color-void); border: none; color: var(--color-ivory); font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: inherit;">
+            <span>How does the CCRA use membership funds?</span>
+            <span class="faq-icon" style="color: var(--color-dragon-gold); font-size: 1.25rem; transition: transform 0.3s;">+</span>
+          </button>
+          <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: var(--color-void);">
+            <p style="padding: 0 1.25rem 1.25rem; color: var(--color-ash); line-height: 1.7; margin: 0;">
+              Membership funds support scholarships (over $31K awarded in 2025), the Chemical Corps Museum, chapter operations, Regimental Week events, the Dragon Fire newsletter, and programs that preserve the heritage and esprit of the Chemical Corps.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section style="background: var(--color-void); padding: 5rem 1.5rem; text-align: center;">
     <div style="max-width: 600px; margin: 0 auto;" class="fade-up">
@@ -185,3 +244,25 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
 </Layout>
+
+<script>
+  document.querySelectorAll('.faq-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const answer = item.querySelector('.faq-answer');
+      const icon = btn.querySelector('.faq-icon');
+      const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+
+      // Close all
+      document.querySelectorAll('.faq-answer').forEach(a => a.style.maxHeight = '0px');
+      document.querySelectorAll('.faq-icon').forEach(i => { i.textContent = '+'; i.style.transform = 'rotate(0deg)'; });
+
+      // Open clicked (if it was closed)
+      if (!isOpen) {
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        icon.textContent = '−';
+        icon.style.transform = 'rotate(180deg)';
+      }
+    });
+  });
+</script>
