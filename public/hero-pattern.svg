@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" opacity="0.04">
+  <!-- Topographic/military grid pattern -->
+  <defs>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#c5a355" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="800" fill="url(#grid)"/>
+  <!-- Contour lines -->
+  <ellipse cx="400" cy="400" rx="300" ry="200" fill="none" stroke="#c5a355" stroke-width="0.5"/>
+  <ellipse cx="400" cy="400" rx="250" ry="160" fill="none" stroke="#c5a355" stroke-width="0.3"/>
+  <ellipse cx="400" cy="400" rx="200" ry="120" fill="none" stroke="#c5a355" stroke-width="0.3"/>
+  <ellipse cx="800" cy="300" rx="200" ry="180" fill="none" stroke="#c5a355" stroke-width="0.5"/>
+  <ellipse cx="800" cy="300" rx="150" ry="130" fill="none" stroke="#c5a355" stroke-width="0.3"/>
+  <!-- Crosshairs -->
+  <line x1="590" y1="390" x2="610" y2="390" stroke="#c5a355" stroke-width="0.5"/>
+  <line x1="600" y1="380" x2="600" y2="400" stroke="#c5a355" stroke-width="0.5"/>
+  <circle cx="600" cy="390" r="5" fill="none" stroke="#c5a355" stroke-width="0.3"/>
+</svg>
