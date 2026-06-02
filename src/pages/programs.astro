@@ -1,0 +1,206 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Programs & Scholarships | CCRA">
+
+  <!-- HERO -->
+  <section style="background: var(--color-void); padding: 6rem 1.5rem 4rem; text-align: center;">
+    <div style="max-width: 800px; margin: 0 auto;" class="fade-up">
+      <p class="section-label" style="color: var(--color-dragon-gold); text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.875rem; margin-bottom: 0.75rem;">Recognition &amp; Support</p>
+      <h1 class="section-title" style="color: var(--color-ivory); font-size: 3rem; font-weight: 700; margin-bottom: 1rem;">Programs &amp; Scholarships</h1>
+      <div class="gold-line" style="width: 80px; height: 3px; background: var(--color-dragon-gold); margin: 0 auto 1.5rem;"></div>
+      <p style="color: var(--color-ash); font-size: 1.125rem; line-height: 1.7; max-width: 640px; margin: 0 auto;">
+        The CCRA honors exceptional service members, recognizes outstanding units, and invests in the future through scholarships and awards.
+      </p>
+    </div>
+  </section>
+
+  <!-- TABBED INTERFACE -->
+  <section style="background: var(--color-bunker); padding: 5rem 1.5rem;">
+    <div style="max-width: 960px; margin: 0 auto;" class="fade-up" data-tabs>
+
+      <!-- TAB BUTTONS -->
+      <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; border-bottom: 2px solid var(--color-gunmetal); padding-bottom: 0;">
+        <button class="tab-btn" data-tab="hall-of-fame" style="background: none; border: none; padding: 0.75rem 1.25rem; color: var(--color-ash); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.08em; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all 0.2s;" aria-selected="true">
+          Hall of Fame
+        </button>
+        <button class="tab-btn" data-tab="distinguished-members" style="background: none; border: none; padding: 0.75rem 1.25rem; color: var(--color-ash); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.08em; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all 0.2s;">
+          Distinguished Members
+        </button>
+        <button class="tab-btn" data-tab="order-of-the-dragon" style="background: none; border: none; padding: 0.75rem 1.25rem; color: var(--color-ash); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.08em; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all 0.2s;">
+          Order of the Dragon
+        </button>
+        <button class="tab-btn" data-tab="sibert-award" style="background: none; border: none; padding: 0.75rem 1.25rem; color: var(--color-ash); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.08em; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all 0.2s;">
+          Sibert Award
+        </button>
+        <button class="tab-btn" data-tab="murray-award" style="background: none; border: none; padding: 0.75rem 1.25rem; color: var(--color-ash); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.08em; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all 0.2s;">
+          Murray Award
+        </button>
+        <button class="tab-btn" data-tab="scholarships" style="background: none; border: none; padding: 0.75rem 1.25rem; color: var(--color-ash); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.08em; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all 0.2s;">
+          Scholarships
+        </button>
+      </div>
+
+      <!-- HALL OF FAME -->
+      <div class="tab-panel" id="hall-of-fame">
+        <div class="card-dark" style="background: var(--color-command); border: 1px solid var(--color-gunmetal); border-radius: 8px; padding: 2.5rem;">
+          <h2 style="color: var(--color-dragon-gold); font-size: 1.75rem; font-weight: 700; margin-bottom: 0.75rem;">Chemical Corps Hall of Fame</h2>
+          <div class="gold-line" style="width: 50px; height: 3px; background: var(--color-dragon-gold); margin-bottom: 1.5rem;"></div>
+          <p style="color: var(--color-bone); line-height: 1.8; margin-bottom: 1.25rem;">
+            The Chemical Corps Hall of Fame honors CBRN personnel who have served the Chemical Corps and the Nation with exceptional distinction. This is the highest recognition bestowed by the Chemical Corps Regimental Association.
+          </p>
+          <p style="color: var(--color-bone); line-height: 1.8; margin-bottom: 1.25rem;">
+            Nominees must have been <strong style="color: var(--color-ivory);">retired for a minimum of two years</strong> prior to nomination. Nominations are reviewed by a selection committee and inductees are honored at the annual CCRA ceremony.
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--color-gunmetal);">
+            <div>
+              <p style="color: var(--color-dragon-gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem;">Nomination Deadline</p>
+              <p style="color: var(--color-ivory); font-weight: 600;">February 13th</p>
+            </div>
+            <div>
+              <p style="color: var(--color-dragon-gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem;">Contact</p>
+              <p style="color: var(--color-ivory); font-weight: 600;">(573) 563-7339</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DISTINGUISHED MEMBERS -->
+      <div class="tab-panel" id="distinguished-members" style="display: none;">
+        <div class="card-dark" style="background: var(--color-command); border: 1px solid var(--color-gunmetal); border-radius: 8px; padding: 2.5rem;">
+          <h2 style="color: var(--color-dragon-gold); font-size: 1.75rem; font-weight: 700; margin-bottom: 0.75rem;">Distinguished Members of the Corps</h2>
+          <div class="gold-line" style="width: 50px; height: 3px; background: var(--color-dragon-gold); margin-bottom: 1.5rem;"></div>
+          <p style="color: var(--color-bone); line-height: 1.8; margin-bottom: 1.25rem;">
+            The Distinguished Members of the Corps program recognizes individuals who have demonstrated continued, exceptional service to the Chemical Corps throughout their careers. This honor acknowledges sustained contributions that have had a lasting impact on the regiment.
+          </p>
+          <p style="color: var(--color-bone); line-height: 1.8; margin-bottom: 1.25rem;">
+            The nomination process follows the same procedures as the Hall of Fame. Candidates are evaluated based on their cumulative record of service, leadership, and contributions to the Chemical Corps mission.
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--color-gunmetal);">
+            <div>
+              <p style="color: var(--color-dragon-gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem;">Nomination Deadline</p>
+              <p style="color: var(--color-ivory); font-weight: 600;">February 13th</p>
+            </div>
+            <div>
+              <p style="color: var(--color-dragon-gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem;">Contact</p>
+              <p style="color: var(--color-ivory); font-weight: 600;">(573) 563-7339</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ORDER OF THE DRAGON -->
+      <div class="tab-panel" id="order-of-the-dragon" style="display: none;">
+        <div class="card-dark" style="background: var(--color-command); border: 1px solid var(--color-gunmetal); border-radius: 8px; padding: 2.5rem;">
+          <h2 style="color: var(--color-dragon-gold); font-size: 1.75rem; font-weight: 700; margin-bottom: 0.75rem;">Order of the Dragon</h2>
+          <div class="gold-line" style="width: 50px; height: 3px; background: var(--color-dragon-gold); margin-bottom: 1.5rem;"></div>
+          <p style="color: var(--color-bone); line-height: 1.8; margin-bottom: 2rem;">
+            The Order of the Dragon recognizes outstanding contributions to the Chemical Corps at various levels of achievement. There are four distinct awards within the Order:
+          </p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem;">
+            <div style="background: var(--color-bunker); border: 1px solid var(--color-gunmetal); border-radius: 6px; padding: 1.5rem;">
+              <h3 style="color: var(--color-dragon-gold); font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem;">Ancient Order</h3>
+              <p style="color: var(--color-ash); font-size: 0.9rem; line-height: 1.6;">The highest level of recognition within the Order of the Dragon, reserved for the most distinguished service.</p>
+            </div>
+            <div style="background: var(--color-bunker); border: 1px solid var(--color-gunmetal); border-radius: 6px; padding: 1.5rem;">
+              <h3 style="color: var(--color-dragon-gold); font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem;">Honorable Order</h3>
+              <p style="color: var(--color-ash); font-size: 0.9rem; line-height: 1.6;">Recognizes exceptional and honorable contributions to the Chemical Corps mission and community.</p>
+            </div>
+            <div style="background: var(--color-bunker); border: 1px solid var(--color-gunmetal); border-radius: 6px; padding: 1.5rem;">
+              <h3 style="color: var(--color-dragon-gold); font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem;">Legionnaire</h3>
+              <p style="color: var(--color-ash); font-size: 0.9rem; line-height: 1.6;">Honors those who have made significant and sustained contributions to the Chemical Corps.</p>
+            </div>
+            <div style="background: var(--color-bunker); border: 1px solid var(--color-gunmetal); border-radius: 6px; padding: 1.5rem;">
+              <h3 style="color: var(--color-dragon-gold); font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem;">Carol Ann Watson Spouse Award</h3>
+              <p style="color: var(--color-ash); font-size: 0.9rem; line-height: 1.6;">Recognizes the extraordinary support and contributions of Chemical Corps spouses.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIBERT AWARD -->
+      <div class="tab-panel" id="sibert-award" style="display: none;">
+        <div class="card-dark" style="background: var(--color-command); border: 1px solid var(--color-gunmetal); border-radius: 8px; padding: 2.5rem;">
+          <h2 style="color: var(--color-dragon-gold); font-size: 1.75rem; font-weight: 700; margin-bottom: 0.75rem;">MG William L. Sibert Award</h2>
+          <div class="gold-line" style="width: 50px; height: 3px; background: var(--color-dragon-gold); margin-bottom: 1.5rem;"></div>
+          <p style="color: var(--color-bone); line-height: 1.8; margin-bottom: 1.25rem;">
+            Named in honor of Major General William L. Sibert, the first Chief of the Chemical Warfare Service, this prestigious award recognizes the <strong style="color: var(--color-ivory);">best CBRN/CBRNE Company</strong> in the United States Army.
+          </p>
+          <p style="color: var(--color-bone); line-height: 1.8;">
+            Companies are evaluated on their overall readiness, training proficiency, leadership, and mission execution. The Sibert Award represents the highest standard of excellence for CBRN units and serves as a benchmark for company-level performance across the force.
+          </p>
+        </div>
+      </div>
+
+      <!-- MURRAY AWARD -->
+      <div class="tab-panel" id="murray-award" style="display: none;">
+        <div class="card-dark" style="background: var(--color-command); border: 1px solid var(--color-gunmetal); border-radius: 8px; padding: 2.5rem;">
+          <h2 style="color: var(--color-dragon-gold); font-size: 1.75rem; font-weight: 700; margin-bottom: 0.75rem;">CSM George Murray Leadership Award</h2>
+          <div class="gold-line" style="width: 50px; height: 3px; background: var(--color-dragon-gold); margin-bottom: 1.5rem;"></div>
+          <p style="color: var(--color-bone); line-height: 1.8; margin-bottom: 1.25rem;">
+            The CSM George Murray Leadership Award is a rigorous competition that tests the <strong style="color: var(--color-ivory);">technical and tactical skills</strong> of Chemical Corps NCOs and Soldiers.
+          </p>
+          <p style="color: var(--color-bone); line-height: 1.8;">
+            Competitors are evaluated on their mastery of CBRN fundamentals, physical fitness, leadership ability, and tactical proficiency. The competition fosters excellence and readiness among the enlisted ranks of the Chemical Corps, ensuring the highest standards of professional competence.
+          </p>
+        </div>
+      </div>
+
+      <!-- SCHOLARSHIPS -->
+      <div class="tab-panel" id="scholarships" style="display: none;">
+        <div class="card-dark" style="background: var(--color-command); border: 1px solid var(--color-gunmetal); border-radius: 8px; padding: 2.5rem;">
+          <h2 style="color: var(--color-dragon-gold); font-size: 1.75rem; font-weight: 700; margin-bottom: 0.75rem;">SGM Paul Cockman Scholarship Program</h2>
+          <div class="gold-line" style="width: 50px; height: 3px; background: var(--color-dragon-gold); margin-bottom: 1.5rem;"></div>
+          <p style="color: var(--color-bone); line-height: 1.8; margin-bottom: 1.25rem;">
+            The SGM Paul Cockman Scholarship Program provides financial assistance to the <strong style="color: var(--color-ivory);">spouses and children of CCRA members</strong> who are pursuing education at accredited post-secondary schools.
+          </p>
+          <p style="color: var(--color-bone); line-height: 1.8; margin-bottom: 1.25rem;">
+            This scholarship honors the legacy of SGM Paul Cockman and reflects the CCRA's commitment to supporting Chemical Corps families. Applicants must be dependents of current CCRA members in good standing and enrolled or accepted at an accredited college, university, or vocational institution.
+          </p>
+          <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--color-gunmetal);">
+            <a href="/contact" class="btn-ghost" style="display: inline-block; border: 2px solid var(--color-dragon-gold); color: var(--color-dragon-gold); padding: 0.75rem 2rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; text-decoration: none; border-radius: 4px; font-size: 0.875rem;">
+              Inquire About Scholarships
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const container = document.querySelector('[data-tabs]');
+    if (!container) return;
+
+    const buttons = container.querySelectorAll('.tab-btn');
+    const panels = container.querySelectorAll('.tab-panel');
+
+    function activateTab(tabId: string) {
+      buttons.forEach(btn => {
+        const isActive = btn.getAttribute('data-tab') === tabId;
+        (btn as HTMLElement).style.color = isActive ? 'var(--color-dragon-gold)' : 'var(--color-ash)';
+        (btn as HTMLElement).style.borderBottomColor = isActive ? 'var(--color-dragon-gold)' : 'transparent';
+        btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+
+      panels.forEach(panel => {
+        (panel as HTMLElement).style.display = panel.id === tabId ? 'block' : 'none';
+      });
+    }
+
+    // Initialize first tab
+    const firstTab = buttons[0]?.getAttribute('data-tab');
+    if (firstTab) activateTab(firstTab);
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tabId = btn.getAttribute('data-tab');
+        if (tabId) activateTab(tabId);
+      });
+    });
+  });
+</script>

@@ -1,0 +1,171 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const timeline = [
+  {
+    year: '1918',
+    title: 'Chemical Warfare Service Established',
+    description: 'On June 2, 1918, General John J. Pershing established the Chemical Warfare Service in response to Germany\'s devastating use of chemical weapons on the Western Front during World War I. The new service consolidated all chemical warfare activities under a single command.',
+    side: 'left',
+  },
+  {
+    year: '1920s',
+    title: 'Survival & Permanence',
+    description: 'The Chemical Warfare Service was nearly eliminated in the post-war drawdown, but advocates fought to preserve the branch. Congress ultimately made it a permanent branch of the United States Army, recognizing the enduring need for chemical defense capabilities.',
+    side: 'right',
+  },
+  {
+    year: '1942–1945',
+    title: 'World War II',
+    description: 'Chemical Soldiers made critical contributions across every theater — developing 4.2-inch mortar high-explosive rounds, deploying Chemical Smoke Generator Battalions to screen troop movements, employing flame weapons in the Pacific island campaigns, and establishing Camp Detrick for biological warfare research and defense.',
+    side: 'left',
+  },
+  {
+    year: '1946',
+    title: 'Re-designated as the Chemical Corps',
+    description: 'The Chemical Warfare Service was officially re-designated as the "Chemical Corps" and became a recognized branch of the United States Army, reflecting its expanded mission beyond chemical warfare to include radiological defense and smoke operations.',
+    side: 'right',
+  },
+  {
+    year: '1950–1953',
+    title: 'Korean War',
+    description: 'Chemical Corps Soldiers provided vital support during the Korean War through smoke operations that concealed major amphibious landings and troop movements, as well as the employment of flame and incendiary weapons in defensive and offensive operations across the peninsula.',
+    side: 'left',
+  },
+  {
+    year: '1960s–1970s',
+    title: 'Vietnam Era',
+    description: 'The Chemical Corps pioneered innovative battlefield technologies in Vietnam — "people sniffer" personnel detectors, flame track vehicles and devices, herbicide operations to deny enemy concealment, and supported tunnel rat operations in the vast underground complexes of Cu Chi.',
+    side: 'right',
+  },
+  {
+    year: '1986',
+    title: 'Regiment & CCRA Established',
+    description: 'The Chemical Corps Regiment was established on June 28, 1986, formalizing the regimental system for the branch. The following month in July 1986, Major General Gerald Watson founded the Chemical Corps Regimental Association to unite all Dragon Soldiers under one family.',
+    side: 'left',
+  },
+  {
+    year: '1990–1991',
+    title: 'Gulf War',
+    description: 'Chemical Corps units played a central role in preparing Coalition forces to operate in the face of credible chemical and biological weapon threats from Iraq. Decontamination units, NBC reconnaissance teams, and chemical defense training proved essential to the campaign\'s success.',
+    side: 'right',
+  },
+  {
+    year: '2005+',
+    title: 'BRAC & Fort Leonard Wood',
+    description: 'As part of the Base Realignment and Closure (BRAC) process, the Chemical Corps relocated from Fort McClellan, Alabama to Fort Leonard Wood, Missouri — consolidating the U.S. Army Chemical, Biological, Radiological, and Nuclear School alongside other maneuver support branches.',
+    side: 'left',
+  },
+];
+---
+
+<Layout title="History of the Chemical Corps">
+
+  <!-- ═══ HERO ═══ -->
+  <section class="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+    <div class="hero-overlay absolute inset-0 z-10"></div>
+    <div class="absolute inset-0 bg-[var(--color-command)]">
+      <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 70% 40%, var(--color-dragon-gold) 0%, transparent 50%);"></div>
+    </div>
+    <div class="relative z-20 text-center max-w-4xl mx-auto px-6">
+      <p class="section-label mb-6 fade-up">Since 1918</p>
+      <h1 class="section-title !text-[clamp(2.2rem,5vw,4rem)] !font-[200] mb-6 fade-up">History of the<br/>Chemical Corps</h1>
+      <p class="text-[var(--color-ash)] text-lg md:text-xl leading-relaxed max-w-3xl mx-auto fade-up">
+        Over a century of defending the nation against chemical, biological, radiological, and nuclear threats. Learn the heritage that defines Dragon Soldiers.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ INTRO ═══ -->
+  <section class="py-20 lg:py-28 bg-[var(--color-void)]">
+    <div class="max-w-3xl mx-auto px-6 lg:px-12 text-center fade-up">
+      <p class="section-label mb-4">The Legacy</p>
+      <h2 class="section-title mb-6">A Century of<br/>Dragon Soldiers</h2>
+      <div class="gold-line mx-auto max-w-[60px] mb-8"></div>
+      <p class="text-[var(--color-ash)] text-base leading-relaxed">
+        From the trenches of World War I to the modern battlefields of the 21st century, the Chemical Corps has stood as the nation's shield against weapons of mass destruction. This is the story of the men and women who answered the call.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ TIMELINE ═══ -->
+  <section class="py-20 lg:py-28 bg-[var(--color-command)]">
+    <div class="max-w-6xl mx-auto px-6 lg:px-12">
+
+      <!-- Desktop timeline -->
+      <div class="relative hidden md:block">
+        <!-- Vertical center line -->
+        <div class="timeline-line"></div>
+
+        {timeline.map((event, i) => (
+          <div class={`relative flex items-center mb-20 last:mb-0 fade-up ${event.side === 'left' ? 'justify-start' : 'justify-end'}`}>
+
+            {/* Left-side card */}
+            {event.side === 'left' && (
+              <div class="w-[45%] pr-12">
+                <div class="card-dark rounded-sm p-8">
+                  <div class="text-[var(--color-dragon-gold)] font-mono text-sm tracking-widest mb-3">{event.year}</div>
+                  <h3 class="text-[var(--color-ivory)] font-semibold text-xl mb-3">{event.title}</h3>
+                  <p class="text-[var(--color-ash)] text-sm leading-relaxed">{event.description}</p>
+                </div>
+              </div>
+            )}
+
+            {/* Center dot */}
+            <div class="absolute left-1/2 -translate-x-1/2 z-10">
+              <div class="timeline-dot"></div>
+            </div>
+
+            {/* Right-side card */}
+            {event.side === 'right' && (
+              <div class="w-[45%] pl-12">
+                <div class="card-dark rounded-sm p-8">
+                  <div class="text-[var(--color-dragon-gold)] font-mono text-sm tracking-widest mb-3">{event.year}</div>
+                  <h3 class="text-[var(--color-ivory)] font-semibold text-xl mb-3">{event.title}</h3>
+                  <p class="text-[var(--color-ash)] text-sm leading-relaxed">{event.description}</p>
+                </div>
+              </div>
+            )}
+
+          </div>
+        ))}
+      </div>
+
+      <!-- Mobile timeline -->
+      <div class="relative md:hidden">
+        <div class="absolute left-[20px] top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-[var(--color-dragon-gold)] to-transparent"></div>
+
+        {timeline.map((event, i) => (
+          <div class="relative pl-14 mb-14 last:mb-0 fade-up">
+            <div class="absolute left-[14px] top-2 z-10">
+              <div class="timeline-dot"></div>
+            </div>
+            <div class="card-dark rounded-sm p-6">
+              <div class="text-[var(--color-dragon-gold)] font-mono text-sm tracking-widest mb-2">{event.year}</div>
+              <h3 class="text-[var(--color-ivory)] font-semibold text-lg mb-2">{event.title}</h3>
+              <p class="text-[var(--color-ash)] text-sm leading-relaxed">{event.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="py-24 lg:py-32 bg-[var(--color-void)]">
+    <div class="max-w-3xl mx-auto px-6 lg:px-12 text-center fade-up">
+      <p class="section-label mb-4">Be Part of History</p>
+      <h2 class="section-title mb-6">Join the Legacy</h2>
+      <div class="gold-line mx-auto max-w-[60px] mb-8"></div>
+      <p class="text-[var(--color-ash)] text-base leading-relaxed mb-10">
+        The Chemical Corps story is still being written. Whether you served, are serving, or support those who do — become part of the Dragon Soldier family today.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/membership" class="btn-solid justify-center">Become a Member</a>
+        <a href="/about" class="btn-ghost justify-center">About the CCRA</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>

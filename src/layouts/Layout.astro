@@ -1,0 +1,210 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Chemical Corps Regimental Association — Heritage, Esprit de Corps, Image, Professionalism. Supporting Dragon Soldiers and the US Army Chemical Corps since 1986.' } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <title>{title} | CCRA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="flex items-center justify-between h-20">
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-full border border-[var(--color-dragon-gold)] flex items-center justify-center bg-[rgba(197,163,85,0.08)] group-hover:bg-[rgba(197,163,85,0.15)] transition-all">
+            <span class="text-[var(--color-dragon-gold)] text-lg font-bold">☢</span>
+          </div>
+          <div class="hidden sm:block">
+            <div class="text-[var(--color-ivory)] text-sm font-semibold tracking-wider uppercase">CCRA</div>
+            <div class="text-[var(--color-ash)] text-[0.55rem] tracking-[3px] uppercase">Chemical Corps</div>
+          </div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden lg:flex items-center gap-8">
+          <a href="/" class={`nav-link ${currentPath === '/' ? 'active' : ''}`}>Home</a>
+          <a href="/about" class={`nav-link ${currentPath === '/about/' || currentPath === '/about' ? 'active' : ''}`}>About</a>
+          <a href="/history" class={`nav-link ${currentPath === '/history/' || currentPath === '/history' ? 'active' : ''}`}>History</a>
+          <a href="/membership" class={`nav-link ${currentPath === '/membership/' || currentPath === '/membership' ? 'active' : ''}`}>Membership</a>
+          <a href="/programs" class={`nav-link ${currentPath === '/programs/' || currentPath === '/programs' ? 'active' : ''}`}>Programs</a>
+          <a href="/news" class={`nav-link ${currentPath === '/news/' || currentPath === '/news' ? 'active' : ''}`}>News</a>
+          <a href="/contact" class={`nav-link ${currentPath === '/contact/' || currentPath === '/contact' ? 'active' : ''}`}>Contact</a>
+          <a href="/membership" class="btn-ghost text-[0.65rem] !py-2.5 !px-5">Join Now</a>
+        </div>
+
+        <!-- Mobile toggle -->
+        <button id="mobile-toggle" class="lg:hidden text-[var(--color-bone)] p-2" aria-label="Menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="lg:hidden hidden bg-[var(--color-void)] border-t border-[var(--color-steel)]">
+      <div class="px-6 py-6 flex flex-col gap-4">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/about" class="nav-link">About</a>
+        <a href="/history" class="nav-link">History</a>
+        <a href="/membership" class="nav-link">Membership</a>
+        <a href="/programs" class="nav-link">Programs</a>
+        <a href="/news" class="nav-link">News</a>
+        <a href="/contact" class="nav-link">Contact</a>
+        <a href="/membership" class="btn-solid text-center mt-2">Join Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <slot />
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="bg-[var(--color-void)] border-t border-[var(--color-steel)]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+
+        <!-- Brand -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full border border-[var(--color-dragon-gold)] flex items-center justify-center bg-[rgba(197,163,85,0.08)]">
+              <span class="text-[var(--color-dragon-gold)] text-lg font-bold">☢</span>
+            </div>
+            <div>
+              <div class="text-[var(--color-ivory)] text-sm font-semibold tracking-wider uppercase">CCRA</div>
+            </div>
+          </div>
+          <p class="text-[var(--color-ash)] text-sm leading-relaxed">
+            Promoting the heritage, history, esprit and professionalism of the United States Army Chemical Corps since 1986.
+          </p>
+          <p class="text-[var(--color-ash)] text-xs mt-4">
+            501(c)(3) Nonprofit Corporation<br/>
+            Donations are tax deductible
+          </p>
+        </div>
+
+        <!-- Navigation -->
+        <div>
+          <h4 class="section-label mb-6">Navigate</h4>
+          <div class="flex flex-col gap-3">
+            <a href="/about" class="text-[var(--color-ash)] text-sm hover:text-[var(--color-dragon-gold)] transition-colors">About the CCRA</a>
+            <a href="/history" class="text-[var(--color-ash)] text-sm hover:text-[var(--color-dragon-gold)] transition-colors">Corps History</a>
+            <a href="/membership" class="text-[var(--color-ash)] text-sm hover:text-[var(--color-dragon-gold)] transition-colors">Membership</a>
+            <a href="/programs" class="text-[var(--color-ash)] text-sm hover:text-[var(--color-dragon-gold)] transition-colors">Programs & Scholarships</a>
+            <a href="/news" class="text-[var(--color-ash)] text-sm hover:text-[var(--color-dragon-gold)] transition-colors">News & Events</a>
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4 class="section-label mb-6">Contact</h4>
+          <div class="flex flex-col gap-3 text-sm text-[var(--color-ash)]">
+            <div>
+              <div class="text-[var(--color-bone)] font-medium">Headquarters</div>
+              <div>495 S. Dakota Avenue, Bldg 1607</div>
+              <div>Fort Leonard Wood, MO 65473</div>
+            </div>
+            <div>
+              <div class="text-[var(--color-bone)] font-medium">Phone</div>
+              <a href="tel:5733290600" class="hover:text-[var(--color-dragon-gold)] transition-colors">573.329.0600</a>
+            </div>
+            <div>
+              <div class="text-[var(--color-bone)] font-medium">Email</div>
+              <a href="mailto:ccramanager@embarqmail.com" class="hover:text-[var(--color-dragon-gold)] transition-colors">ccramanager@embarqmail.com</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div>
+          <h4 class="section-label mb-6">Support the Corps</h4>
+          <p class="text-[var(--color-ash)] text-sm mb-6">
+            Your contributions support programs, scholarships, and the legacy of Dragon Soldiers and their families.
+          </p>
+          <a href="/membership" class="btn-solid text-center w-full block">Become a Member</a>
+        </div>
+      </div>
+
+      <div class="gold-line mt-12 mb-8"></div>
+
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[var(--color-ash)]">
+        <div>© {new Date().getFullYear()} Chemical Corps Regimental Association. All rights reserved.</div>
+        <div class="flex items-center gap-2">
+          <span>Heritage</span>
+          <span class="text-[var(--color-dragon-gold)]">·</span>
+          <span>Esprit de Corps</span>
+          <span class="text-[var(--color-dragon-gold)]">·</span>
+          <span>Image</span>
+          <span class="text-[var(--color-dragon-gold)]">·</span>
+          <span>Professionalism</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll effect
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) {
+        nav?.classList.add('bg-[var(--color-void)]/95', 'backdrop-blur-xl', 'border-b', 'border-[var(--color-steel)]');
+      } else {
+        nav?.classList.remove('bg-[var(--color-void)]/95', 'backdrop-blur-xl', 'border-b', 'border-[var(--color-steel)]');
+      }
+    });
+
+    // Mobile menu
+    const toggle = document.getElementById('mobile-toggle');
+    const menu = document.getElementById('mobile-menu');
+    toggle?.addEventListener('click', () => {
+      menu?.classList.toggle('hidden');
+    });
+
+    // Fade-in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Tab system
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const group = btn.closest('[data-tabs]');
+        if (!group) return;
+        group.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        group.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        const panel = group.querySelector(`#${btn.dataset.tab}`);
+        panel?.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,311 @@
+@import "tailwindcss";
+
+/* ══════════════════════════════════════════════
+   CCRA — Chemical Corps Regimental Association
+   $100K Cinematic Military Redesign
+   ══════════════════════════════════════════════ */
+
+@theme {
+  /* Core palette */
+  --color-void: #0a0a0a;
+  --color-command: #111111;
+  --color-bunker: #1a1a1a;
+  --color-steel: #2a2a2a;
+  --color-gunmetal: #3a3a3a;
+  --color-ash: #8a8a8a;
+  --color-smoke: #b0b0b0;
+  --color-bone: #e8e4de;
+  --color-ivory: #f5f3ef;
+
+  /* Military accent palette */
+  --color-dragon-gold: #c5a355;
+  --color-dragon-gold-bright: #d4b56a;
+  --color-olive: #4a5a2b;
+  --color-olive-light: #6b7d3a;
+  --color-chem-green: #3d6b4f;
+  --color-alert-red: #8b2020;
+
+  /* Typography */
+  --font-display: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+/* Base reset & defaults */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-void);
+  color: var(--color-bone);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Selection */
+::selection {
+  background: var(--color-dragon-gold);
+  color: var(--color-void);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-void); }
+::-webkit-scrollbar-thumb { background: var(--color-steel); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-dragon-gold); }
+
+/* ── Animated counter ── */
+@property --num {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+.counter-animate {
+  animation: count-up 2.5s ease-out forwards;
+  counter-reset: num var(--num);
+}
+.counter-animate::after {
+  content: counter(num);
+}
+
+@keyframes count-up {
+  from { --num: 0; }
+}
+
+/* ── Hero cinematic overlay ── */
+.hero-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 10, 0.3) 0%,
+    rgba(10, 10, 10, 0.1) 40%,
+    rgba(10, 10, 10, 0.6) 80%,
+    rgba(10, 10, 10, 0.95) 100%
+  );
+}
+
+/* ── Section divider line ── */
+.gold-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-dragon-gold), transparent);
+}
+
+/* ── Ghost button ── */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 14px 32px;
+  border: 1px solid rgba(197, 163, 85, 0.4);
+  border-radius: 2px;
+  background: rgba(197, 163, 85, 0.08);
+  color: var(--color-dragon-gold);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.btn-ghost:hover {
+  background: rgba(197, 163, 85, 0.18);
+  border-color: var(--color-dragon-gold);
+  box-shadow: 0 0 20px rgba(197, 163, 85, 0.15);
+}
+
+/* ── Solid CTA button ── */
+.btn-solid {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 14px 36px;
+  background: var(--color-dragon-gold);
+  color: var(--color-void);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.btn-solid:hover {
+  background: var(--color-dragon-gold-bright);
+  box-shadow: 0 0 30px rgba(197, 163, 85, 0.3);
+}
+
+/* ── Card surfaces ── */
+.card-dark {
+  background: var(--color-command);
+  border: 1px solid var(--color-steel);
+  transition: all 0.4s ease;
+}
+.card-dark:hover {
+  border-color: var(--color-dragon-gold);
+  box-shadow: 0 0 40px rgba(197, 163, 85, 0.08);
+}
+
+/* ── Section heading styling ── */
+.section-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--color-dragon-gold);
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--color-ivory);
+  letter-spacing: -0.02em;
+}
+
+/* ── Fade-in on scroll ── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Nav ── */
+.nav-link {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-smoke);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  padding: 0.5rem 0;
+  position: relative;
+}
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-dragon-gold);
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-dragon-gold);
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* ── Timeline ── */
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, var(--color-dragon-gold), transparent);
+}
+
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-dragon-gold);
+  border: 2px solid var(--color-void);
+  box-shadow: 0 0 15px rgba(197, 163, 85, 0.4);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
+  .timeline-line {
+    left: 20px;
+  }
+}
+
+/* ── Sponsor logo treatment ── */
+.sponsor-logo {
+  filter: grayscale(100%) brightness(0.7);
+  opacity: 0.6;
+  transition: all 0.4s ease;
+}
+.sponsor-logo:hover {
+  filter: grayscale(0%) brightness(1);
+  opacity: 1;
+}
+
+/* ── Table styling ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th {
+  text-align: left;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-dragon-gold);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-steel);
+}
+td {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(42, 42, 42, 0.5);
+  font-size: 0.9rem;
+  color: var(--color-bone);
+}
+tr:hover td {
+  background: rgba(197, 163, 85, 0.04);
+}
+
+/* ── Tab system ── */
+.tab-btn {
+  padding: 12px 24px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-ash);
+  background: transparent;
+  border: 1px solid transparent;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.tab-btn:hover {
+  color: var(--color-bone);
+}
+.tab-btn.active {
+  color: var(--color-dragon-gold);
+  border-bottom-color: var(--color-dragon-gold);
+}
+.tab-panel {
+  display: none;
+}
+.tab-panel.active {
+  display: block;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

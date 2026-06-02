@@ -1,0 +1,290 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="CCRA — Dragon Soldiers | Chemical Corps Regimental Association">
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       HERO — 100vh cinematic entrance
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden" style="background: linear-gradient(165deg, #0a0c06 0%, #1a1f0e 25%, #0d1208 50%, #151a0c 75%, #000000 100%);">
+    <div class="hero-overlay"></div>
+
+    <div class="relative z-10 text-center max-w-5xl mx-auto px-6 lg:px-12">
+      <div class="gold-line mx-auto mb-8" style="width: 80px;"></div>
+      <h1 class="text-6xl md:text-8xl lg:text-9xl font-black tracking-widest uppercase mb-4" style="color: var(--color-dragon-gold); text-shadow: 0 0 60px rgba(191,163,80,0.3);">
+        DRAGON SOLDIERS
+      </h1>
+      <p class="text-xl md:text-2xl tracking-[0.25em] uppercase mb-4" style="color: var(--color-bone);">
+        Chemical Corps Regimental Association
+      </p>
+      <p class="text-sm md:text-base tracking-[0.3em] uppercase mb-12" style="color: var(--color-steel);">
+        Heritage · Esprit de Corps · Image · Professionalism
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
+        <a href="/membership" class="btn-solid">Become a Member</a>
+        <a href="/history" class="btn-ghost">Our History</a>
+      </div>
+    </div>
+
+    <!-- Stat counters -->
+    <div class="relative z-10 w-full border-t" style="border-color: rgba(191,163,80,0.15);">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12 py-8 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div class="hero-stat" data-target="6915">
+          <span class="stat-number text-4xl md:text-5xl font-black" style="color: var(--color-dragon-gold);">6,915</span>
+          <span class="block text-xs tracking-[0.3em] uppercase mt-2" style="color: var(--color-steel);">Lifetime Members</span>
+        </div>
+        <div class="hero-stat" data-target="16">
+          <span class="stat-number text-4xl md:text-5xl font-black" style="color: var(--color-dragon-gold);">16</span>
+          <span class="block text-xs tracking-[0.3em] uppercase mt-2" style="color: var(--color-steel);">Chapters</span>
+        </div>
+        <div class="hero-stat" data-target="31000">
+          <span class="stat-number text-4xl md:text-5xl font-black" style="color: var(--color-dragon-gold);">$31,000+</span>
+          <span class="block text-xs tracking-[0.3em] uppercase mt-2" style="color: var(--color-steel);">in 2025 Scholarships</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       PURPOSE
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section class="py-24 lg:py-32" style="background-color: var(--color-void);">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 fade-up">
+      <div class="text-center max-w-4xl mx-auto">
+        <span class="section-label">Who We Are</span>
+        <h2 class="section-title">Our Purpose</h2>
+        <div class="gold-line mx-auto mb-8"></div>
+        <p class="text-lg md:text-xl leading-relaxed" style="color: var(--color-smoke);">
+          The purpose of the Association is to promote the heritage, history, esprit and professionalism of the United States Army Chemical Corps, and advance scientific, literary, educational, and artistic endeavors of the Chemical Corps.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       PILLARS — 4 cards
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section class="py-24 lg:py-32" style="background-color: var(--color-bunker);">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="text-center mb-16 fade-up">
+        <span class="section-label">What We Do</span>
+        <h2 class="section-title">Our Pillars</h2>
+        <div class="gold-line mx-auto"></div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 fade-up">
+        <!-- Programs -->
+        <div class="card-dark text-center">
+          <div class="text-5xl mb-6">☢</div>
+          <h3 class="text-xl font-bold uppercase tracking-wider mb-3" style="color: var(--color-dragon-gold);">Programs</h3>
+          <p class="text-sm leading-relaxed mb-6" style="color: var(--color-ash);">Scholarships, awards, and initiatives that strengthen the Chemical Corps community and support our Dragon Soldiers.</p>
+          <a href="/programs" class="btn-ghost text-sm">Explore Programs</a>
+        </div>
+
+        <!-- Membership -->
+        <div class="card-dark text-center">
+          <div class="text-5xl mb-6">⚔</div>
+          <h3 class="text-xl font-bold uppercase tracking-wider mb-3" style="color: var(--color-dragon-gold);">Membership</h3>
+          <p class="text-sm leading-relaxed mb-6" style="color: var(--color-ash);">Join thousands of active duty, reserve, retired, and veteran Chemical Corps professionals united in service.</p>
+          <a href="/membership" class="btn-ghost text-sm">Join Now</a>
+        </div>
+
+        <!-- History -->
+        <div class="card-dark text-center">
+          <div class="text-5xl mb-6">📜</div>
+          <h3 class="text-xl font-bold uppercase tracking-wider mb-3" style="color: var(--color-dragon-gold);">History</h3>
+          <p class="text-sm leading-relaxed mb-6" style="color: var(--color-ash);">Over a century of service — from World War I to modern CBRN defense. Explore the legacy of the Chemical Corps.</p>
+          <a href="/history" class="btn-ghost text-sm">Our Heritage</a>
+        </div>
+
+        <!-- News -->
+        <div class="card-dark text-center">
+          <div class="text-5xl mb-6">📰</div>
+          <h3 class="text-xl font-bold uppercase tracking-wider mb-3" style="color: var(--color-dragon-gold);">News</h3>
+          <p class="text-sm leading-relaxed mb-6" style="color: var(--color-ash);">Stay current with the latest CCRA news, Dragon Fire newsletter, event recaps, and Corps updates.</p>
+          <a href="/news" class="btn-ghost text-sm">Latest News</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       EVENTS — 2026 Regimental Week
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section class="py-24 lg:py-32" style="background-color: var(--color-void);">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="text-center mb-16 fade-up">
+        <span class="section-label">Mark Your Calendar</span>
+        <h2 class="section-title">2026 Regimental Week</h2>
+        <div class="gold-line mx-auto"></div>
+      </div>
+
+      <div class="max-w-3xl mx-auto space-y-4 fade-up">
+        <!-- Event 1 -->
+        <div class="flex items-start gap-6 p-6 rounded-sm border" style="background: rgba(191,163,80,0.03); border-color: rgba(191,163,80,0.1);">
+          <div class="shrink-0 text-center" style="min-width: 60px;">
+            <span class="block text-xs uppercase tracking-widest" style="color: var(--color-steel);">Jun</span>
+            <span class="block text-3xl font-black" style="color: var(--color-dragon-gold);">2</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-base mb-1" style="color: var(--color-bone);">CBRN 2026 Regimental Week Golf Tournament</h4>
+            <span class="text-sm" style="color: var(--color-steel);">12:30 – 5:00 pm</span>
+          </div>
+        </div>
+
+        <!-- Event 2 -->
+        <div class="flex items-start gap-6 p-6 rounded-sm border" style="background: rgba(191,163,80,0.03); border-color: rgba(191,163,80,0.1);">
+          <div class="shrink-0 text-center" style="min-width: 60px;">
+            <span class="block text-xs uppercase tracking-widest" style="color: var(--color-steel);">Jun</span>
+            <span class="block text-3xl font-black" style="color: var(--color-dragon-gold);">2</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-base mb-1" style="color: var(--color-bone);">2026 Commandant's Regimental Week Social</h4>
+            <span class="text-sm" style="color: var(--color-steel);">5:00 – 7:00 pm</span>
+          </div>
+        </div>
+
+        <!-- Event 3 -->
+        <div class="flex items-start gap-6 p-6 rounded-sm border" style="background: rgba(191,163,80,0.03); border-color: rgba(191,163,80,0.1);">
+          <div class="shrink-0 text-center" style="min-width: 60px;">
+            <span class="block text-xs uppercase tracking-widest" style="color: var(--color-steel);">Jun</span>
+            <span class="block text-3xl font-black" style="color: var(--color-dragon-gold);">3</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-base mb-1" style="color: var(--color-bone);">US Army Chemical Corps 2026 Regimental Run</h4>
+            <span class="text-sm" style="color: var(--color-steel);">6:00 – 7:30 am</span>
+          </div>
+        </div>
+
+        <!-- Event 4 -->
+        <div class="flex items-start gap-6 p-6 rounded-sm border" style="background: rgba(191,163,80,0.03); border-color: rgba(191,163,80,0.1);">
+          <div class="shrink-0 text-center" style="min-width: 60px;">
+            <span class="block text-xs uppercase tracking-widest" style="color: var(--color-steel);">Jun</span>
+            <span class="block text-3xl font-black" style="color: var(--color-dragon-gold);">3</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-base mb-1" style="color: var(--color-bone);">Regimental Week Annual Social Meeting</h4>
+            <span class="text-sm" style="color: var(--color-steel);">5:00 – 7:00 pm</span>
+          </div>
+        </div>
+
+        <!-- Event 5 -->
+        <div class="flex items-start gap-6 p-6 rounded-sm border" style="background: rgba(191,163,80,0.03); border-color: rgba(191,163,80,0.1);">
+          <div class="shrink-0 text-center" style="min-width: 60px;">
+            <span class="block text-xs uppercase tracking-widest" style="color: var(--color-steel);">Jun</span>
+            <span class="block text-3xl font-black" style="color: var(--color-dragon-gold);">3</span>
+          </div>
+          <div>
+            <h4 class="font-bold text-base mb-1" style="color: var(--color-bone);">2026 Regimental Week Regimental CSM's Social</h4>
+            <span class="text-sm" style="color: var(--color-steel);">6:00 – 8:00 pm</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       CORPORATE MEMBERS
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section class="py-24 lg:py-32" style="background-color: var(--color-bunker);">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="text-center mb-16 fade-up">
+        <span class="section-label">Our Partners</span>
+        <h2 class="section-title">Thank You to Our Corporate Members</h2>
+        <div class="gold-line mx-auto"></div>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 fade-up">
+        {[
+          'Battelle', 'Booz Allen', 'Boston Dynamics', 'Noble', 'ASRC Federal', '908 Devices',
+          'JRAD', 'Alakai', 'PBA', 'CTG', 'AI/ANSER', 'Dawson',
+          'Teledyne FLIR', 'Rigaku', 'Domenix', 'Kalman', 'BT', 'Tetramer',
+          'Columb South', 'Precision Proposals', 'Reckard Consulting', 'Amekek', 'AR Services'
+        ].map((company) => (
+          <div class="flex items-center justify-center p-4 rounded-sm border text-center min-h-[80px]" style="background: rgba(191,163,80,0.03); border-color: rgba(191,163,80,0.08);">
+            <span class="text-xs font-semibold uppercase tracking-wider" style="color: var(--color-smoke);">{company}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
+       FINAL CTA
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section class="py-24 lg:py-32 text-center" style="background: linear-gradient(180deg, var(--color-void) 0%, #0a0c06 50%, var(--color-void) 100%);">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 fade-up">
+      <div class="gold-line mx-auto mb-8"></div>
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-wider mb-6" style="color: var(--color-dragon-gold); text-shadow: 0 0 40px rgba(191,163,80,0.2);">
+        Join the Dragon Soldiers
+      </h2>
+      <p class="text-lg mb-10 max-w-2xl mx-auto" style="color: var(--color-steel);">
+        Stand with thousands of Chemical Corps professionals past, present, and future.
+      </p>
+      <a href="/membership" class="btn-solid text-lg px-10 py-4">Become a Member</a>
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  // Intersection Observer for fade-up animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+
+  // Stat counter animation
+  function animateCounters() {
+    const stats = document.querySelectorAll('.hero-stat');
+    stats.forEach((stat) => {
+      const numberEl = stat.querySelector('.stat-number');
+      if (!numberEl) return;
+      const text = numberEl.textContent || '';
+      const target = parseInt(stat.getAttribute('data-target') || '0', 10);
+      if (target === 0) return;
+
+      const prefix = text.startsWith('$') ? '$' : '';
+      const suffix = text.includes('+') ? '+' : '';
+      const duration = 2000;
+      const start = performance.now();
+
+      function update(now: number) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = Math.floor(eased * target);
+        if (numberEl) {
+          numberEl.textContent = prefix + current.toLocaleString() + suffix;
+        }
+        if (progress < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+    });
+  }
+
+  // Trigger counters when hero stats are visible
+  const heroObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        animateCounters();
+        heroObserver.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const statsRow = document.querySelector('.hero-stat');
+  if (statsRow) heroObserver.observe(statsRow);
+</script>

@@ -1,0 +1,114 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="News & Events">
+
+  <!-- HERO -->
+  <section class="relative min-h-[50vh] flex items-center justify-center"
+    style="background: linear-gradient(135deg, var(--color-void) 0%, #0d1a0d 50%, var(--color-void) 100%);">
+    <div class="hero-overlay absolute inset-0"></div>
+    <div class="relative z-10 text-center max-w-4xl mx-auto px-6 pt-24">
+      <div class="section-label mb-6">Stay Informed</div>
+      <h1 class="section-title mb-6">News & Events</h1>
+      <p class="text-[var(--color-ash)] text-lg max-w-2xl mx-auto">
+        Stay up-to-date with the US Army Chemical Corps and the Chemical Corps Regimental Association.
+      </p>
+    </div>
+  </section>
+
+  <div class="gold-line"></div>
+
+  <!-- UPCOMING EVENTS -->
+  <section class="py-24 bg-[var(--color-void)]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="fade-up mb-16">
+        <div class="section-label mb-4">Mark Your Calendar</div>
+        <h2 class="section-title">2026 Regimental Week</h2>
+        <p class="text-[var(--color-ash)] mt-4 max-w-2xl">
+          Information on the 2026 Chemical Corps Regimental Week and other events.
+        </p>
+      </div>
+
+      <div class="grid gap-4 fade-up">
+        {[
+          { date: 'JUN 2', time: '12:30 – 5:00 PM', title: 'CBRN 2026 Regimental Week Golf Tournament' },
+          { date: 'JUN 2', time: '5:00 – 7:00 PM', title: "2026 Commandant's Regimental Week Social" },
+          { date: 'JUN 3', time: '6:00 – 7:30 AM', title: 'US Army Chemical Corps 2026 Regimental Run' },
+          { date: 'JUN 3', time: '5:00 – 7:00 PM', title: 'Regimental Week Annual Social Meeting' },
+          { date: 'JUN 3', time: '6:00 – 8:00 PM', title: "2026 Regimental Week Regimental CSM's Social" },
+        ].map((event) => (
+          <div class="card-dark p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div class="flex-shrink-0 w-20 h-20 flex flex-col items-center justify-center border border-[var(--color-dragon-gold)] bg-[rgba(197,163,85,0.06)]">
+              <span class="text-[var(--color-dragon-gold)] text-xs font-bold tracking-widest uppercase">{event.date.split(' ')[0]}</span>
+              <span class="text-[var(--color-ivory)] text-2xl font-bold">{event.date.split(' ')[1]}</span>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-[var(--color-ivory)] font-semibold text-lg">{event.title}</h3>
+              <p class="text-[var(--color-ash)] text-sm mt-1">{event.time}</p>
+            </div>
+            <div class="hidden sm:block text-[var(--color-dragon-gold)] text-xs tracking-widest uppercase font-semibold">
+              Upcoming
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- BEST CBRN WARRIOR -->
+  <section class="py-24 bg-[var(--color-command)]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="fade-up text-center mb-16">
+        <div class="section-label mb-4">Competition</div>
+        <h2 class="section-title">2026 Best CBRN Warrior Competition</h2>
+        <p class="text-[var(--color-ash)] mt-4 max-w-3xl mx-auto">
+          A special thanks to the supporters of The 2026 Best CBRN Warrior Competition.
+          These organizations make it possible to recognize the finest Dragon Soldiers.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 fade-up">
+        {['Dawson', 'Teledyne FLIR', 'Precision Proposals', 'Rigaku'].map((name) => (
+          <div class="card-dark p-6 flex items-center justify-center min-h-[100px]">
+            <span class="text-[var(--color-smoke)] text-sm font-semibold tracking-wider uppercase text-center">{name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="py-24 bg-[var(--color-void)]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="fade-up text-center">
+        <div class="section-label mb-4">Newsletter</div>
+        <h2 class="section-title mb-6">Dragon Fire Newsletter</h2>
+        <p class="text-[var(--color-ash)] max-w-2xl mx-auto mb-8">
+          Stay connected with the CCRA community. Our newsletter covers Corps history, member spotlights, 
+          upcoming events, scholarship announcements, and more.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a href="/membership" class="btn-solid">Subscribe as a Member</a>
+          <a href="/contact" class="btn-ghost">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="gold-line"></div>
+
+  <!-- CTA -->
+  <section class="py-24 bg-[var(--color-void)]">
+    <div class="max-w-4xl mx-auto px-6 lg:px-12 text-center fade-up">
+      <div class="section-label mb-4">Get Involved</div>
+      <h2 class="section-title mb-6">Have News to Share?</h2>
+      <p class="text-[var(--color-ash)] mb-10 max-w-xl mx-auto">
+        If you have news, event information, or historical articles to contribute, 
+        we'd love to hear from you.
+      </p>
+      <a href="/contact" class="btn-solid">Submit a Story</a>
+    </div>
+  </section>
+
+</Layout>

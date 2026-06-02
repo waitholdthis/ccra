@@ -1,0 +1,142 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact Us | CCRA">
+
+  <!-- HERO -->
+  <section style="background: var(--color-void); padding: 6rem 1.5rem 4rem; text-align: center;">
+    <div style="max-width: 800px; margin: 0 auto;" class="fade-up">
+      <p class="section-label" style="color: var(--color-dragon-gold); text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.875rem; margin-bottom: 0.75rem;">Get in Touch</p>
+      <h1 class="section-title" style="color: var(--color-ivory); font-size: 3rem; font-weight: 700; margin-bottom: 1rem;">Contact Us</h1>
+      <div class="gold-line" style="width: 80px; height: 3px; background: var(--color-dragon-gold); margin: 0 auto 1.5rem;"></div>
+      <p style="color: var(--color-ash); font-size: 1.125rem; line-height: 1.7; max-width: 640px; margin: 0 auto;">
+        Have questions about membership, programs, or the Chemical Corps? We'd love to hear from you.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT INFO + FORM -->
+  <section style="background: var(--color-bunker); padding: 5rem 1.5rem;">
+    <div style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;" class="fade-up">
+
+      <!-- CONTACT INFO -->
+      <div>
+        <h2 style="color: var(--color-ivory); font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">Reach Out</h2>
+        <div class="gold-line" style="width: 50px; height: 3px; background: var(--color-dragon-gold); margin-bottom: 2rem;"></div>
+
+        <div style="margin-bottom: 2rem;">
+          <p style="color: var(--color-dragon-gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Address</p>
+          <p style="color: var(--color-bone); line-height: 1.7;">
+            Chemical Corps Regimental Association<br>
+            Fort Leonard Wood, MO 65473
+          </p>
+        </div>
+
+        <div style="margin-bottom: 2rem;">
+          <p style="color: var(--color-dragon-gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Phone</p>
+          <p style="color: var(--color-bone);">
+            <a href="tel:+15735637339" style="color: var(--color-bone); text-decoration: none;">(573) 563-7339</a>
+          </p>
+        </div>
+
+        <div style="margin-bottom: 2rem;">
+          <p style="color: var(--color-dragon-gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Email</p>
+          <p style="color: var(--color-bone);">
+            <a href="mailto:ccra@ccrassn.org" style="color: var(--color-bone); text-decoration: none;">ccra@ccrassn.org</a>
+          </p>
+        </div>
+
+        <!-- LOCATION -->
+        <div class="card-dark" style="background: var(--color-command); border: 1px solid var(--color-gunmetal); border-radius: 8px; padding: 1.75rem; margin-top: 1rem;">
+          <h3 style="color: var(--color-dragon-gold); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem;">Our Location</h3>
+          <p style="color: var(--color-ash); font-size: 0.95rem; line-height: 1.7;">
+            The CCRA is headquartered at <strong style="color: var(--color-ivory);">Fort Leonard Wood, Missouri</strong> — home of the U.S. Army Chemical, Biological, Radiological, and Nuclear School (USACBRNS). Fort Leonard Wood serves as the Maneuver Support Center of Excellence and is the training hub for CBRN warriors.
+          </p>
+        </div>
+      </div>
+
+      <!-- CONTACT FORM -->
+      <div>
+        <h2 style="color: var(--color-ivory); font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">Send a Message</h2>
+        <div class="gold-line" style="width: 50px; height: 3px; background: var(--color-dragon-gold); margin-bottom: 2rem;"></div>
+
+        <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 1.25rem;">
+          <div>
+            <label for="name" style="display: block; color: var(--color-dragon-gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              style="width: 100%; padding: 0.75rem 1rem; background: var(--color-command); border: 1px solid var(--color-gunmetal); border-radius: 4px; color: var(--color-ivory); font-size: 1rem; outline: none; box-sizing: border-box; transition: border-color 0.2s;"
+              onfocus="this.style.borderColor='var(--color-dragon-gold)'"
+              onblur="this.style.borderColor='var(--color-gunmetal)'"
+            />
+          </div>
+
+          <div>
+            <label for="email" style="display: block; color: var(--color-dragon-gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              style="width: 100%; padding: 0.75rem 1rem; background: var(--color-command); border: 1px solid var(--color-gunmetal); border-radius: 4px; color: var(--color-ivory); font-size: 1rem; outline: none; box-sizing: border-box; transition: border-color 0.2s;"
+              onfocus="this.style.borderColor='var(--color-dragon-gold)'"
+              onblur="this.style.borderColor='var(--color-gunmetal)'"
+            />
+          </div>
+
+          <div>
+            <label for="subject" style="display: block; color: var(--color-dragon-gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Subject</label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              required
+              style="width: 100%; padding: 0.75rem 1rem; background: var(--color-command); border: 1px solid var(--color-gunmetal); border-radius: 4px; color: var(--color-ivory); font-size: 1rem; outline: none; box-sizing: border-box; transition: border-color 0.2s;"
+              onfocus="this.style.borderColor='var(--color-dragon-gold)'"
+              onblur="this.style.borderColor='var(--color-gunmetal)'"
+            />
+          </div>
+
+          <div>
+            <label for="message" style="display: block; color: var(--color-dragon-gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="6"
+              required
+              style="width: 100%; padding: 0.75rem 1rem; background: var(--color-command); border: 1px solid var(--color-gunmetal); border-radius: 4px; color: var(--color-ivory); font-size: 1rem; outline: none; box-sizing: border-box; resize: vertical; font-family: inherit; transition: border-color 0.2s;"
+              onfocus="this.style.borderColor='var(--color-dragon-gold)'"
+              onblur="this.style.borderColor='var(--color-gunmetal)'"
+            ></textarea>
+          </div>
+
+          <div>
+            <button
+              type="submit"
+              class="btn-solid"
+              style="background: var(--color-dragon-gold); color: var(--color-void); padding: 0.875rem 2.5rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; border: none; border-radius: 4px; font-size: 0.95rem; cursor: pointer; transition: opacity 0.2s;"
+              onmouseover="this.style.opacity='0.9'"
+              onmouseout="this.style.opacity='1'"
+            >
+              Send Message
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  @media (max-width: 768px) {
+    section > div[style*="grid-template-columns"] {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>
