@@ -1,0 +1,137 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const categories = [
+  { name: "Sale", count: 10, url: "https://www.ccrassn.org/product-category/sale/", icon: "🏷️", desc: "Discounted items & special deals" },
+  { name: "Coins", count: 8, url: "https://www.ccrassn.org/product-category/coins/", icon: "🪙", desc: "Challenge coins & commemorative medallions" },
+  { name: "Hats, Patches, Pins", count: 18, url: "https://www.ccrassn.org/product-category/hats/", icon: "🧢", desc: "Headwear, unit patches & lapel pins" },
+  { name: "Shirts", count: 9, url: "https://www.ccrassn.org/product-category/shirt/", icon: "👕", desc: "T-shirts, polos & apparel" },
+  { name: "Magnets & Stickers", count: 19, url: "https://www.ccrassn.org/product-category/magnets-stickers-patches/", icon: "🧲", desc: "Vehicle magnets, decals & stickers" },
+  { name: "Kids & Toys", count: 10, url: "https://www.ccrassn.org/product-category/kids-toys/", icon: "🧸", desc: "Items for young Dragon Soldiers" },
+  { name: "Accessories", count: 7, url: "https://www.ccrassn.org/product-category/accessories/", icon: "⌚", desc: "Keychains, lanyards & more" },
+  { name: "Collectibles", count: 6, url: "https://www.ccrassn.org/product-category/collectibles/", icon: "🏆", desc: "Limited edition & collectible items" },
+  { name: "Golf", count: 6, url: "https://www.ccrassn.org/product-category/golf/", icon: "⛳", desc: "Golf balls, tees & accessories" },
+  { name: "Accouterments", count: 6, url: "https://www.ccrassn.org/product-category/accouterments/", icon: "🎖️", desc: "Military dress accessories" },
+  { name: "Drinkware", count: 4, url: "https://www.ccrassn.org/product-category/drinkware/", icon: "☕", desc: "Mugs, tumblers & glassware" },
+  { name: "Flags & Blankets", count: 4, url: "https://www.ccrassn.org/product-category/flags-blankets/", icon: "🚩", desc: "Flags, blankets & throws" },
+  { name: "Office", count: 4, url: "https://www.ccrassn.org/product-category/office/", icon: "🖊️", desc: "Desk items, pens & office supplies" },
+  { name: "Books", count: 2, url: "https://www.ccrassn.org/product-category/books/", icon: "📖", desc: "Chemical Corps history & reference" },
+  { name: "Jewelry & Pins", count: 2, url: "https://www.ccrassn.org/product-category/jewelry-pins/", icon: "💎", desc: "Rings, bracelets & fine pins" },
+  { name: "Novelty", count: 2, url: "https://www.ccrassn.org/product-category/novelty/", icon: "🎁", desc: "Fun & unique gift items" },
+  { name: "Donations", count: 1, url: "https://www.ccrassn.org/product-category/donations/", icon: "❤️", desc: "Support the CCRA mission directly" },
+];
+---
+
+<Layout title="Cathy Griffin Regimental Gift Shop" description="Shop official Chemical Corps merchandise — coins, apparel, collectibles, and more. All proceeds support CCRA programs and the Dragon Soldier legacy.">
+
+  <!-- HERO -->
+  <section style="background: var(--color-void); padding: 6rem 1.5rem 4rem; text-align: center;">
+    <div style="max-width: 800px; margin: 0 auto;" class="fade-up">
+      <p class="section-label" style="color: var(--color-dragon-gold); text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.875rem; margin-bottom: 0.75rem;">Official Merchandise</p>
+      <h1 class="section-title" style="color: var(--color-ivory); font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">Cathy Griffin Regimental Gift Shop</h1>
+      <div class="gold-line" style="width: 80px; height: 3px; background: var(--color-dragon-gold); margin: 0 auto 1.5rem;"></div>
+      <p style="color: var(--color-ash); font-size: 1.125rem; line-height: 1.7; max-width: 640px; margin: 0 auto 2rem;">
+        Authentic Chemical Corps merchandise — from challenge coins and apparel to collectibles and gifts. All proceeds support CCRA programs, scholarships, and the Dragon Soldier legacy.
+      </p>
+      <a href="https://www.ccrassn.org/giftshop/" target="_blank" rel="noopener" class="btn-solid" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+        Browse the Full Shop
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- CATEGORY GRID -->
+  <section style="background: var(--color-bunker); padding: 5rem 1.5rem;">
+    <div style="max-width: 1100px; margin: 0 auto;">
+      <div class="fade-up" style="text-align: center; margin-bottom: 3rem;">
+        <p class="section-label" style="color: var(--color-dragon-gold); text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.8rem; margin-bottom: 0.5rem;">Browse by Category</p>
+        <h2 style="color: var(--color-ivory); font-size: 1.75rem; font-weight: 700;">Shop Categories</h2>
+      </div>
+
+      <div class="fade-up" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.25rem;">
+        {categories.map(cat => (
+          <a
+            href={cat.url}
+            target="_blank"
+            rel="noopener"
+            class="shop-card"
+            style="display: block; background: var(--color-command); border: 1px solid var(--color-gunmetal); border-radius: 8px; padding: 1.75rem; text-decoration: none; transition: all 0.3s ease;"
+          >
+            <div style="display: flex; align-items: flex-start; gap: 1rem;">
+              <span style="font-size: 1.75rem; line-height: 1; flex-shrink: 0;">{cat.icon}</span>
+              <div>
+                <h3 style="color: var(--color-ivory); font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem; line-height: 1.3;">{cat.name}</h3>
+                <p style="color: var(--color-ash); font-size: 0.8rem; line-height: 1.5; margin-bottom: 0.5rem;">{cat.desc}</p>
+                <span style="color: var(--color-dragon-gold); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500;">{cat.count} {cat.count === 1 ? 'Item' : 'Items'}</span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOP INFO -->
+  <section style="background: var(--color-void); padding: 5rem 1.5rem;">
+    <div style="max-width: 960px; margin: 0 auto;" class="fade-up">
+      <div style="display: grid; grid-template-columns: 1fr; gap: 2rem;" class="md-grid-2">
+        <div class="card-dark" style="background: var(--color-command); border: 1px solid var(--color-gunmetal); border-radius: 8px; padding: 2.5rem;">
+          <h3 style="color: var(--color-dragon-gold); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">About the Gift Shop</h3>
+          <div class="gold-line" style="width: 40px; height: 3px; background: var(--color-dragon-gold); margin-bottom: 1.25rem;"></div>
+          <p style="color: var(--color-bone); line-height: 1.8; margin-bottom: 1rem;">
+            The Cathy Griffin Regimental Gift Shop is the official source for Chemical Corps merchandise. Named in honor of <strong style="color: var(--color-ivory);">Cathy Griffin</strong>, whose dedicated service to the CCRA and the Dragon Soldier community helped build and sustain the association's programs.
+          </p>
+          <p style="color: var(--color-bone); line-height: 1.8;">
+            Every purchase supports the CCRA's mission — funding scholarships, recognition programs, and initiatives that strengthen the Chemical Corps Regiment and its families.
+          </p>
+        </div>
+
+        <div class="card-dark" style="background: var(--color-command); border: 1px solid var(--color-gunmetal); border-radius: 8px; padding: 2.5rem;">
+          <h3 style="color: var(--color-dragon-gold); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">Ordering Information</h3>
+          <div class="gold-line" style="width: 40px; height: 3px; background: var(--color-dragon-gold); margin-bottom: 1.25rem;"></div>
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+              <span style="color: var(--color-dragon-gold); font-size: 1rem; flex-shrink: 0;">📦</span>
+              <p style="color: var(--color-bone); font-size: 0.9rem; line-height: 1.7;">Orders ship from Fort Leonard Wood, MO. Shipping costs are calculated at checkout.</p>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+              <span style="color: var(--color-dragon-gold); font-size: 1rem; flex-shrink: 0;">💳</span>
+              <p style="color: var(--color-bone); font-size: 0.9rem; line-height: 1.7;">Secure online payments accepted. All proceeds go to CCRA programs.</p>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 0.75rem;">
+              <span style="color: var(--color-dragon-gold); font-size: 1rem; flex-shrink: 0;">📞</span>
+              <p style="color: var(--color-bone); font-size: 0.9rem; line-height: 1.7;">Questions? Contact <a href="mailto:ccramanager@embarqmail.com" style="color: var(--color-dragon-gold);">ccramanager@embarqmail.com</a> or call <a href="tel:5733290600" style="color: var(--color-dragon-gold);">573.329.0600</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 3rem;">
+        <a href="https://www.ccrassn.org/giftshop/" target="_blank" rel="noopener" class="btn-solid" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+          Visit the Gift Shop
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .shop-card:hover {
+      border-color: var(--color-dragon-gold) !important;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(197, 163, 85, 0.08);
+    }
+    .shop-card:hover h3 {
+      color: var(--color-dragon-gold) !important;
+    }
+    .md-grid-2 {
+      grid-template-columns: 1fr !important;
+    }
+    @media (min-width: 768px) {
+      .md-grid-2 {
+        grid-template-columns: 1fr 1fr !important;
+      }
+    }
+  </style>
+
+</Layout>
