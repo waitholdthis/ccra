@@ -30,7 +30,7 @@ const currentPath = Astro.url.pathname;
       <div class="flex items-center justify-between h-20">
 
         <!-- Logo -->
-        <a href="/" class="flex items-center gap-3 group">
+        <a href="/ccra/" class="flex items-center gap-3 group">
           <div class="w-10 h-10 rounded-full border border-[var(--color-dragon-gold)] flex items-center justify-center bg-[rgba(197,163,85,0.08)] group-hover:bg-[rgba(197,163,85,0.15)] transition-all">
             <span class="text-[var(--color-dragon-gold)] text-lg font-bold">☢</span>
           </div>
@@ -42,14 +42,14 @@ const currentPath = Astro.url.pathname;
 
         <!-- Desktop Nav -->
         <div class="hidden lg:flex items-center gap-8">
-          <a href="/" class={`nav-link ${currentPath === '/' ? 'active' : ''}`}>Home</a>
-          <a href="/about" class={`nav-link ${currentPath === '/about/' || currentPath === '/about' ? 'active' : ''}`}>About</a>
-          <a href="/history" class={`nav-link ${currentPath === '/history/' || currentPath === '/history' ? 'active' : ''}`}>History</a>
-          <a href="/membership" class={`nav-link ${currentPath === '/membership/' || currentPath === '/membership' ? 'active' : ''}`}>Membership</a>
-          <a href="/programs" class={`nav-link ${currentPath === '/programs/' || currentPath === '/programs' ? 'active' : ''}`}>Programs</a>
-          <a href="/news" class={`nav-link ${currentPath === '/news/' || currentPath === '/news' ? 'active' : ''}`}>News</a>
-          <a href="/contact" class={`nav-link ${currentPath === '/contact/' || currentPath === '/contact' ? 'active' : ''}`}>Contact</a>
-          <a href="/membership" class="btn-ghost text-[0.65rem] !py-2.5 !px-5">Join Now</a>
+          <a href="/ccra/" class={`nav-link ${currentPath === '/ccra/' ? 'active' : ''}`}>Home</a>
+          <a href="/ccra/about" class={`nav-link ${currentPath === '/ccra/about/' || currentPath === '/ccra/about' ? 'active' : ''}`}>About</a>
+          <a href="/ccra/history" class={`nav-link ${currentPath === '/ccra/history/' || currentPath === '/ccra/history' ? 'active' : ''}`}>History</a>
+          <a href="/ccra/membership" class={`nav-link ${currentPath === '/ccra/membership/' || currentPath === '/ccra/membership' ? 'active' : ''}`}>Membership</a>
+          <a href="/ccra/programs" class={`nav-link ${currentPath === '/ccra/programs/' || currentPath === '/ccra/programs' ? 'active' : ''}`}>Programs</a>
+          <a href="/ccra/news" class={`nav-link ${currentPath === '/ccra/news/' || currentPath === '/ccra/news' ? 'active' : ''}`}>News</a>
+          <a href="/ccra/contact" class={`nav-link ${currentPath === '/ccra/contact/' || currentPath === '/ccra/contact' ? 'active' : ''}`}>Contact</a>
+          <a href="/ccra/membership" class="btn-ghost text-[0.65rem] !py-2.5 !px-5">Join Now</a>
         </div>
 
         <!-- Mobile toggle -->
@@ -64,14 +64,14 @@ const currentPath = Astro.url.pathname;
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="lg:hidden hidden bg-[var(--color-void)] border-t border-[var(--color-steel)]">
       <div class="px-6 py-6 flex flex-col gap-4">
-        <a href="/" class="nav-link">Home</a>
-        <a href="/about" class="nav-link">About</a>
-        <a href="/history" class="nav-link">History</a>
-        <a href="/membership" class="nav-link">Membership</a>
-        <a href="/programs" class="nav-link">Programs</a>
-        <a href="/news" class="nav-link">News</a>
-        <a href="/contact" class="nav-link">Contact</a>
-        <a href="/membership" class="btn-solid text-center mt-2">Join Now</a>
+        <a href="/ccra/" class="nav-link">Home</a>
+        <a href="/ccra/about" class="nav-link">About</a>
+        <a href="/ccra/history" class="nav-link">History</a>
+        <a href="/ccra/membership" class="nav-link">Membership</a>
+        <a href="/ccra/programs" class="nav-link">Programs</a>
+        <a href="/ccra/news" class="nav-link">News</a>
+        <a href="/ccra/contact" class="nav-link">Contact</a>
+        <a href="/ccra/membership" class="btn-solid text-center mt-2">Join Now</a>
       </div>
     </div>
   </nav>
@@ -108,11 +108,11 @@ const currentPath = Astro.url.pathname;
         <div>
           <h4 class="section-label mb-6">Navigate</h4>
           <div class="flex flex-col gap-3">
-            <a href="/about" class="text-[var(--color-ash)] text-sm hover:text-[var(--color-dragon-gold)] transition-colors">About the CCRA</a>
-            <a href="/history" class="text-[var(--color-ash)] text-sm hover:text-[var(--color-dragon-gold)] transition-colors">Corps History</a>
-            <a href="/membership" class="text-[var(--color-ash)] text-sm hover:text-[var(--color-dragon-gold)] transition-colors">Membership</a>
-            <a href="/programs" class="text-[var(--color-ash)] text-sm hover:text-[var(--color-dragon-gold)] transition-colors">Programs & Scholarships</a>
-            <a href="/news" class="text-[var(--color-ash)] text-sm hover:text-[var(--color-dragon-gold)] transition-colors">News & Events</a>
+            <a href="/ccra/about" class="text-[var(--color-ash)] text-sm hover:text-[var(--color-dragon-gold)] transition-colors">About the CCRA</a>
+            <a href="/ccra/history" class="text-[var(--color-ash)] text-sm hover:text-[var(--color-dragon-gold)] transition-colors">Corps History</a>
+            <a href="/ccra/membership" class="text-[var(--color-ash)] text-sm hover:text-[var(--color-dragon-gold)] transition-colors">Membership</a>
+            <a href="/ccra/programs" class="text-[var(--color-ash)] text-sm hover:text-[var(--color-dragon-gold)] transition-colors">Programs & Scholarships</a>
+            <a href="/ccra/news" class="text-[var(--color-ash)] text-sm hover:text-[var(--color-dragon-gold)] transition-colors">News & Events</a>
           </div>
         </div>
 
@@ -142,7 +142,7 @@ const currentPath = Astro.url.pathname;
           <p class="text-[var(--color-ash)] text-sm mb-6">
             Your contributions support programs, scholarships, and the legacy of Dragon Soldiers and their families.
           </p>
-          <a href="/membership" class="btn-solid text-center w-full block">Become a Member</a>
+          <a href="/ccra/membership" class="btn-solid text-center w-full block">Become a Member</a>
         </div>
       </div>
 
