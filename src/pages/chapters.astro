@@ -331,7 +331,7 @@ const chapters = [
         description: "Mission is to preserve and promote the history and traditions of the U.S. Army Chemical Corps while supporting the Soldiers and Families by maintaining chapter legacy, enabling mentorship, networking, professional development, and community outreach.",
         board: {"President": "SGM Jeffery D. Howard", "Vice President": "SGM Ricky Sierra", "Secretary": "Mr. Dave Dunlap", "Treasurer": "1SG Jeremy Lindstrom"},
         address: "PO Box 1026, Spring Lake, NC 28390",
-        url: "https://www.ccrassn.org/srsoc/"
+        url: "/ccra/chapters/srsoc"
       },
       {
         id: "centralok", name: "Central Oklahoma Chapter", state: "Oklahoma", city: "Oklahoma City, OK",
@@ -549,12 +549,17 @@ const chapters = [
           html += `<div style="display: flex; flex-wrap: wrap; gap: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--color-gunmetal); margin-top: 1.5rem;">${contactHtml}</div>`;
         }
 
-        // Link to original site
+        // Link to chapter page (internal or external)
         if (ch.url) {
+          const isInternal = ch.url.startsWith('/');
+          const targetAttr = isInternal ? '' : 'target="_blank" rel="noopener"';
+          const icon = isInternal
+            ? `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`
+            : `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
           html += `<div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--color-gunmetal);">
-            <a href="${ch.url}" target="_blank" rel="noopener" style="color: var(--color-dragon-gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
+            <a href="${ch.url}" ${targetAttr} style="color: var(--color-dragon-gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
               Visit Chapter Page
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              ${icon}
             </a>
           </div>`;
         }
