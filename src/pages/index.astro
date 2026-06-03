@@ -11,10 +11,26 @@ const partnerAsset = (src: string) => `${assetBase}${src}`;
   <!-- ═══════════════════════════════════════════════════════════════════
        HERO — 100vh cinematic entrance
        ═══════════════════════════════════════════════════════════════════ -->
-  <section class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden" style="background: linear-gradient(165deg, #0a0c06 0%, #1a1f0e 25%, #0d1208 50%, #151a0c 75%, #000000 100%);">
-    <div class="hero-overlay"></div>
+  <section class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden" style="background: #000;">
 
-    <div class="relative z-10 text-center max-w-5xl mx-auto px-6 lg:px-12">
+    <!-- Fullscreen video background -->
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      class="absolute inset-0 w-full h-full object-cover"
+      style="z-index: 0;"
+    >
+      <source src="/ccra/Dragon_Crest.mp4" type="video/mp4" />
+    </video>
+
+    <!-- Cinematic overlay: dark vignette + subtle gradient to keep text readable -->
+    <div class="absolute inset-0" style="z-index: 1; background: linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 40%, rgba(0,0,0,0.55) 75%, rgba(0,0,0,0.85) 100%);"></div>
+    <!-- Subtle radial vignette for depth -->
+    <div class="absolute inset-0" style="z-index: 2; background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.6) 100%);"></div>
+
+    <div class="relative text-center max-w-5xl mx-auto px-6 lg:px-12" style="z-index: 10;">
       <div class="gold-line mx-auto mb-8" style="width: 80px;"></div>
       <h1 class="text-6xl md:text-8xl lg:text-9xl font-black tracking-widest uppercase mb-4" style="color: var(--color-dragon-gold); text-shadow: 0 0 60px rgba(191,163,80,0.3);">
         DRAGON SOLDIERS
@@ -33,7 +49,7 @@ const partnerAsset = (src: string) => `${assetBase}${src}`;
     </div>
 
     <!-- Stat counters -->
-    <div class="relative z-10 w-full border-t" style="border-color: rgba(191,163,80,0.15);">
+    <div class="relative w-full border-t" style="z-index: 10; border-color: rgba(191,163,80,0.15);">
       <div class="max-w-7xl mx-auto px-6 lg:px-12 py-8 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
         <div class="hero-stat" data-target="6915">
           <span class="stat-number text-4xl md:text-5xl font-black" style="color: var(--color-dragon-gold);">6,915</span>
