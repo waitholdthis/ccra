@@ -1,5 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import partners from '../data/partners.json';
+
+const assetBase = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+const partnerAsset = (src: string) => `${assetBase}${src}`;
 ---
 
 <Layout title="CCRA — Dragon Soldiers | Chemical Corps Regimental Association">
@@ -190,26 +194,52 @@ import Layout from '../layouts/Layout.astro';
 
 
   <!-- ═══════════════════════════════════════════════════════════════════
-       CORPORATE MEMBERS
+       BEST CBRN WARRIOR SUPPORTERS + CORPORATE MEMBERS
        ═══════════════════════════════════════════════════════════════════ -->
   <section class="py-24 lg:py-32" style="background-color: var(--color-bunker);">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
-      <div class="text-center mb-16 fade-up">
+      <div class="text-center mb-14 fade-up">
         <span class="section-label">Our Partners</span>
+        <h2 class="section-title">2026 Best CBRN Warrior Supporters</h2>
+        <p class="mt-6 max-w-3xl mx-auto text-sm md:text-base leading-relaxed" style="color: var(--color-steel);">
+          A very special thanks to the supporters of the 2026 Best CBRN Warrior Competition.
+        </p>
+        <div class="gold-line mx-auto mt-8"></div>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4 mb-24 fade-up">
+        {partners.supporters.map((partner) => (
+          <figure class="partner-card supporter-card" title={partner.name}>
+            <img
+              class="partner-logo"
+              src={partnerAsset(partner.src)}
+              alt={`${partner.name} logo`}
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>{partner.name}</figcaption>
+          </figure>
+        ))}
+      </div>
+
+      <div class="text-center mb-16 fade-up">
+        <span class="section-label">Corporate Members</span>
         <h2 class="section-title">Thank You to Our Corporate Members</h2>
         <div class="gold-line mx-auto"></div>
       </div>
 
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 fade-up">
-        {[
-          'Battelle', 'Booz Allen', 'Boston Dynamics', 'Noble', 'ASRC Federal', '908 Devices',
-          'JRAD', 'Alakai', 'PBA', 'CTG', 'AI/ANSER', 'Dawson',
-          'Teledyne FLIR', 'Rigaku', 'Domenix', 'Kalman', 'BT', 'Tetramer',
-          'Columb South', 'Precision Proposals', 'Reckard Consulting', 'Amekek', 'AR Services'
-        ].map((company) => (
-          <div class="flex items-center justify-center p-4 rounded-sm border text-center min-h-[80px]" style="background: rgba(191,163,80,0.03); border-color: rgba(191,163,80,0.08);">
-            <span class="text-xs font-semibold uppercase tracking-wider" style="color: var(--color-smoke);">{company}</span>
-          </div>
+        {partners.corporate.map((partner) => (
+          <figure class="partner-card corporate-card" title={partner.name}>
+            <img
+              class="partner-logo"
+              src={partnerAsset(partner.src)}
+              alt={`${partner.name} logo`}
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>{partner.name}</figcaption>
+          </figure>
         ))}
       </div>
     </div>

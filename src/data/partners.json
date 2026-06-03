@@ -1,0 +1,192 @@
+{
+  "supporters": [
+    {
+      "name": "Rigaku Analytical Devices",
+      "src": "partners/rigaku-analytical-devices.jpg",
+      "source": "https://www.ccrassn.org/wp-content/uploads/2023/05/Rigaku-Analytical-Devices-Logo.jpg",
+      "bytes": 203651
+    },
+    {
+      "name": "CCRA",
+      "src": "partners/ccra.jpg",
+      "source": "https://www.ccrassn.org/wp-content/uploads/2024/03/ccra-logo-white.jpg",
+      "bytes": 65518
+    },
+    {
+      "name": "Booz Allen Hamilton",
+      "src": "partners/booz-allen-hamilton.jpg",
+      "source": "https://www.ccrassn.org/wp-content/uploads/2026/02/booz_allen_hamilton_logo.jpg",
+      "bytes": 6727
+    },
+    {
+      "name": "Dawson",
+      "src": "partners/dawson.png",
+      "source": "https://www.ccrassn.org/wp-content/uploads/2024/02/DAWSONStacked-1.png",
+      "bytes": 19972
+    },
+    {
+      "name": "Teledyne FLIR",
+      "src": "partners/teledyne-flir.png",
+      "source": "https://www.ccrassn.org/wp-content/uploads/2024/03/Teledyne-Flir3.png",
+      "bytes": 10125
+    },
+    {
+      "name": "L2 Defense",
+      "src": "partners/l2-defense.png",
+      "source": "https://www.ccrassn.org/wp-content/uploads/2026/03/L2-Defense.png",
+      "bytes": 7328
+    },
+    {
+      "name": "Precision Proposals",
+      "src": "partners/precision-proposals.png",
+      "source": "https://www.ccrassn.org/wp-content/uploads/2026/04/Precision-Proposals-2.png",
+      "bytes": 23721
+    }
+  ],
+  "corporate": [
+    {
+      "name": "Domenix",
+      "src": "partners/domenix.png",
+      "source": "https://www.ccrassn.org/wp-content/uploads/2025/06/Domenix-new.png",
+      "bytes": 19871
+    },
+    {
+      "name": "Kalman & Company",
+      "src": "partners/kalman-company.png",
+      "source": "https://www.ccrassn.org/wp-content/uploads/2025/09/Kalman-Logo-2024-vector-RGB-Large-Lines-tight-002-scaled.png",
+      "bytes": 105884
+    },
+    {
+      "name": "BT",
+      "src": "partners/bt.jpg",
+      "source": "https://www.ccrassn.org/wp-content/uploads/2023/06/BT-logo-2017-1.jpg",
+      "bytes": 59762
+    },
+    {
+      "name": "Tetramer",
+      "src": "partners/tetramer.png",
+      "source": "https://www.ccrassn.org/wp-content/uploads/2025/11/Tetramer-Logo.png",
+      "bytes": 9731
+    },
+    {
+      "name": "Columbia Southern University",
+      "src": "partners/columbia-southern-university.png",
+      "source": "https://www.ccrassn.org/wp-content/uploads/2025/12/Columb-South-Logo.png",
+      "bytes": 13369
+    },
+    {
+      "name": "Battelle",
+      "src": "partners/battelle.png",
+      "source": "https://www.ccrassn.org/wp-content/uploads/2020/08/Battelle-Logo-1.png",
+      "bytes": 1234
+    },
+    {
+      "name": "Noble",
+      "src": "partners/noble.png",
+      "source": "https://www.ccrassn.org/wp-content/uploads/2023/04/Noble-logo2.png",
+      "bytes": 6617
+    },
+    {
+      "name": "Rigaku Analytical Devices",
+      "src": "partners/rigaku-analytical-devices-corporate.jpg",
+      "source": "https://www.ccrassn.org/wp-content/uploads/2023/05/Rigaku-Analytical-Devices-Logo.jpg",
+      "bytes": 203651
+    },
+    {
+      "name": "Alakai Defense Systems",
+      "src": "partners/alakai-defense-systems.jpg",
+      "source": "https://www.ccrassn.org/wp-content/uploads/2023/05/Alakai.jpg",
+      "bytes": 5987
+    },
+    {
+      "name": "ASRC Federal",
+      "src": "partners/asrc-federal.png",
+      "source": "https://www.ccrassn.org/wp-content/uploads/2023/09/asrcfederal-logo-full-color-002.png",
+      "bytes": 35017
+    },
+    {
+      "name": "PBA",
+      "src": "partners/pba.png",
+      "source": "https://www.ccrassn.org/wp-content/uploads/2024/04/PBA.Logo2_.png",
+      "bytes": 728306
+    },
+    {
+      "name": "CTG",
+      "src": "partners/ctg.png",
+      "source": "https://www.ccrassn.org/wp-content/uploads/2024/04/CTG-Lockup.png",
+      "bytes": 25898
+    },
+    {
+      "name": "Dawson",
+      "src": "partners/dawson-corporate.png",
+      "source": "https://www.ccrassn.org/wp-content/uploads/2024/02/DAWSONStacked-1.png",
+      "bytes": 19972
+    },
+    {
+      "name": "ANSER",
+      "src": "partners/anser.jpg",
+      "source": "https://www.ccrassn.org/wp-content/uploads/2024/04/AI-ANSER-Logo-432x360-002.jpg",
+      "bytes": 318661
+    },
+    {
+      "name": "JRAD",
+      "src": "partners/jrad.png",
+      "source": "https://www.ccrassn.org/wp-content/uploads/2024/05/jrad-logo-002-scaled.png",
+      "bytes": 113258
+    },
+    {
+      "name": "Precision Proposals",
+      "src": "partners/precision-proposals-corporate.png",
+      "source": "https://www.ccrassn.org/wp-content/uploads/2024/05/Precision-Proposals.png",
+      "bytes": 23721
+    },
+    {
+      "name": "Booz Allen Hamilton",
+      "src": "partners/booz-allen-hamilton-corporate.png",
+      "source": "https://www.ccrassn.org/wp-content/uploads/2024/04/BOOZ-ALLEN-3-scaled.png",
+      "bytes": 95340
+    },
+    {
+      "name": "Reckard Consulting",
+      "src": "partners/reckard-consulting.jpg",
+      "source": "https://www.ccrassn.org/wp-content/uploads/2025/01/Reckard-Consulting.jpg",
+      "bytes": 84011
+    },
+    {
+      "name": "908 Devices",
+      "src": "partners/908-devices.jpg",
+      "source": "https://www.ccrassn.org/wp-content/uploads/2025/01/908Devices_Logo_Primary-002-scaled.jpg",
+      "bytes": 91500
+    },
+    {
+      "name": "Teledyne FLIR",
+      "src": "partners/teledyne-flir-corporate.png",
+      "source": "https://www.ccrassn.org/wp-content/uploads/2024/03/Teledyne-Flir3.png",
+      "bytes": 10125
+    },
+    {
+      "name": "Boston Dynamics",
+      "src": "partners/boston-dynamics.png",
+      "source": "https://www.ccrassn.org/wp-content/uploads/2025/03/Boston-Dynamics-Logo.png",
+      "bytes": 5489
+    },
+    {
+      "name": "Amekek",
+      "src": "partners/amekek.png",
+      "source": "https://www.ccrassn.org/wp-content/uploads/2025/02/Amekek-logo.png",
+      "bytes": 9196
+    },
+    {
+      "name": "L2 Defense",
+      "src": "partners/l2-defense-corporate.png",
+      "source": "https://www.ccrassn.org/wp-content/uploads/2025/03/L2-Logo.png",
+      "bytes": 7450
+    },
+    {
+      "name": "ARServices",
+      "src": "partners/arservices.jpg",
+      "source": "https://www.ccrassn.org/wp-content/uploads/2024/07/ARServices-Logo-Hi-Res-002-scaled.jpg",
+      "bytes": 95013
+    }
+  ]
+}
