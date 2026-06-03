@@ -143,9 +143,42 @@ import Layout from '../layouts/Layout.astro';
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a href="/ccra/membership" class="btn-solid justify-center">Become a Member</a>
+        <!-- TODO: Replace modal behavior with real tour URL when available -->
+        <button id="tour-btn" class="btn-ghost justify-center">
+          <svg style="width:0.9rem;height:0.9rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.723v6.554a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/></svg>
+          Take a Virtual Tour
+        </button>
         <a href="/ccra/contact" class="btn-ghost justify-center">Contact Us</a>
       </div>
     </div>
   </section>
+
+<!-- Virtual Tour Modal -->
+<div id="tour-modal" style="display:none; position:fixed; inset:0; z-index:200; background:rgba(0,0,0,0.85); backdrop-filter:blur(6px); align-items:center; justify-content:center;">
+  <div style="position:relative; max-width:90vw; max-height:90vh;">
+    <button id="tour-close" style="position:absolute; top:-2.5rem; right:0; background:none; border:none; cursor:pointer; color:var(--color-bone); font-size:1.5rem; line-height:1;" aria-label="Close">✕</button>
+    <img src="/ccra/museum/Aldenburg.jpg" alt="Museum Virtual Tour" style="max-width:90vw; max-height:85vh; object-fit:contain; border:1px solid var(--color-gunmetal); box-shadow:0 24px 80px rgba(0,0,0,0.8);" />
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById('tour-modal');
+  const btn = document.getElementById('tour-btn');
+  const close = document.getElementById('tour-close');
+
+  btn?.addEventListener('click', () => {
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  });
+
+  const closeModal = () => {
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  };
+
+  close?.addEventListener('click', closeModal);
+  modal?.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+</script>
 
 </Layout>

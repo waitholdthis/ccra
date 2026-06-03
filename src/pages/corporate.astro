@@ -1,0 +1,405 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const lifetime = [
+  {
+    name: 'Tetramer Technologies',
+    logo: '/ccra/partners/tetramer.png',
+    website: 'https://tetramer.com/',
+    phone: '864-646-6282',
+    facebook: 'https://www.facebook.com/TetramerTechnologies',
+    linkedin: 'https://www.linkedin.com/company/tetramer',
+  },
+  {
+    name: 'Alakai Defense Systems',
+    logo: '/ccra/partners/alakai-defense-systems.jpg',
+    website: 'https://www.alakaidefense.com/',
+    email: 'info@alakaidefense.com',
+    youtube: 'https://www.youtube.com/@alakaidefensemedia8465',
+    linkedin: 'https://www.linkedin.com/company/alakai-defense-systems-inc./',
+  },
+  {
+    name: 'DOMENIX',
+    logo: '/ccra/partners/domenix.png',
+    website: 'http://www.domenix.com/',
+    email: 'contactus@domenix.com',
+    facebook: 'https://www.facebook.com/DomenixCorp/',
+    twitter: 'https://x.com/domenix_corp',
+    instagram: 'https://www.instagram.com/domenixcorp/',
+    linkedin: 'https://www.linkedin.com/company/domenix/',
+  },
+  {
+    name: 'L2 Defense',
+    logo: '/ccra/partners/l2-defense-corporate.png',
+    website: 'https://l2defense.com/',
+    phone: '1.410.946.1249',
+    email: 'info@L2Defense.com',
+    facebook: 'https://www.facebook.com/L2Defense',
+    youtube: 'https://www.youtube.com/channel/UCkSQNUvpn2uZq1S3fL0EZqQ',
+    linkedin: 'https://www.linkedin.com/company/l2-defense-inc-/',
+  },
+  {
+    name: '908 Devices',
+    logo: '/ccra/partners/908-devices.jpg',
+    website: 'https://info.908devices.com/ccra-908-devices',
+    phone: '1.857.254.1500',
+    email: 'marketing@908devices.com',
+    facebook: 'https://info.908devices.com/8-facebook',
+    youtube: 'https://info.908devices.com/5-youtube',
+    linkedin: 'https://info.908devices.com/8-linkedin',
+  },
+  {
+    name: 'Reckard Consulting',
+    logo: '/ccra/partners/reckard-consulting.jpg',
+    website: 'https://www.linkedin.com/in/jay-reckard-b3185167/',
+    email: 'reckardconsulting@gmail.com',
+    linkedin: 'https://www.linkedin.com/in/jay-reckard-b3185167/',
+  },
+  {
+    name: 'Boston Dynamics',
+    logo: '/ccra/partners/boston-dynamics.png',
+    website: 'https://bostondynamics.com/',
+    facebook: 'https://www.facebook.com/BostonDynamicsOfficial',
+    tiktok: 'https://www.tiktok.com/@bostondynamicsofficial',
+    twitter: 'https://x.com/BostonDynamics',
+    instagram: 'https://www.instagram.com/bostondynamicsofficial/',
+    youtube: 'https://www.youtube.com/user/BostonDynamics',
+    linkedin: 'https://www.linkedin.com/company/boston-dynamics/',
+  },
+  {
+    name: 'Battelle',
+    logo: '/ccra/partners/battelle.png',
+    website: 'https://www.battelle.org/',
+    facebook: 'https://www.facebook.com/Battelle/',
+    twitter: 'https://twitter.com/Battelle',
+    instagram: 'https://www.instagram.com/battelle_insider/',
+    youtube: 'https://www.youtube.com/user/BattelleInnovations/',
+    linkedin: 'https://www.linkedin.com/company/battelle',
+  },
+  {
+    name: 'Booz Allen Hamilton',
+    logo: '/ccra/partners/booz-allen-hamilton-corporate.png',
+    website: 'https://www.boozallen.com/',
+    phone: '+1 703-902-5000',
+    facebook: 'https://www.facebook.com/boozallen',
+    twitter: 'https://x.com/BoozAllen',
+    youtube: 'https://www.youtube.com/@boozallenhamilton971',
+    linkedin: 'https://www.linkedin.com/company/booz-allen-hamilton/',
+  },
+  {
+    name: 'Rigaku Analytical Devices',
+    logo: '/ccra/partners/rigaku-analytical-devices-corporate.jpg',
+    website: 'http://www.rigakuanalytical.com/',
+    facebook: 'https://www.facebook.com/RigakuAnalytical',
+    twitter: 'https://twitter.com/RigakuAnalytic',
+    youtube: 'https://www.youtube.com/@Rigakuraman',
+    linkedin: 'https://www.linkedin.com/company/rigaku-analytical-devices/',
+  },
+  {
+    name: 'Noble',
+    logo: '/ccra/partners/noble.png',
+    website: 'https://www.noble.com/',
+    facebook: 'https://www.facebook.com/HazMatIQ/',
+    instagram: 'https://www.instagram.com/nobledefense/',
+    youtube: 'https://www.youtube.com/channel/UCrhPvkGD41hIX5jalzpREyQ',
+    linkedin: 'https://www.linkedin.com/company/noblellc/',
+  },
+  {
+    name: 'ASRC Federal',
+    logo: '/ccra/partners/asrc-federal.png',
+    website: 'https://www.asrcfederal.com/',
+    phone: '(301) 837-5459',
+    facebook: 'https://www.facebook.com/asrcfederal',
+    instagram: 'https://www.instagram.com/asrcfederal/',
+    linkedin: 'https://www.linkedin.com/company/asrc-federal',
+  },
+  {
+    name: 'Teledyne FLIR',
+    logo: '/ccra/partners/teledyne-flir-corporate.png',
+    website: 'https://www.flir.com/threat-detection/',
+    facebook: 'https://www.facebook.com/FLIR',
+    twitter: 'https://twitter.com/flir',
+    instagram: 'https://www.instagram.com/flir/',
+    youtube: 'https://www.youtube.com/c/Flir/videos',
+    linkedin: 'https://www.linkedin.com/company/teledyne-flir/',
+  },
+  {
+    name: 'Pine Bluff Arsenal',
+    logo: '/ccra/partners/pba.png',
+    website: 'https://www.pba.army.mil/index-2.html',
+    facebook: 'https://www.facebook.com/AmericasArsenal',
+    twitter: 'https://twitter.com/PB_Arsenal',
+    instagram: 'https://www.instagram.com/usarmypinebluffarsenal/',
+    youtube: 'https://www.youtube.com/watch?v=_qWmFXNypWM',
+    linkedin: 'https://www.linkedin.com/company/u-s-army-pine-bluff-arsenal/',
+  },
+  {
+    name: 'Precision Proposals',
+    logo: '/ccra/partners/precision-proposals-corporate.png',
+    website: 'http://www.precisionproposals.com/',
+    linkedin: 'https://www.linkedin.com/company/precision-proposals/',
+  },
+  {
+    name: 'ARServices',
+    logo: '/ccra/partners/arservices.jpg',
+    website: 'https://arslimited.com/',
+    phone: '703-820-9000',
+    email: 'info@arslimited.com',
+    facebook: 'https://www.facebook.com/ARSlimited/',
+    twitter: 'https://twitter.com/ars_limited',
+    linkedin: 'https://www.linkedin.com/company/1501070/',
+  },
+  {
+    name: 'ITL Solutions',
+    logo: 'https://www.ccrassn.org/wp-content/uploads/2024/07/ITL_taglineVertical.jpg',
+    website: 'https://itl-solutions.com/',
+    phone: '757-563-5100',
+    email: 'info@itl-solutions.com',
+    linkedin: 'https://www.linkedin.com/company/itl-llc/',
+  },
+  {
+    name: 'David Cullin Consulting',
+    logo: 'https://www.ccrassn.org/wp-content/uploads/2024/08/Cullin-Consulting-3.png',
+    website: 'https://www.linkedin.com/in/david-cullin-55738012/',
+    phone: '202-294-0094',
+    email: 'davidcullin62@gmail.com',
+    linkedin: 'https://www.linkedin.com/in/david-cullin-55738012/',
+  },
+];
+
+const annual = [
+  {
+    name: 'Columbia Southern University',
+    logo: '/ccra/partners/columbia-southern-university.png',
+    website: 'https://www.columbiasouthern.edu/',
+    phone: '+1-251-981-3771',
+    email: 'info@columbiasouthern.edu',
+    facebook: 'https://www.facebook.com/Columbia.Southern',
+    twitter: 'https://x.com/CSUedu',
+    instagram: 'https://www.instagram.com/columbiasouthernuniversity/',
+    youtube: 'https://www.youtube.com/user/ColumbiaSoUniv',
+    linkedin: 'https://www.linkedin.com/school/columbia-southern-university',
+  },
+  {
+    name: 'Kalman & Company',
+    logo: '/ccra/partners/kalman-company.png',
+    website: 'https://kalmancoinc.com/',
+    email: 'contact@kalmancoinc.com',
+    linkedin: 'https://www.linkedin.com/company/kalman-&-company-inc-/',
+  },
+  {
+    name: 'Ortec / Ametek',
+    logo: '/ccra/partners/amekek.png',
+    website: 'https://www.ortec-online.com/',
+    facebook: 'https://www.facebook.com/AMETEKInc',
+    youtube: 'https://www.youtube.com/channel/UCJ57iRcRhWjubFCZr64Fvxg',
+    linkedin: 'https://www.linkedin.com/company/ametek/',
+  },
+  {
+    name: 'Bluemont Technology & Research',
+    logo: '/ccra/partners/bt.jpg',
+    website: 'https://bluemonttechnology.com/',
+    phone: '1-844-462-5836',
+    email: 'info@bluemonttechnology.com',
+    facebook: 'https://www.facebook.com/BluemontTechnology/',
+    linkedin: 'https://www.linkedin.com/company/bluemont-technology-&-research-inc',
+  },
+  {
+    name: 'Crestwood Technology Group',
+    logo: '/ccra/partners/ctg.png',
+    website: 'https://www.ctg123.com/',
+    phone: '1-914-779-3500',
+    facebook: 'https://www.facebook.com/crestwoodtechnologygroup/',
+    youtube: 'https://www.youtube.com/channel/UCypTpAfH3GQT1l33EzEJogA',
+    linkedin: 'https://www.linkedin.com/company/ctg-crestwood-technology-group/',
+  },
+  {
+    name: 'Dawson',
+    logo: '/ccra/partners/dawson-corporate.png',
+    website: 'https://www.dawsonohana.com/',
+    phone: '1-808-536-5500',
+    facebook: 'https://www.facebook.com/DAWSONohana',
+    youtube: 'https://www.youtube.com/channel/UCfSvoo2lEZKPjxZ56OUAAZg/videos',
+    linkedin: 'https://www.linkedin.com/company/dawsonohana/',
+  },
+  {
+    name: 'Anser',
+    logo: '/ccra/partners/anser.jpg',
+    website: 'https://www.anser.org/',
+    phone: '(703) 416-1332',
+    facebook: 'https://www.facebook.com/AnalyticServicesInc/',
+    twitter: 'https://twitter.com/ANSERCorp',
+    linkedin: 'https://www.linkedin.com/company/analytic-services-inc-',
+  },
+  {
+    name: 'JRAD',
+    logo: '/ccra/partners/jrad.png',
+    website: 'https://jrad.us/',
+    phone: '540.288.3132',
+    email: 'info@jrad.us',
+    linkedin: 'https://www.linkedin.com/company/jrad',
+  },
+  {
+    name: 'Inficon, Inc.',
+    logo: 'https://www.ccrassn.org/wp-content/uploads/2024/09/Inficon-logo-2.png',
+    website: 'https://www.inficon.com/en',
+    phone: '(315) 434-1100',
+    email: 'jim.amyot@inficon.com',
+    facebook: 'https://www.facebook.com/INFICON',
+    twitter: 'https://twitter.com/INFICON',
+    instagram: 'https://www.instagram.com/inficonservicetools',
+    youtube: 'https://www.youtube.com/c/inficon',
+    linkedin: 'https://www.linkedin.com/company/inficon/',
+  },
+  {
+    name: 'Smiths Detection',
+    logo: 'https://www.ccrassn.org/wp-content/uploads/2024/09/Smiths_DET_pos_blue_cmyk.png',
+    website: 'https://www.smithsdetection.com/',
+    phone: '410-612-4000',
+    youtube: 'https://www.youtube.com/user/smithsdetectiongroup',
+    linkedin: 'https://www.linkedin.com/company/smiths-detection/',
+  },
+];
+---
+
+<Layout title="Corporate Members" description="CCRA Corporate Members — Lifetime and Annual partners supporting the Chemical Corps Regimental Association.">
+
+  <!-- ═══ HERO ═══ -->
+  <section class="pt-36 pb-16 px-6" style="background: linear-gradient(180deg, var(--color-command) 0%, var(--color-void) 100%); border-bottom: 1px solid var(--color-steel);">
+    <div class="max-w-7xl mx-auto text-center fade-up">
+      <p class="section-label mb-4">Partners in Excellence</p>
+      <h1 class="section-title mb-4">Corporate Members</h1>
+      <div class="gold-line mx-auto max-w-[60px] mt-6 mb-6"></div>
+      <p style="color:var(--color-ash); max-width:42rem; margin:0 auto; font-size:0.9rem; line-height:1.7;">
+        These industry leaders stand alongside Dragon Soldiers — supporting the mission, the regiment, and the men and women who serve.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ LIFETIME MEMBERS ═══ -->
+  <section class="py-20 lg:py-28 bg-[var(--color-void)]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="text-center mb-14 fade-up">
+        <p class="section-label mb-3">Premier Partners</p>
+        <h2 class="section-title">Lifetime Members</h2>
+        <div class="gold-line mx-auto max-w-[60px] mt-5"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {lifetime.map(c => (
+          <div class="card-dark rounded-sm flex flex-col fade-up" style="overflow:hidden;">
+            <!-- Logo -->
+            <div style="background:#fff; padding:1.5rem 2rem; display:flex; align-items:center; justify-content:center; min-height:110px;">
+              <img src={c.logo} alt={c.name} style="max-height:70px; max-width:100%; width:auto; object-fit:contain;" />
+            </div>
+            <!-- Body -->
+            <div style="padding:1.25rem 1.5rem; flex:1; display:flex; flex-direction:column; gap:0.75rem;">
+              <h3 style="color:var(--color-ivory); font-weight:600; font-size:0.95rem; letter-spacing:0.02em;">{c.name}</h3>
+              <!-- Contact info -->
+              <div style="display:flex; flex-direction:column; gap:0.3rem;">
+                {c.phone && (
+                  <a href={`tel:${c.phone.replace(/[^0-9+]/g,'')}`} style="font-size:0.72rem; color:var(--color-ash); text-decoration:none; display:flex; align-items:center; gap:0.4rem; transition:color 0.2s;" onmouseover="this.style.color='var(--color-bone)'" onmouseout="this.style.color='var(--color-ash)'">
+                    <svg style="width:0.75rem;height:0.75rem;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                    {c.phone}
+                  </a>
+                )}
+                {c.email && (
+                  <a href={`mailto:${c.email}`} style="font-size:0.72rem; color:var(--color-ash); text-decoration:none; display:flex; align-items:center; gap:0.4rem; transition:color 0.2s; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" onmouseover="this.style.color='var(--color-bone)'" onmouseout="this.style.color='var(--color-ash)'">
+                    <svg style="width:0.75rem;height:0.75rem;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    {c.email}
+                  </a>
+                )}
+              </div>
+              <!-- Social icons -->
+              <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:auto; padding-top:0.5rem;">
+                {c.facebook && <a href={c.facebook} target="_blank" rel="noopener" title="Facebook" style="color:var(--color-ash); transition:color 0.2s;" onmouseover="this.style.color='#1877f2'" onmouseout="this.style.color='var(--color-ash)'"><svg style="width:1.1rem;height:1.1rem;" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>}
+                {c.linkedin && <a href={c.linkedin} target="_blank" rel="noopener" title="LinkedIn" style="color:var(--color-ash); transition:color 0.2s;" onmouseover="this.style.color='#0a66c2'" onmouseout="this.style.color='var(--color-ash)'"><svg style="width:1.1rem;height:1.1rem;" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>}
+                {c.youtube && <a href={c.youtube} target="_blank" rel="noopener" title="YouTube" style="color:var(--color-ash); transition:color 0.2s;" onmouseover="this.style.color='#ff0000'" onmouseout="this.style.color='var(--color-ash)'"><svg style="width:1.1rem;height:1.1rem;" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>}
+                {c.twitter && <a href={c.twitter} target="_blank" rel="noopener" title="X / Twitter" style="color:var(--color-ash); transition:color 0.2s;" onmouseover="this.style.color='var(--color-bone)'" onmouseout="this.style.color='var(--color-ash)'"><svg style="width:1.1rem;height:1.1rem;" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>}
+                {c.instagram && <a href={c.instagram} target="_blank" rel="noopener" title="Instagram" style="color:var(--color-ash); transition:color 0.2s;" onmouseover="this.style.color='#e1306c'" onmouseout="this.style.color='var(--color-ash)'"><svg style="width:1.1rem;height:1.1rem;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>}
+                {c.tiktok && <a href={c.tiktok} target="_blank" rel="noopener" title="TikTok" style="color:var(--color-ash); transition:color 0.2s;" onmouseover="this.style.color='var(--color-bone)'" onmouseout="this.style.color='var(--color-ash)'"><svg style="width:1.1rem;height:1.1rem;" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>}
+                {c.twitch && <a href={c.twitch} target="_blank" rel="noopener" title="Twitch" style="color:var(--color-ash); transition:color 0.2s;" onmouseover="this.style.color='#9146ff'" onmouseout="this.style.color='var(--color-ash)'"><svg style="width:1.1rem;height:1.1rem;" fill="currentColor" viewBox="0 0 24 24"><path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714z"/></svg></a>}
+              </div>
+            </div>
+            <!-- Career Opportunities button -->
+            {c.website && (
+              <div style="padding:0 1.5rem 1.25rem;">
+                <a href={c.website} target="_blank" rel="noopener" style="display:flex; align-items:center; justify-content:center; gap:0.4rem; width:100%; padding:0.6rem; border:1px solid rgba(197,163,85,0.3); border-radius:2px; background:rgba(197,163,85,0.06); color:var(--color-dragon-gold); font-size:0.65rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(197,163,85,0.15)';this.style.borderColor='var(--color-dragon-gold)'" onmouseout="this.style.background='rgba(197,163,85,0.06)';this.style.borderColor='rgba(197,163,85,0.3)'">
+                  <svg style="width:0.75rem;height:0.75rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                  Career Opportunities
+                </a>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ANNUAL MEMBERS ═══ -->
+  <section class="py-20 lg:py-28 bg-[var(--color-command)]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="text-center mb-14 fade-up">
+        <p class="section-label mb-3">Supporting Partners</p>
+        <h2 class="section-title">Annual Members</h2>
+        <div class="gold-line mx-auto max-w-[60px] mt-5"></div>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {annual.map(c => (
+          <div class="card-dark rounded-sm flex flex-col fade-up" style="overflow:hidden;">
+            <div style="background:#fff; padding:1.5rem 2rem; display:flex; align-items:center; justify-content:center; min-height:110px;">
+              <img src={c.logo} alt={c.name} style="max-height:70px; max-width:100%; width:auto; object-fit:contain;" />
+            </div>
+            <div style="padding:1.25rem 1.5rem; flex:1; display:flex; flex-direction:column; gap:0.75rem;">
+              <h3 style="color:var(--color-ivory); font-weight:600; font-size:0.95rem; letter-spacing:0.02em;">{c.name}</h3>
+              <div style="display:flex; flex-direction:column; gap:0.3rem;">
+                {c.phone && (
+                  <a href={`tel:${c.phone.replace(/[^0-9+]/g,'')}`} style="font-size:0.72rem; color:var(--color-ash); text-decoration:none; display:flex; align-items:center; gap:0.4rem; transition:color 0.2s;" onmouseover="this.style.color='var(--color-bone)'" onmouseout="this.style.color='var(--color-ash)'">
+                    <svg style="width:0.75rem;height:0.75rem;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                    {c.phone}
+                  </a>
+                )}
+                {c.email && (
+                  <a href={`mailto:${c.email}`} style="font-size:0.72rem; color:var(--color-ash); text-decoration:none; display:flex; align-items:center; gap:0.4rem; transition:color 0.2s; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" onmouseover="this.style.color='var(--color-bone)'" onmouseout="this.style.color='var(--color-ash)'">
+                    <svg style="width:0.75rem;height:0.75rem;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    {c.email}
+                  </a>
+                )}
+              </div>
+              <div style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:auto; padding-top:0.5rem;">
+                {c.facebook && <a href={c.facebook} target="_blank" rel="noopener" title="Facebook" style="color:var(--color-ash); transition:color 0.2s;" onmouseover="this.style.color='#1877f2'" onmouseout="this.style.color='var(--color-ash)'"><svg style="width:1.1rem;height:1.1rem;" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>}
+                {c.linkedin && <a href={c.linkedin} target="_blank" rel="noopener" title="LinkedIn" style="color:var(--color-ash); transition:color 0.2s;" onmouseover="this.style.color='#0a66c2'" onmouseout="this.style.color='var(--color-ash)'"><svg style="width:1.1rem;height:1.1rem;" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>}
+                {c.youtube && <a href={c.youtube} target="_blank" rel="noopener" title="YouTube" style="color:var(--color-ash); transition:color 0.2s;" onmouseover="this.style.color='#ff0000'" onmouseout="this.style.color='var(--color-ash)'"><svg style="width:1.1rem;height:1.1rem;" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>}
+                {c.twitter && <a href={c.twitter} target="_blank" rel="noopener" title="X / Twitter" style="color:var(--color-ash); transition:color 0.2s;" onmouseover="this.style.color='var(--color-bone)'" onmouseout="this.style.color='var(--color-ash)'"><svg style="width:1.1rem;height:1.1rem;" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>}
+                {c.instagram && <a href={c.instagram} target="_blank" rel="noopener" title="Instagram" style="color:var(--color-ash); transition:color 0.2s;" onmouseover="this.style.color='#e1306c'" onmouseout="this.style.color='var(--color-ash)'"><svg style="width:1.1rem;height:1.1rem;" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>}
+                {c.tiktok && <a href={c.tiktok} target="_blank" rel="noopener" title="TikTok" style="color:var(--color-ash); transition:color 0.2s;" onmouseover="this.style.color='var(--color-bone)'" onmouseout="this.style.color='var(--color-ash)'"><svg style="width:1.1rem;height:1.1rem;" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>}
+                {c.twitch && <a href={c.twitch} target="_blank" rel="noopener" title="Twitch" style="color:var(--color-ash); transition:color 0.2s;" onmouseover="this.style.color='#9146ff'" onmouseout="this.style.color='var(--color-ash)'"><svg style="width:1.1rem;height:1.1rem;" fill="currentColor" viewBox="0 0 24 24"><path d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714z"/></svg></a>}
+              </div>
+            </div>
+            {c.website && (
+              <div style="padding:0 1.5rem 1.25rem;">
+                <a href={c.website} target="_blank" rel="noopener" style="display:flex; align-items:center; justify-content:center; gap:0.4rem; width:100%; padding:0.6rem; border:1px solid rgba(197,163,85,0.3); border-radius:2px; background:rgba(197,163,85,0.06); color:var(--color-dragon-gold); font-size:0.65rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(197,163,85,0.15)';this.style.borderColor='var(--color-dragon-gold)'" onmouseout="this.style.background='rgba(197,163,85,0.06)';this.style.borderColor='rgba(197,163,85,0.3)'">
+                  <svg style="width:0.75rem;height:0.75rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                  Career Opportunities
+                </a>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ JOIN CTA ═══ -->
+  <section class="py-24 bg-[var(--color-void)]">
+    <div class="max-w-3xl mx-auto px-6 text-center fade-up">
+      <p class="section-label mb-4">Become a Partner</p>
+      <h2 class="section-title mb-6">Join as a Corporate Member</h2>
+      <div class="gold-line mx-auto max-w-[60px] mb-8"></div>
+      <p style="color:var(--color-ash); font-size:0.9rem; line-height:1.7; margin-bottom:2.5rem;">
+        Align your organization with the Chemical Corps Regimental Association and demonstrate your commitment to Dragon Soldiers, veterans, and the CBRN defense community.
+      </p>
+      <a href="/ccra/contact" class="btn-solid">Contact Us to Join</a>
+    </div>
+  </section>
+
+</Layout>
