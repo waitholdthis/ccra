@@ -122,6 +122,7 @@ body {
 .btn-solid {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   padding: 14px 36px;
   background: var(--color-dragon-gold);

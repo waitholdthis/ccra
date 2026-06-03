@@ -1,0 +1,238 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Order of the Dragon | CCRA" description="The Order of the Dragon recognizes individuals who demonstrate the highest standards of integrity, moral character, and professional competence in service to the Chemical Corps.">
+
+  <!-- ═══ HERO ═══ -->
+  <section class="relative h-[60vh] min-h-[420px] flex items-center justify-center overflow-hidden">
+    <div class="hero-overlay absolute inset-0 z-10"></div>
+    <div class="absolute inset-0 bg-[var(--color-void)]">
+      <div class="absolute inset-0 opacity-15" style="background-image: radial-gradient(circle at 60% 40%, var(--color-dragon-gold) 0%, transparent 55%);"></div>
+    </div>
+    <div class="relative z-20 text-center max-w-4xl mx-auto px-6 fade-up">
+      <p class="section-label mb-4">Chemical Corps Regimental Association</p>
+      <h1 class="section-title !text-[clamp(2rem,5vw,3.8rem)] !font-[200] mb-4">
+        Order of the Dragon
+      </h1>
+      <div class="gold-line mx-auto max-w-[60px] mt-6"></div>
+    </div>
+  </section>
+
+  <!-- ═══ OVERVIEW ═══ -->
+  <section class="py-20 lg:py-28 bg-[var(--color-void)]">
+    <div class="max-w-4xl mx-auto px-6 lg:px-12 text-center fade-up">
+      <p class="section-label mb-4">Program Overview</p>
+      <h2 class="section-title mb-6">Honoring the Dragon Soldier</h2>
+      <div class="gold-line mx-auto max-w-[60px] mb-8"></div>
+      <p class="text-[var(--color-ash)] text-base leading-relaxed mb-4">
+        The Order of the Dragon comprises four Awards recognizing individuals who demonstrate the highest standards of integrity and moral character and professional competence in their service to the Chemical Corps.
+      </p>
+      <p class="text-[var(--color-ash)] text-base leading-relaxed">
+        Recipients include Dragon Soldiers — active and retired military members — as well as civilians and individuals who have made lasting contributions to advancing the Chemical Corps throughout their careers.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ AWARD CATEGORIES ═══ -->
+  <section class="py-20 lg:py-28 bg-[var(--color-command)]">
+    <div class="max-w-6xl mx-auto px-6 lg:px-12">
+      <div class="text-center mb-14 fade-up">
+        <p class="section-label mb-4">Recognition Levels</p>
+        <h2 class="section-title">The Four Awards</h2>
+        <div class="gold-line mx-auto max-w-[60px] mt-6"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+        <!-- Ancient Order -->
+        <div class="card-dark rounded-sm overflow-hidden fade-up">
+          <div class="relative h-64 overflow-hidden">
+            <img
+              src="/ccra/ood/Ancient.jpg"
+              alt="Ancient Order of the Dragon"
+              class="w-full h-full object-cover object-center"
+              style="filter: brightness(0.85);"
+            />
+            <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(10,12,16,0.9) 0%, transparent 60%);"></div>
+            <div class="absolute bottom-0 left-0 p-6">
+              <span style="font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--color-dragon-gold);">Highest Honor</span>
+              <h3 class="text-[var(--color-ivory)] font-semibold text-2xl mt-1">Ancient Order</h3>
+            </div>
+          </div>
+          <div class="p-8">
+            <p class="text-[var(--color-ash)] text-sm leading-relaxed">
+              The highest level of recognition within the Order of the Dragon. The Ancient Order is reserved for individuals whose distinguished service has made a profound and enduring impact on the Chemical Corps and the nation it defends. This honor represents the pinnacle of achievement within the Order.
+            </p>
+          </div>
+        </div>
+
+        <!-- Honorable Order -->
+        <div class="card-dark rounded-sm overflow-hidden fade-up">
+          <div class="relative h-64 overflow-hidden">
+            <img
+              src="/ccra/ood/Honorable.jpg"
+              alt="Honorable Order of the Dragon"
+              class="w-full h-full object-cover object-center"
+              style="filter: brightness(0.85);"
+            />
+            <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(10,12,16,0.9) 0%, transparent 60%);"></div>
+            <div class="absolute bottom-0 left-0 p-6">
+              <span style="font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--color-dragon-gold);">Second Tier</span>
+              <h3 class="text-[var(--color-ivory)] font-semibold text-2xl mt-1">Honorable Order</h3>
+            </div>
+          </div>
+          <div class="p-8">
+            <p class="text-[var(--color-ash)] text-sm leading-relaxed">
+              Recognizes exceptional and honorable contributions to the Chemical Corps mission and community. Recipients of the Honorable Order have demonstrated sustained dedication to the values and mission of the Chemical Regiment over the course of their careers.
+            </p>
+          </div>
+        </div>
+
+        <!-- Legionnaire -->
+        <div class="card-dark rounded-sm p-8 fade-up">
+          <div class="mb-5">
+            <svg style="width:2.5rem;height:2.5rem;color:var(--color-dragon-gold);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+            </svg>
+          </div>
+          <h3 class="text-[var(--color-ivory)] font-semibold text-xl mb-3 tracking-wide">Legionnaire Award</h3>
+          <p class="text-[var(--color-ash)] text-sm leading-relaxed">
+            Honors those who have made significant and sustained contributions to the Chemical Corps. The Legionnaire Award recognizes individuals who have consistently gone above and beyond in their service, embodying the standards and traditions of the Dragon Soldier.
+          </p>
+        </div>
+
+        <!-- Carol Ann Watson Spouse Award -->
+        <div class="card-dark rounded-sm p-8 fade-up">
+          <div class="mb-5">
+            <svg style="width:2.5rem;height:2.5rem;color:var(--color-dragon-gold);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-[var(--color-ivory)] font-semibold text-xl mb-3 tracking-wide">Carol Ann Watson Spouse Award</h3>
+          <p class="text-[var(--color-ash)] text-sm leading-relaxed">
+            Recognizes the extraordinary support and contributions of Chemical Corps spouses. Named in honor of Carol Ann Watson, this award acknowledges the essential role that spouses play in sustaining the strength, resilience, and cohesion of the Chemical Regiment family.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ELIGIBILITY ═══ -->
+  <section class="py-20 lg:py-28 bg-[var(--color-void)]">
+    <div class="max-w-4xl mx-auto px-6 lg:px-12 fade-up">
+      <div class="text-center mb-12">
+        <p class="section-label mb-4">Who Can Be Recognized</p>
+        <h2 class="section-title mb-6">Eligibility</h2>
+        <div class="gold-line mx-auto max-w-[60px] mb-8"></div>
+      </div>
+      <div class="card-dark rounded-sm p-8 lg:p-12">
+        <p class="text-[var(--color-bone)] text-base leading-relaxed mb-6">
+          The Order of the Dragon is open to Dragon Soldiers and civilians alike who have made meaningful contributions to the Chemical Corps and the CCRA. Recipients may include:
+        </p>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-start gap-3">
+            <span style="flex-shrink:0; width:6px; height:6px; border-radius:50%; background:var(--color-dragon-gold); margin-top:0.45rem;"></span>
+            <span class="text-[var(--color-ash)] text-sm leading-relaxed">Active duty, reserve, and retired military members who have served in the Chemical Corps</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span style="flex-shrink:0; width:6px; height:6px; border-radius:50%; background:var(--color-dragon-gold); margin-top:0.45rem;"></span>
+            <span class="text-[var(--color-ash)] text-sm leading-relaxed">Civilians who have made significant contributions to advancing the mission and legacy of the Chemical Corps</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span style="flex-shrink:0; width:6px; height:6px; border-radius:50%; background:var(--color-dragon-gold); margin-top:0.45rem;"></span>
+            <span class="text-[var(--color-ash)] text-sm leading-relaxed">Spouses of Chemical Corps members recognized through the Carol Ann Watson Award</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span style="flex-shrink:0; width:6px; height:6px; border-radius:50%; background:var(--color-dragon-gold); margin-top:0.45rem;"></span>
+            <span class="text-[var(--color-ash)] text-sm leading-relaxed">Individuals approved by exception by the Board of Directors for conspicuous service to the Chemical Corps and the CCRA when standard criteria are not met</span>
+          </li>
+        </ul>
+        <div class="border-t border-[var(--color-gunmetal)] pt-6">
+          <p style="font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--color-dragon-gold); margin-bottom:0.5rem;">Special Provisions</p>
+          <p class="text-[var(--color-ash)] text-sm leading-relaxed">
+            The Board of Directors may approve an award by exception for conspicuous service to the Chemical Corps and the CCRA in cases where standard eligibility criteria are not otherwise met. Nomination criteria were last updated on October 8, 2019.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WEARING GUIDELINES ═══ -->
+  <section class="py-20 lg:py-28 bg-[var(--color-command)]">
+    <div class="max-w-4xl mx-auto px-6 lg:px-12 fade-up">
+      <div class="text-center mb-12">
+        <p class="section-label mb-4">Award Protocol</p>
+        <h2 class="section-title mb-6">Wearing Guidelines</h2>
+        <div class="gold-line mx-auto max-w-[60px] mb-8"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <div class="card-dark rounded-sm p-8">
+          <div class="mb-4">
+            <svg style="width:1.75rem;height:1.75rem;color:var(--color-dragon-gold);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+            </svg>
+          </div>
+          <h3 class="text-[var(--color-ivory)] font-semibold text-lg mb-4 tracking-wide">Military Personnel</h3>
+          <div class="space-y-3">
+            <p class="text-[var(--color-ash)] text-sm leading-relaxed">
+              The medallion is worn around the neck with the ribbon inside the coat collar on Army Blue, White, or Green uniforms.
+            </p>
+            <p class="text-[var(--color-ash)] text-sm leading-relaxed">
+              On mess uniforms, the medallion hangs at full ribbon length.
+            </p>
+          </div>
+        </div>
+
+        <div class="card-dark rounded-sm p-8">
+          <div class="mb-4">
+            <svg style="width:1.75rem;height:1.75rem;color:var(--color-dragon-gold);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-[var(--color-ivory)] font-semibold text-lg mb-4 tracking-wide">Civilians</h3>
+          <div class="space-y-3">
+            <p class="text-[var(--color-ash)] text-sm leading-relaxed">
+              Males wear the medallion at full ribbon length around the neck inside the coat collar.
+            </p>
+            <p class="text-[var(--color-ash)] text-sm leading-relaxed">
+              Females may wear the Carol Ann Watson Award as a necklace or broach, styled appropriately for their attire.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-6 card-dark rounded-sm p-6 fade-up">
+        <div class="flex items-start gap-4">
+          <svg style="width:1.25rem;height:1.25rem;flex-shrink:0;margin-top:0.1rem;color:var(--color-dragon-gold);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          <p class="text-[var(--color-ash)] text-sm leading-relaxed">
+            <strong class="text-[var(--color-ivory)]">Important:</strong> The dragon medallion must face outward and remain visible at all official Army, Service, or Department of Defense events.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="py-24 lg:py-32 bg-[var(--color-void)]">
+    <div class="max-w-3xl mx-auto px-6 lg:px-12 text-center fade-up">
+      <p class="section-label mb-4">Nominate a Dragon Soldier</p>
+      <h2 class="section-title mb-6">Submit a Nomination</h2>
+      <div class="gold-line mx-auto max-w-[60px] mb-8"></div>
+      <p class="text-[var(--color-ash)] text-base leading-relaxed mb-10">
+        Know a Dragon Soldier who deserves recognition? Nominations for the Order of the Dragon are accepted annually. Contact the CCRA for nomination forms, criteria, and ceremony guidelines including the regimental punch bowl ceremony instructions.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/ccra/ood-nomination" class="btn-solid justify-center">Submit a Nomination</a>
+        <a href="/ccra/programs" class="btn-ghost justify-center">Back to Programs</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>

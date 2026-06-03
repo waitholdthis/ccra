@@ -1,0 +1,420 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="OOD Nomination Form | CCRA" description="Submit a nomination for the Order of the Dragon award online.">
+
+  <!-- ═══ HERO ═══ -->
+  <section style="background: var(--color-void); padding: 6rem 1.5rem 4rem; text-align: center;">
+    <div style="max-width: 800px; margin: 0 auto;" class="fade-up">
+      <p class="section-label" style="color: var(--color-dragon-gold); text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.875rem; margin-bottom: 0.75rem;">Chemical Corps Regimental Association</p>
+      <h1 class="section-title" style="color: var(--color-ivory); font-size: clamp(1.75rem,4vw,3rem); font-weight: 700; margin-bottom: 1rem;">Order of the Dragon<br/>Nomination / Request Form</h1>
+      <div class="gold-line" style="width: 80px; height: 3px; background: var(--color-dragon-gold); margin: 0 auto 1.5rem;"></div>
+      <p style="color: var(--color-ash); font-size: 1rem; line-height: 1.7; max-width: 640px; margin: 0 auto;">
+        Complete all sections below and submit. Your nomination will be sent directly to
+        <strong style="color: var(--color-bone);">ccramanager@embarqmail.com</strong> for review.
+        <br/><em style="font-size: 0.85rem;">Nominator, Recipient, and Approver must all be current members of the CCRA.</em>
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ FORM ═══ -->
+  <section style="background: var(--color-bunker); padding: 4rem 1.5rem 6rem;">
+    <div style="max-width: 860px; margin: 0 auto;" class="fade-up">
+
+      <form id="ood-form" novalidate>
+
+        <!-- ── AWARD TYPE ── -->
+        <fieldset style="border: 1px solid var(--color-dragon-gold); border-radius: 4px; padding: 1.75rem 2rem; margin-bottom: 2rem; background: var(--color-command);">
+          <legend style="color: var(--color-dragon-gold); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 0 0.75rem;">Award Type</legend>
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem 2.5rem; margin-top: 0.5rem;">
+            {['Honorable OOD', 'Ancient OOD', 'Carol Ann Watson Award', 'Legionnaire Award'].map(type => (
+              <label style="display: flex; align-items: center; gap: 0.6rem; cursor: pointer;">
+                <input type="radio" name="award_type" value={type} required
+                  style="accent-color: var(--color-dragon-gold); width: 1rem; height: 1rem;" />
+                <span style="color: var(--color-bone); font-size: 0.9rem;">{type}</span>
+              </label>
+            ))}
+          </div>
+          <!-- Pricing note -->
+          <div style="margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--color-gunmetal); display: flex; flex-wrap: wrap; gap: 0.5rem 2rem;">
+            <span style="font-size: 0.7rem; color: var(--color-ash);">HOOD <strong style="color: var(--color-bone);">$30</strong></span>
+            <span style="font-size: 0.7rem; color: var(--color-ash);">AOOD <strong style="color: var(--color-bone);">$35</strong></span>
+            <span style="font-size: 0.7rem; color: var(--color-ash);">CAWA <strong style="color: var(--color-bone);">$32</strong></span>
+            <span style="font-size: 0.7rem; color: var(--color-ash);">OODL <strong style="color: var(--color-bone);">$30</strong></span>
+            <span style="font-size: 0.7rem; color: var(--color-ash);">+ $10 Shipping &amp; Handling &nbsp;|&nbsp; Additional charge for rush delivery</span>
+          </div>
+          <p style="margin-top: 0.75rem; font-size: 0.75rem; color: var(--color-ash);">
+            Payment must be made online at
+            <a href="https://www.ccrassn.org/accouterments/" target="_blank" rel="noopener" style="color: var(--color-dragon-gold); text-decoration: underline;">ccrassn.org/accouterments/</a>
+          </p>
+        </fieldset>
+
+        <!-- ── NOMINATOR INFORMATION ── -->
+        <fieldset style="border: 1px solid var(--color-gunmetal); border-radius: 4px; padding: 1.75rem 2rem; margin-bottom: 2rem; background: var(--color-command);">
+          <legend style="color: var(--color-dragon-gold); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 0 0.75rem;">Nominator Information</legend>
+          <div style="display: grid; grid-template-columns: 1fr auto; gap: 1rem; margin-bottom: 1rem;">
+            <div>
+              <label class="field-label">Rank / Name <span class="req">*</span></label>
+              <input type="text" name="nom_rank_name" required class="field-input" placeholder="e.g. COL John Smith" />
+            </div>
+            <div style="min-width: 160px;">
+              <label class="field-label">Lifetime Member # <span class="req">*</span></label>
+              <input type="text" name="nom_member_num" required class="field-input" placeholder="Member #" />
+            </div>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <label class="field-label">Unit / Organization <span class="req">*</span></label>
+            <input type="text" name="nom_unit" required class="field-input" placeholder="Unit or organization" />
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <label class="field-label">Address <span class="req">*</span></label>
+            <input type="text" name="nom_address" required class="field-input" placeholder="Street address" />
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <label class="field-label">City, State, Zip <span class="req">*</span></label>
+            <input type="text" name="nom_city_state_zip" required class="field-input" placeholder="City, ST 00000" />
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div>
+              <label class="field-label">Phone <span class="req">*</span></label>
+              <input type="tel" name="nom_phone" required class="field-input" placeholder="(xxx) xxx-xxxx" />
+            </div>
+            <div>
+              <label class="field-label">Email <span class="req">*</span></label>
+              <input type="email" name="nom_email" required class="field-input" placeholder="email@example.com" />
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- ── NOMINEE / RECIPIENT INFORMATION ── -->
+        <fieldset style="border: 1px solid var(--color-gunmetal); border-radius: 4px; padding: 1.75rem 2rem; margin-bottom: 2rem; background: var(--color-command);">
+          <legend style="color: var(--color-dragon-gold); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 0 0.75rem;">Nominee / Recipient Information</legend>
+          <div style="display: grid; grid-template-columns: auto 1fr; gap: 1rem; margin-bottom: 1rem;">
+            <div style="min-width: 190px;">
+              <label class="field-label">Rank / Grade / Mr. / Mrs. / Ms. <span class="req">*</span></label>
+              <input type="text" name="rec_rank" required class="field-input" placeholder="e.g. MSG, Mr., Mrs." />
+            </div>
+            <div>
+              <label class="field-label">Name <span class="req">*</span></label>
+              <input type="text" name="rec_name" required class="field-input" placeholder="Full name" />
+            </div>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <label class="field-label">Current Unit / Organization <span class="req">*</span></label>
+            <input type="text" name="rec_unit" required class="field-input" placeholder="Current unit or organization" />
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+            <div>
+              <label class="field-label">Total Years of Service</label>
+              <input type="text" name="rec_total_yos" class="field-input" placeholder="Total years" />
+            </div>
+            <div>
+              <label class="field-label">Years of Service to Chemical Corps</label>
+              <input type="text" name="rec_chem_yos" class="field-input" placeholder="Chem Corps years" />
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+            <div>
+              <label class="field-label">Planned Presentation Date</label>
+              <input type="date" name="rec_present_date" class="field-input" />
+            </div>
+            <div>
+              <label class="field-label">Lifetime Member #</label>
+              <input type="text" name="rec_member_num" class="field-input" placeholder="Member # (if applicable)" />
+            </div>
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <label class="field-label">Graduate of</label>
+            <div style="display: flex; gap: 2rem; margin-top: 0.5rem;">
+              {['SLC', 'CCCC', 'WOAC'].map(course => (
+                <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                  <input type="checkbox" name="rec_grad" value={course}
+                    style="accent-color: var(--color-dragon-gold); width: 1rem; height: 1rem;" />
+                  <span style="color: var(--color-bone); font-size: 0.9rem;">{course}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+          <div>
+            <label class="field-label">Notes</label>
+            <textarea name="rec_notes" rows="3" class="field-input" style="resize: vertical;" placeholder="Any additional notes..."></textarea>
+          </div>
+        </fieldset>
+
+        <!-- ── CRITERIA CHECKLIST ── -->
+        <fieldset style="border: 1px solid var(--color-gunmetal); border-radius: 4px; padding: 1.75rem 2rem; margin-bottom: 2rem; background: var(--color-command);">
+          <legend style="color: var(--color-dragon-gold); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 0 0.75rem;">Criteria Checklist</legend>
+          <p style="color: var(--color-ash); font-size: 0.8rem; margin-bottom: 1.25rem;">Check as appropriate. All three criteria must be confirmed Yes for the nomination to be considered.</p>
+          <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+
+            <div style="display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: center; padding-bottom: 1.25rem; border-bottom: 1px solid var(--color-gunmetal);">
+              <p style="color: var(--color-bone); font-size: 0.875rem; line-height: 1.5; margin: 0;">
+                Nominator, Nominee and Approver are Lifetime Members
+              </p>
+              <div style="display: flex; gap: 1.25rem;">
+                <label style="display: flex; align-items: center; gap: 0.4rem; cursor: pointer;">
+                  <input type="radio" name="crit_lifetime" value="Yes" required style="accent-color: var(--color-dragon-gold);" />
+                  <span style="color: var(--color-bone); font-size: 0.85rem;">Yes</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.4rem; cursor: pointer;">
+                  <input type="radio" name="crit_lifetime" value="No" style="accent-color: var(--color-dragon-gold);" />
+                  <span style="color: var(--color-bone); font-size: 0.85rem;">No</span>
+                </label>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: center; padding-bottom: 1.25rem; border-bottom: 1px solid var(--color-gunmetal);">
+              <p style="color: var(--color-bone); font-size: 0.875rem; line-height: 1.5; margin: 0;">
+                Nominee has demonstrated the highest standards of integrity and moral character and has contributed to the advancement of the CBRN mission
+              </p>
+              <div style="display: flex; gap: 1.25rem;">
+                <label style="display: flex; align-items: center; gap: 0.4rem; cursor: pointer;">
+                  <input type="radio" name="crit_integrity" value="Yes" required style="accent-color: var(--color-dragon-gold);" />
+                  <span style="color: var(--color-bone); font-size: 0.85rem;">Yes</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.4rem; cursor: pointer;">
+                  <input type="radio" name="crit_integrity" value="No" style="accent-color: var(--color-dragon-gold);" />
+                  <span style="color: var(--color-bone); font-size: 0.85rem;">No</span>
+                </label>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: center;">
+              <p style="color: var(--color-bone); font-size: 0.875rem; line-height: 1.5; margin: 0;">
+                Accompanying narrative and documents address that the nominee meets the criteria addressed in Policy Letter #4
+              </p>
+              <div style="display: flex; gap: 1.25rem;">
+                <label style="display: flex; align-items: center; gap: 0.4rem; cursor: pointer;">
+                  <input type="radio" name="crit_policy" value="Yes" required style="accent-color: var(--color-dragon-gold);" />
+                  <span style="color: var(--color-bone); font-size: 0.85rem;">Yes</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.4rem; cursor: pointer;">
+                  <input type="radio" name="crit_policy" value="No" style="accent-color: var(--color-dragon-gold);" />
+                  <span style="color: var(--color-bone); font-size: 0.85rem;">No</span>
+                </label>
+              </div>
+            </div>
+
+          </div>
+          <p style="margin-top: 1.25rem; font-size: 0.75rem; color: var(--color-ash);">
+            Reference:
+            <a href="/ccra/documents/OOD/CCRA_Policy_Letter_4.pdf" target="_blank" rel="noopener" style="color: var(--color-dragon-gold); text-decoration: underline;">CCRA Policy Letter #4 (PDF)</a>
+          </p>
+        </fieldset>
+
+        <!-- ── APPROVAL AUTHORITY ── -->
+        <fieldset style="border: 1px solid var(--color-gunmetal); border-radius: 4px; padding: 1.75rem 2rem; margin-bottom: 2rem; background: var(--color-command);">
+          <legend style="color: var(--color-dragon-gold); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 0 0.75rem;">Approval Authority</legend>
+          <div style="display: grid; grid-template-columns: 1fr auto; gap: 1rem; margin-bottom: 1rem;">
+            <div>
+              <label class="field-label">Approver Rank / Name <span class="req">*</span></label>
+              <input type="text" name="appr_rank_name" required class="field-input" placeholder="e.g. CSM Jane Doe" />
+            </div>
+            <div style="min-width: 160px;">
+              <label class="field-label">Lifetime Member #</label>
+              <input type="text" name="appr_member_num" class="field-input" placeholder="Member #" />
+            </div>
+          </div>
+          <div>
+            <label class="field-label">Date of Approval <span class="req">*</span></label>
+            <input type="date" name="appr_date" required class="field-input" style="max-width: 220px;" />
+          </div>
+          <p style="margin-top: 1rem; font-size: 0.75rem; color: var(--color-ash); font-style: italic;">
+            Note: A physical approver signature may be required. Printed form available for download below.
+          </p>
+        </fieldset>
+
+        <!-- ── MAILING ADDRESS ── -->
+        <fieldset style="border: 1px solid var(--color-gunmetal); border-radius: 4px; padding: 1.75rem 2rem; margin-bottom: 2rem; background: var(--color-command);">
+          <legend style="color: var(--color-dragon-gold); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; padding: 0 0.75rem;">Mailing — Send Award / Medal To</legend>
+          <div style="margin-bottom: 1rem;">
+            <label class="field-label">Name <span class="req">*</span></label>
+            <input type="text" name="mail_name" required class="field-input" placeholder="Recipient name" />
+          </div>
+          <div style="margin-bottom: 1rem;">
+            <label class="field-label">Address <span class="req">*</span></label>
+            <input type="text" name="mail_address" required class="field-input" placeholder="Street address" />
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 80px 110px; gap: 1rem;">
+            <div>
+              <label class="field-label">City <span class="req">*</span></label>
+              <input type="text" name="mail_city" required class="field-input" placeholder="City" />
+            </div>
+            <div>
+              <label class="field-label">State <span class="req">*</span></label>
+              <input type="text" name="mail_state" required class="field-input" placeholder="ST" maxlength="2" style="text-transform: uppercase;" />
+            </div>
+            <div>
+              <label class="field-label">Zip <span class="req">*</span></label>
+              <input type="text" name="mail_zip" required class="field-input" placeholder="00000" maxlength="10" />
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- ── SUBMIT ── -->
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: space-between; padding-top: 1rem;">
+          <a href="/ccra/documents/OOD/OOD_Request_Form.pdf" target="_blank" rel="noopener"
+            style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.65rem 1.25rem; background:transparent; border:1px solid var(--color-gunmetal); border-radius:2px; color:var(--color-ash); font-size:0.65rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; transition:all 0.2s;"
+            onmouseover="this.style.borderColor='var(--color-dragon-gold)';this.style.color='var(--color-dragon-gold)'"
+            onmouseout="this.style.borderColor='var(--color-gunmetal)';this.style.color='var(--color-ash)'">
+            <svg style="width:0.85rem;height:0.85rem;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            Download Printable Form
+          </a>
+          <button type="submit" id="submit-btn"
+            style="display:inline-flex; align-items:center; gap:0.6rem; padding:0.8rem 2rem; background:var(--color-dragon-gold); border:none; border-radius:2px; color:#000; font-size:0.75rem; font-weight:800; letter-spacing:0.15em; text-transform:uppercase; cursor:pointer; transition:opacity 0.2s;">
+            <svg style="width:0.9rem;height:0.9rem;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            Submit Nomination
+          </button>
+        </div>
+
+        <!-- Success / Error messages -->
+        <div id="form-success" style="display:none; margin-top:1.5rem; padding:1.25rem 1.5rem; background:rgba(34,197,94,0.1); border:1px solid #22c55e; border-radius:4px;">
+          <p style="color:#86efac; font-size:0.9rem; margin:0;">
+            <strong>Nomination submitted!</strong> Your email client has opened with a pre-filled message to ccramanager@embarqmail.com. Please review and send.
+          </p>
+        </div>
+        <div id="form-error" style="display:none; margin-top:1.5rem; padding:1.25rem 1.5rem; background:rgba(239,68,68,0.1); border:1px solid #ef4444; border-radius:4px;">
+          <p style="color:#fca5a5; font-size:0.9rem; margin:0;" id="error-msg">Please fill in all required fields.</p>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .field-label {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-dragon-gold);
+    margin-bottom: 0.4rem;
+  }
+  .req { color: #ef4444; }
+  .field-input {
+    width: 100%;
+    background: var(--color-bunker);
+    border: 1px solid var(--color-gunmetal);
+    border-radius: 2px;
+    padding: 0.6rem 0.75rem;
+    color: var(--color-ivory);
+    font-size: 0.875rem;
+    line-height: 1.4;
+    outline: none;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+  }
+  .field-input:focus {
+    border-color: var(--color-dragon-gold);
+  }
+  .field-input::placeholder {
+    color: var(--color-steel);
+  }
+  textarea.field-input {
+    font-family: inherit;
+  }
+  @media (max-width: 600px) {
+    fieldset > div[style*="grid-template-columns: 1fr auto"],
+    fieldset > div[style*="grid-template-columns: 1fr 1fr"],
+    fieldset > div[style*="grid-template-columns: auto 1fr"],
+    fieldset > div[style*="grid-template-columns: 1fr 80px 110px"] {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('ood-form') as HTMLFormElement;
+  const successEl = document.getElementById('form-success')!;
+  const errorEl = document.getElementById('form-error')!;
+  const errorMsg = document.getElementById('error-msg')!;
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    errorEl.style.display = 'none';
+    successEl.style.display = 'none';
+
+    // Validate required fields
+    const required = form.querySelectorAll('[required]');
+    let missing: string[] = [];
+    required.forEach((el: Element) => {
+      const input = el as HTMLInputElement;
+      if (input.type === 'radio') {
+        const group = form.querySelectorAll(`[name="${input.name}"]`);
+        const checked = Array.from(group).some(r => (r as HTMLInputElement).checked);
+        if (!checked && !missing.includes(input.name)) missing.push(input.name);
+      } else if (!input.value.trim()) {
+        missing.push(input.labels?.[0]?.textContent?.replace('*','').trim() || input.name);
+      }
+    });
+
+    if (missing.length > 0) {
+      errorMsg.textContent = `Please complete all required fields before submitting.`;
+      errorEl.style.display = 'block';
+      errorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    // Build email body from form data
+    const fd = new FormData(form);
+    const get = (key: string) => (fd.get(key) as string) || '—';
+    const grads = fd.getAll('rec_grad').join(', ') || '—';
+
+    const body = [
+      '=== ORDER OF THE DRAGON NOMINATION/REQUEST FORM ===',
+      '',
+      'AWARD TYPE: ' + get('award_type'),
+      '',
+      '--- NOMINATOR INFORMATION ---',
+      'Rank / Name: ' + get('nom_rank_name'),
+      'Lifetime Member #: ' + get('nom_member_num'),
+      'Unit/Org: ' + get('nom_unit'),
+      'Address: ' + get('nom_address'),
+      'City, State, Zip: ' + get('nom_city_state_zip'),
+      'Phone: ' + get('nom_phone'),
+      'Email: ' + get('nom_email'),
+      '',
+      '--- NOMINEE / RECIPIENT INFORMATION ---',
+      'Rank/Grade: ' + get('rec_rank'),
+      'Name: ' + get('rec_name'),
+      'Current Unit/Organization: ' + get('rec_unit'),
+      'Total Years of Service: ' + get('rec_total_yos'),
+      'Years of Service to Chemical Corps: ' + get('rec_chem_yos'),
+      'Planned Presentation Date: ' + get('rec_present_date'),
+      'Lifetime Member #: ' + get('rec_member_num'),
+      'Graduate of: ' + grads,
+      'Notes: ' + get('rec_notes'),
+      '',
+      '--- CRITERIA CHECKLIST ---',
+      'Nominator, Nominee & Approver are Lifetime Members: ' + get('crit_lifetime'),
+      'Nominee meets highest standards of integrity / CBRN mission: ' + get('crit_integrity'),
+      'Accompanying narrative meets Policy Letter #4 criteria: ' + get('crit_policy'),
+      '',
+      '--- APPROVAL AUTHORITY ---',
+      'Approver Rank / Name: ' + get('appr_rank_name'),
+      'Lifetime Member #: ' + get('appr_member_num'),
+      'Date of Approval: ' + get('appr_date'),
+      '',
+      '--- MAILING ADDRESS ---',
+      'Name: ' + get('mail_name'),
+      'Address: ' + get('mail_address'),
+      'City: ' + get('mail_city'),
+      'State: ' + get('mail_state'),
+      'Zip: ' + get('mail_zip'),
+      '',
+      '=== END OF NOMINATION FORM ===',
+    ].join('\n');
+
+    const subject = encodeURIComponent('OOD Nomination – ' + get('rec_name') + ' – ' + get('award_type'));
+    const bodyEncoded = encodeURIComponent(body);
+    const mailto = `mailto:ccramanager@embarqmail.com?subject=${subject}&body=${bodyEncoded}`;
+
+    window.location.href = mailto;
+    successEl.style.display = 'block';
+    successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+</script>
