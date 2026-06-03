@@ -48,11 +48,41 @@ import Layout from '../layouts/Layout.astro';
           <h2 style="color: var(--color-dragon-gold); font-size: 1.75rem; font-weight: 700; margin-bottom: 0.75rem;">Chemical Corps Hall of Fame</h2>
           <div class="gold-line" style="width: 50px; height: 3px; background: var(--color-dragon-gold); margin-bottom: 1.5rem;"></div>
           <p style="color: var(--color-bone); line-height: 1.8; margin-bottom: 1.25rem;">
-            The Chemical Corps Hall of Fame honors CBRN personnel who have served the Chemical Corps and the Nation with exceptional distinction. This is the highest recognition bestowed by the Chemical Corps Regimental Association.
+            Read the regulation covering the policies and procedures for the nomination, selection, and induction of personnel into the Chemical Corps Hall of Fame (HOF) and designation of the Distinguished Members of the Corps (DMC) and for the maintenance of records pertaining to these actions.
           </p>
           <p style="color: var(--color-bone); line-height: 1.8; margin-bottom: 1.25rem;">
-            Nominees must have been <strong style="color: var(--color-ivory);">retired for a minimum of two years</strong> prior to nomination. Nominations are reviewed by a selection committee and inductees are honored at the annual CCRA ceremony.
+            <strong style="color: var(--color-ivory);">Hall of Fame:</strong> This award is extended to chemical, biological, radiological and nuclear personnel (living or deceased) who spent their professional careers serving the Chemical Corps in an exceptional manner or who performed a significant act of heroism. Nominations are open to military and Department of Defense civilian personnel who have been retired from active federal service for at least 2 years. Their service to the Corps must have been extraordinary.
           </p>
+
+          <!-- 2025 Inductees -->
+          <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--color-gunmetal);">
+            <p style="color: var(--color-dragon-gold); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 1.25rem;">2025 Inductees</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; max-width: 520px;">
+              <div style="text-align: center;">
+                <img src="/ccra/programs/hof/LTG_R_Leslie_Smith.png" alt="LTG (R) Leslie Smith" style="width: 100%; max-width: 200px; aspect-ratio: 1; object-fit: cover; object-position: top; border: 1px solid var(--color-gunmetal); border-radius: 4px; margin-bottom: 0.75rem; display: block; margin-left: auto; margin-right: auto;" />
+                <p style="color: var(--color-ivory); font-weight: 600; font-size: 0.9rem; text-align: center;">LTG (R) Leslie Smith</p>
+                <p style="color: var(--color-dragon-gold); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.2rem; text-align: center;">Hall of Fame Inductee</p>
+              </div>
+              <div style="text-align: center;">
+                <img src="/ccra/programs/hof/CPT_Gary_Campbell.png" alt="CPT Gary Campbell" style="width: 100%; max-width: 200px; aspect-ratio: 1; object-fit: cover; object-position: top; border: 1px solid var(--color-gunmetal); border-radius: 4px; margin-bottom: 0.75rem; display: block; margin-left: auto; margin-right: auto;" />
+                <p style="color: var(--color-ivory); font-weight: 600; font-size: 0.9rem; text-align: center;">CPT Gary Campbell</p>
+                <p style="color: var(--color-dragon-gold); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.2rem; text-align: center;">Hall of Fame Inductee</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Document Buttons -->
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem;">
+            <a href="/ccra/documents/HOF/Hall_of_Fame_2025.pdf" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.65rem 1.25rem; background:rgba(197,163,85,0.1); border:1px solid var(--color-dragon-gold); border-radius:2px; color:var(--color-dragon-gold); font-size:0.65rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(197,163,85,0.2)'" onmouseout="this.style.background='rgba(197,163,85,0.1)'">
+              <svg style="width:0.85rem;height:0.85rem;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              View Hall of Fame Award Recipients
+            </a>
+            <a href="/ccra/documents/2026_HOF_DMC_Call_For_Nominations.pdf" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.65rem 1.25rem; background:transparent; border:1px solid var(--color-gunmetal); border-radius:2px; color:var(--color-bone); font-size:0.65rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.borderColor='var(--color-dragon-gold)';this.style.color='var(--color-dragon-gold)'" onmouseout="this.style.borderColor='var(--color-gunmetal)';this.style.color='var(--color-bone)'">
+              <svg style="width:0.85rem;height:0.85rem;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+              Read the Regulation
+            </a>
+          </div>
+
           <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--color-gunmetal);">
             <div>
               <p style="color: var(--color-dragon-gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem;">Nomination Deadline</p>
@@ -82,14 +112,14 @@ import Layout from '../layouts/Layout.astro';
             <p style="color: var(--color-dragon-gold); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 1.25rem;">2025 Inductees</p>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; max-width: 520px;">
               <div style="text-align: center;">
-                <img src="/ccra/programs/COL_Blaine_Hedges.png" alt="COL (R) Blaine Hedges" style="width: 100%; max-width: 200px; aspect-ratio: 1; object-fit: cover; object-position: top; border: 1px solid var(--color-gunmetal); border-radius: 4px; margin-bottom: 0.75rem;" />
-                <p style="color: var(--color-ivory); font-weight: 600; font-size: 0.9rem;">COL (R) Blaine Hedges</p>
-                <p style="color: var(--color-dragon-gold); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.2rem;">Distinguished Member</p>
+                <img src="/ccra/programs/COL_Blaine_Hedges.png" alt="COL (R) Blaine Hedges" style="width: 100%; max-width: 200px; aspect-ratio: 1; object-fit: cover; object-position: top; border: 1px solid var(--color-gunmetal); border-radius: 4px; margin-bottom: 0.75rem; display: block; margin-left: auto; margin-right: auto;" />
+                <p style="color: var(--color-ivory); font-weight: 600; font-size: 0.9rem; text-align: center;">COL (R) Blaine Hedges</p>
+                <p style="color: var(--color-dragon-gold); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.2rem; text-align: center;">Distinguished Member</p>
               </div>
               <div style="text-align: center;">
-                <img src="/ccra/programs/CSM_Kenneth_Graham.png" alt="SGM (R) Kenneth Graham" style="width: 100%; max-width: 200px; aspect-ratio: 1; object-fit: cover; object-position: top; border: 1px solid var(--color-gunmetal); border-radius: 4px; margin-bottom: 0.75rem;" />
-                <p style="color: var(--color-ivory); font-weight: 600; font-size: 0.9rem;">SGM (R) Kenneth Graham</p>
-                <p style="color: var(--color-dragon-gold); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.2rem;">Distinguished Member</p>
+                <img src="/ccra/programs/CSM_Kenneth_Graham.png" alt="SGM (R) Kenneth Graham" style="width: 100%; max-width: 200px; aspect-ratio: 1; object-fit: cover; object-position: top; border: 1px solid var(--color-gunmetal); border-radius: 4px; margin-bottom: 0.75rem; display: block; margin-left: auto; margin-right: auto;" />
+                <p style="color: var(--color-ivory); font-weight: 600; font-size: 0.9rem; text-align: center;">SGM (R) Kenneth Graham</p>
+                <p style="color: var(--color-dragon-gold); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.2rem; text-align: center;">Distinguished Member</p>
               </div>
             </div>
           </div>
@@ -159,12 +189,32 @@ import Layout from '../layouts/Layout.astro';
         <div class="card-dark" style="background: var(--color-command); border: 1px solid var(--color-gunmetal); border-radius: 8px; padding: 2.5rem;">
           <h2 style="color: var(--color-dragon-gold); font-size: 1.75rem; font-weight: 700; margin-bottom: 0.75rem;">MG William L. Sibert Award</h2>
           <div class="gold-line" style="width: 50px; height: 3px; background: var(--color-dragon-gold); margin-bottom: 1.5rem;"></div>
-          <p style="color: var(--color-bone); line-height: 1.8; margin-bottom: 1.25rem;">
-            Named in honor of Major General William L. Sibert, the first Chief of the Chemical Warfare Service, this prestigious award recognizes the <strong style="color: var(--color-ivory);">best CBRN/CBRNE Company</strong> in the United States Army.
-          </p>
-          <p style="color: var(--color-bone); line-height: 1.8;">
-            Companies are evaluated on their overall readiness, training proficiency, leadership, and mission execution. The Sibert Award represents the highest standard of excellence for CBRN units and serves as a benchmark for company-level performance across the force.
-          </p>
+
+          <!-- Photo + text side by side -->
+          <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start; margin-bottom: 1.25rem;">
+            <div style="flex: 0 0 auto;">
+              <figure style="margin: 0; text-align: center;">
+                <div style="border: 1px solid var(--color-gunmetal); border-radius: 4px; overflow: hidden; width: 180px; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
+                  <img
+                    src="/ccra/programs/William_L_Sibert.jpg"
+                    alt="MG William L. Sibert"
+                    style="width: 180px; height: 220px; object-fit: cover; object-position: top; display: block;"
+                  />
+                  <div style="background: var(--color-bunker); padding: 0.6rem 0.75rem; border-top: 1px solid var(--color-gunmetal);">
+                    <p style="color: var(--color-ivory); font-size: 0.75rem; font-weight: 600; margin: 0; text-align: center;">MG William L. Sibert</p>
+                  </div>
+                </div>
+              </figure>
+            </div>
+            <div style="flex: 1 1 280px;">
+              <p style="color: var(--color-bone); line-height: 1.8; margin-bottom: 1.25rem;">
+                The MG William L. Sibert Award is an award program that gives recognition of excellence to the best Chemical, Biological, Radiological, and Nuclear (CBRN) Company or Chemical, Biological, Radiological, Nuclear, and Explosive (CBRNE) Company in the Active Component (AC), Army National Guard (ARNG), and United States Army Reserve (USAR). The award's objective is to instill pride and reinforce essential elements of mission readiness, leadership, discipline and organizational excellence in a quality force.
+              </p>
+              <p style="color: var(--color-bone); line-height: 1.8;">
+                The US Army Chemical Biological Radiological and Nuclear School (USACBRNS) will select the best CBRN or CBRNE unit from the AC, ARNG and USAR component, in order to recognize the unit with the highest standards of excellence.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 

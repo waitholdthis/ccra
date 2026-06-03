@@ -29,6 +29,7 @@ import Layout from '../layouts/Layout.astro';
           <p style="color: var(--color-dragon-gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Address</p>
           <p style="color: var(--color-bone); line-height: 1.7;">
             Chemical Corps Regimental Association<br>
+            495 S. Dakota Avenue, Bldg 1607<br>
             Fort Leonard Wood, MO 65473
           </p>
         </div>
@@ -137,6 +138,63 @@ import Layout from '../layouts/Layout.astro';
         </form>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ═══ COME VISIT US MAP ═══ -->
+  <section style="background: var(--color-void); padding: 5rem 1.5rem;">
+    <div style="max-width: 1000px; margin: 0 auto;" class="fade-up">
+      <div style="text-align: center; margin-bottom: 2.5rem;">
+        <p class="section-label" style="color: var(--color-dragon-gold); text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.7rem; margin-bottom: 0.75rem;">Fort Leonard Wood, Missouri</p>
+        <h2 class="section-title" style="font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 300; margin-bottom: 1.5rem;">Come Visit Us</h2>
+        <div class="gold-line" style="width: 60px; margin: 0 auto 1.5rem;"></div>
+        <p style="color: var(--color-ash); font-size: 0.95rem; line-height: 1.7;">
+          495 S. Dakota Avenue, Bldg 1607 &nbsp;·&nbsp; Fort Leonard Wood, MO 65473
+        </p>
+      </div>
+
+      <!-- Map embed -->
+      <div style="position: relative; border: 1px solid var(--color-gunmetal); border-radius: 4px; overflow: hidden; box-shadow: 0 0 40px rgba(0,0,0,0.5);">
+        <iframe
+          src="https://maps.google.com/maps?q=495+S+Dakota+Avenue+Fort+Leonard+Wood+MO+65473&output=embed&z=15"
+          width="100%"
+          height="420"
+          style="display:block; border:0; filter: grayscale(30%) contrast(1.05);"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="CCRA Location — 495 S. Dakota Avenue, Bldg 1607, Fort Leonard Wood, MO 65473"
+        ></iframe>
+        <!-- Gold overlay bar at top -->
+        <div style="position:absolute; top:0; left:0; right:0; height:3px; background: linear-gradient(90deg, transparent, var(--color-dragon-gold), transparent);"></div>
+      </div>
+
+      <!-- Address card below map -->
+      <div style="display:flex; flex-wrap:wrap; gap:2rem; margin-top:2rem; padding:1.5rem 2rem; background:var(--color-command); border:1px solid var(--color-gunmetal); border-radius:4px; align-items:center; justify-content:space-between;">
+        <div>
+          <p style="color: var(--color-dragon-gold); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.5rem;">Mailing Address</p>
+          <p style="color: var(--color-bone); font-size: 0.95rem; line-height: 1.7;">
+            Chemical Corps Regimental Association<br>
+            495 S. Dakota Avenue, Bldg 1607<br>
+            Fort Leonard Wood, MO 65473
+          </p>
+        </div>
+        <div>
+          <p style="color: var(--color-dragon-gold); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.5rem;">Phone</p>
+          <p style="color: var(--color-bone); font-size: 0.95rem;">
+            <a href="tel:+15733290600" style="color: var(--color-bone); text-decoration: none;">(573) 329-0600</a>
+          </p>
+        </div>
+        <a
+          href="https://maps.google.com/maps?q=495+S+Dakota+Avenue+Fort+Leonard+Wood+MO+65473"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-ghost"
+          style="flex-shrink:0;"
+        >
+          Get Directions ↗
+        </a>
+      </div>
     </div>
   </section>
 
