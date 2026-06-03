@@ -83,14 +83,13 @@ const orgSchema = JSON.stringify({
       <div class="flex items-center justify-between h-20">
 
         <!-- Logo -->
-        <a href="/ccra/" class="flex items-center gap-3 group">
-          <div class="w-10 h-10 rounded-full border border-[var(--color-dragon-gold)] flex items-center justify-center bg-[rgba(197,163,85,0.08)] group-hover:bg-[rgba(197,163,85,0.15)] transition-all">
-            <span class="text-[var(--color-dragon-gold)] text-lg font-bold">☢</span>
-          </div>
-          <div class="hidden sm:block">
-            <div class="text-[var(--color-ivory)] text-sm font-semibold tracking-wider uppercase">CCRA</div>
-            <div class="text-[var(--color-ash)] text-[0.55rem] tracking-[3px] uppercase">Chemical Corps</div>
-          </div>
+        <a href="/ccra/" class="flex items-center group">
+          <img
+            src="/ccra/ccra-logo.png"
+            alt="Chemical Corps Regimental Association"
+            class="h-12 w-auto opacity-90 group-hover:opacity-100 transition-opacity"
+            style="filter: drop-shadow(0 0 6px rgba(0,0,0,0.8)) brightness(1.1);"
+          />
         </a>
 
         <!-- Desktop Nav -->
@@ -152,13 +151,12 @@ const orgSchema = JSON.stringify({
 
         <!-- Brand -->
         <div>
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 rounded-full border border-[var(--color-dragon-gold)] flex items-center justify-center bg-[rgba(197,163,85,0.08)]">
-              <span class="text-[var(--color-dragon-gold)] text-lg font-bold">☢</span>
-            </div>
-            <div>
-              <div class="text-[var(--color-ivory)] text-sm font-semibold tracking-wider uppercase">CCRA</div>
-            </div>
+          <div class="mb-4">
+            <img
+              src="/ccra/ccra-logo.png"
+              alt="Chemical Corps Regimental Association"
+              class="h-10 w-auto opacity-80"
+            />
           </div>
           <p class="text-[var(--color-ash)] text-sm leading-relaxed">
             Promoting the heritage, history, esprit and professionalism of the United States Army Chemical Corps since 1986.
