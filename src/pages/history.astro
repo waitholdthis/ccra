@@ -7,18 +7,24 @@ const timeline = [
     title: 'Chemical Warfare Service Established',
     description: 'On June 2, 1918, General John J. Pershing established the Chemical Warfare Service in response to Germany\'s devastating use of chemical weapons on the Western Front during World War I. The new service consolidated all chemical warfare activities under a single command.',
     side: 'left',
+    photo: '/ccra/history/GEN_John_J_Pershing.jpg',
+    photoCaption: 'GEN John J. Pershing',
   },
   {
     year: '1920s',
     title: 'Survival & Permanence',
     description: 'The Chemical Warfare Service was nearly eliminated in the post-war drawdown, but advocates fought to preserve the branch. Congress ultimately made it a permanent branch of the United States Army, recognizing the enduring need for chemical defense capabilities.',
     side: 'right',
+    photo: '/ccra/history/Chemical_Warefare_Service.webp',
+    photoCaption: 'Chemical Warfare Service',
   },
   {
     year: '1942–1945',
     title: 'World War II',
     description: 'Chemical Soldiers made critical contributions across every theater — developing 4.2-inch mortar high-explosive rounds, deploying Chemical Smoke Generator Battalions to screen troop movements, employing flame weapons in the Pacific island campaigns, and establishing Camp Detrick for biological warfare research and defense.',
     side: 'left',
+    photo: '/ccra/history/4_2_Chemical_Mortar.jpg',
+    photoCaption: '4.2" Chemical Mortar',
   },
   {
     year: '1946',
@@ -118,7 +124,7 @@ const timeline = [
         {timeline.map((event, i) => (
           <div class={`relative flex items-center mb-20 last:mb-0 fade-up ${event.side === 'left' ? 'justify-start' : 'justify-end'}`}>
 
-            {/* Left-side card */}
+            {/* Left-side card or photo */}
             {event.side === 'left' && (
               <div class="w-[45%] pr-12">
                 <div class="card-dark rounded-sm p-8">
@@ -128,13 +134,27 @@ const timeline = [
                 </div>
               </div>
             )}
+            {event.side === 'right' && event.photo && (
+              <div class="w-[45%] pr-[7.5rem] flex justify-start timeline-photo fade-from-left">
+                <figure style="text-align:center;">
+                  <img
+                    src={event.photo}
+                    alt={event.photoCaption}
+                    style="max-height:320px; width:auto; max-width:100%; object-fit:cover; border:1px solid var(--color-gunmetal); box-shadow: 8px 8px 40px rgba(0,0,0,0.6);"
+                  />
+                  {event.photoCaption && (
+                    <figcaption style="font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--color-ash); margin-top:0.6rem;">{event.photoCaption}</figcaption>
+                  )}
+                </figure>
+              </div>
+            )}
 
             {/* Center dot */}
             <div class="absolute left-1/2 -translate-x-1/2 z-10">
               <div class="timeline-dot"></div>
             </div>
 
-            {/* Right-side card */}
+            {/* Right-side card or photo */}
             {event.side === 'right' && (
               <div class="w-[45%] pl-12">
                 <div class="card-dark rounded-sm p-8">
@@ -142,6 +162,20 @@ const timeline = [
                   <h3 class="text-[var(--color-ivory)] font-semibold text-xl mb-3">{event.title}</h3>
                   <p class="text-[var(--color-ash)] text-sm leading-relaxed">{event.description}</p>
                 </div>
+              </div>
+            )}
+            {event.side === 'left' && event.photo && (
+              <div class="w-[45%] pl-[7.5rem] flex justify-center timeline-photo fade-from-right">
+                <figure style="text-align:center;">
+                  <img
+                    src={event.photo}
+                    alt={event.photoCaption}
+                    style="max-height:320px; width:auto; max-width:100%; object-fit:cover; border:1px solid var(--color-gunmetal); box-shadow: -8px 8px 40px rgba(0,0,0,0.6);"
+                  />
+                  {event.photoCaption && (
+                    <figcaption style="font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--color-ash); margin-top:0.6rem;">{event.photoCaption}</figcaption>
+                  )}
+                </figure>
               </div>
             )}
 
@@ -185,5 +219,36 @@ const timeline = [
       </div>
     </div>
   </section>
+
+<style>
+  .fade-from-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  .fade-from-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .fade-from-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  .fade-from-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-from-right, .fade-from-left').forEach(el => observer.observe(el));
+</script>
 
 </Layout>

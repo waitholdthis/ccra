@@ -1,0 +1,151 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="US Army Chemical Corps Museum" description="The US Army Chemical Corps Museum at Fort Leonard Wood, Missouri — preserving the legacy of the Chemical Regiment.">
+
+  <!-- ═══ HERO ═══ -->
+  <section class="relative h-[60vh] min-h-[420px] flex items-center justify-center overflow-hidden">
+    <div class="hero-overlay absolute inset-0 z-10"></div>
+    <img
+      src="/ccra/museum/Museum.jpg"
+      alt="US Army Chemical Corps Museum"
+      class="absolute inset-0 w-full h-full object-cover object-center"
+      style="filter: brightness(0.55);"
+    />
+    <div class="relative z-20 text-center max-w-4xl mx-auto px-6 fade-up">
+      <p class="section-label mb-4">Fort Leonard Wood, Missouri</p>
+      <h1 class="section-title !text-[clamp(2rem,5vw,3.8rem)] !font-[200] mb-4">
+        US Army Chemical<br/>Corps Museum
+      </h1>
+      <div class="gold-line mx-auto max-w-[60px] mt-6"></div>
+    </div>
+  </section>
+
+  <!-- ═══ INTRO ═══ -->
+  <section class="py-20 lg:py-28 bg-[var(--color-void)]">
+    <div class="max-w-4xl mx-auto px-6 lg:px-12 text-center fade-up">
+      <p class="section-label mb-4">Our Mission</p>
+      <h2 class="section-title mb-6">Preserving the Legacy</h2>
+      <div class="gold-line mx-auto max-w-[60px] mb-8"></div>
+      <p class="text-[var(--color-ash)] text-base leading-relaxed mb-4">
+        The US Army Chemical Corps Museum honors the past, present, and future of the Chemical Regiment — the men and women who have defended the nation against chemical, biological, radiological, and nuclear threats for over a century.
+      </p>
+      <p class="text-[var(--color-ash)] text-base leading-relaxed">
+        Located within the John B. Mahaffey Museum Complex at Fort Leonard Wood, Missouri, the museum is open to the public and free of charge.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ VISIT INFO ═══ -->
+  <section class="py-20 lg:py-28 bg-[var(--color-command)]">
+    <div class="max-w-6xl mx-auto px-6 lg:px-12">
+
+      <div class="text-center mb-14 fade-up">
+        <p class="section-label mb-4">Plan Your Visit</p>
+        <h2 class="section-title">Visitor Information</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Hours -->
+        <div class="card-dark rounded-sm p-8 fade-up">
+          <div class="mb-5">
+            <svg style="width:2rem;height:2rem;color:var(--color-dragon-gold);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-[var(--color-ivory)] font-semibold text-lg mb-4 tracking-wide">Hours of Operation</h3>
+          <div class="space-y-2">
+            <div class="flex justify-between items-center border-b border-[var(--color-steel)] pb-2">
+              <span class="text-[var(--color-ash)] text-sm">Monday – Friday</span>
+              <span class="text-[var(--color-bone)] text-sm font-mono">0800 – 1600</span>
+            </div>
+            <div class="flex justify-between items-center pt-1">
+              <span class="text-[var(--color-ash)] text-sm">Federal Holidays</span>
+              <span class="text-[var(--color-alert-red)] text-sm font-mono tracking-widest">CLOSED</span>
+            </div>
+          </div>
+          <div class="mt-5 pt-4 border-t border-[var(--color-steel)]">
+            <span style="font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--color-dragon-gold);">Admission: Free</span>
+          </div>
+        </div>
+
+        <!-- Location -->
+        <div class="card-dark rounded-sm p-8 fade-up">
+          <div class="mb-5">
+            <svg style="width:2rem;height:2rem;color:var(--color-dragon-gold);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-[var(--color-ivory)] font-semibold text-lg mb-4 tracking-wide">Location</h3>
+          <p class="text-[var(--color-ash)] text-sm leading-relaxed mb-3">
+            John B. Mahaffey Museum Complex<br/>
+            Building 1607<br/>
+            495 S. Dakota Avenue<br/>
+            Fort Leonard Wood, MO 65473
+          </p>
+          <p class="text-[var(--color-ash)] text-xs leading-relaxed" style="color:var(--color-ash);">
+            South of Interstate 44,<br/>between St. Louis and Springfield
+          </p>
+        </div>
+
+        <!-- Contact -->
+        <div class="card-dark rounded-sm p-8 fade-up">
+          <div class="mb-5">
+            <svg style="width:2rem;height:2rem;color:var(--color-dragon-gold);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+          </div>
+          <h3 class="text-[var(--color-ivory)] font-semibold text-lg mb-4 tracking-wide">Contact</h3>
+          <div class="space-y-3">
+            <div>
+              <p style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--color-dragon-gold); margin-bottom:0.25rem;">Phone</p>
+              <a href="tel:5733290600" class="text-[var(--color-bone)] text-sm hover:text-[var(--color-dragon-gold)] transition-colors font-mono">573.329.0600</a>
+            </div>
+            <div>
+              <p style="font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--color-dragon-gold); margin-bottom:0.25rem;">Email</p>
+              <a href="mailto:ccramanager@embarqmail.com" class="text-[var(--color-bone)] text-sm hover:text-[var(--color-dragon-gold)] transition-colors break-all">ccramanager@embarqmail.com</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ MAHAFFEY COMPLEX ═══ -->
+  <section class="py-20 lg:py-28 bg-[var(--color-void)]">
+    <div class="max-w-4xl mx-auto px-6 lg:px-12 fade-up">
+      <div class="text-center mb-10">
+        <p class="section-label mb-4">The Complex</p>
+        <h2 class="section-title mb-6">John B. Mahaffey<br/>Museum Complex</h2>
+        <div class="gold-line mx-auto max-w-[60px] mb-8"></div>
+      </div>
+      <p class="text-[var(--color-ash)] text-base leading-relaxed text-center mb-4">
+        The Chemical Corps Museum is one of several military heritage museums housed within the John B. Mahaffey Museum Complex at Fort Leonard Wood — a facility dedicated to preserving the history of the Army's Engineer, Military Police, and Chemical Corps branches.
+      </p>
+      <p class="text-[var(--color-ash)] text-base leading-relaxed text-center">
+        Open to the general public, the complex provides a unique opportunity to explore the history of these critical Army branches in one location, free of charge.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="py-24 lg:py-32 bg-[var(--color-command)]">
+    <div class="max-w-3xl mx-auto px-6 lg:px-12 text-center fade-up">
+      <p class="section-label mb-4">Support the Mission</p>
+      <h2 class="section-title mb-6">Help Preserve the Legacy</h2>
+      <div class="gold-line mx-auto max-w-[60px] mb-8"></div>
+      <p class="text-[var(--color-ash)] text-base leading-relaxed mb-10">
+        The Chemical Corps Regimental Association is a 501(c)(3) nonprofit dedicated to preserving the legacy of the past, present, and future Chemical Regiment. Your support helps sustain the museum and the programs that serve Dragon Soldiers and their families.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/ccra/membership" class="btn-solid justify-center">Become a Member</a>
+        <a href="/ccra/contact" class="btn-ghost justify-center">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
