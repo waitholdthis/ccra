@@ -1,0 +1,269 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const orgMembers = [
+  // Senior Military Advisor
+  { id: 'sma', name: 'COL Frederick Parker', title: 'Senior Military Advisor', subtitle: 'Commandant', role: 'sma', photo: '/ccra/org-chart/frederick-parker.jpg' },
+
+  // Board of Directors
+  { id: 'chairman', name: 'BRIG/R William King', title: 'Chairman', subtitle: 'Board of Directors', role: 'board', photo: '/ccra/org-chart/william-king.jpg' },
+  { id: 'dir-emeritus', name: 'BRIG/R Pat Nix', title: 'Director Emeritus', subtitle: 'Board of Directors', role: 'board', photo: '/ccra/org-chart/pat-nix.jpg' },
+  { id: 'vice-chairman', name: 'RCSM/R Chris Williams', title: 'Vice Chairman', subtitle: 'Board of Directors', role: 'board', photo: '/ccra/org-chart/chris-williams.jpg' },
+  { id: 'chaplain', name: 'Vacant', title: 'Chaplain', subtitle: 'Board of Directors', role: 'board', photo: '' },
+  { id: 'president', name: 'COL/R Jeff Brooker', title: 'President', subtitle: 'Board of Directors', role: 'board', photo: '/ccra/org-chart/jeff-brooker.jpg' },
+  { id: 'secretary', name: 'Vacant', title: 'Secretary', subtitle: '', role: 'board', photo: '' },
+
+  // Museum Director (Employee)
+  { id: 'museum-dir', name: 'Scott Franklin', title: 'Museum Director', subtitle: '', role: 'sma', photo: '/ccra/org-chart/scott-franklin.jpg' },
+
+  // Officers / Directors
+  { id: 'dir-shirley', name: 'SGM Toby Shirley', title: 'Director', subtitle: '', role: 'officer', photo: '/ccra/org-chart/toby-shirley.jpg' },
+  { id: 'dir-duncan', name: 'COL/R Tom Duncan', title: 'Director', subtitle: '', role: 'officer', photo: '/ccra/org-chart/tom-duncan.jpg' },
+  { id: 'dir-howard', name: 'COL/R Sean Howard', title: 'Director', subtitle: 'VP Chapters & Host Affairs / VP Museum', role: 'officer', photo: '/ccra/org-chart/sean-howard.jpg' },
+  { id: 'dir-gren', name: 'COL/R Jonathan Gren', title: 'Director', subtitle: '', role: 'officer', photo: '/ccra/org-chart/jonathan-gren.jpg' },
+  { id: 'vp-membership', name: 'SGM/R Jorge', title: 'VP Membership', subtitle: '', role: 'officer', photo: '/ccra/org-chart/vp-membership.jpg' },
+  { id: 'dir-ng', name: 'MG/R Joe', title: 'Director', subtitle: 'VP NG/Reserve Affairs', role: 'officer', photo: '/ccra/org-chart/vp-ng.jpg' },
+  { id: 'vp-ng', name: 'Lorenzo Llorente', title: 'VP NG/Reserve Affairs', subtitle: '', role: 'officer', photo: '/ccra/org-chart/lorenzo-llorente.jpg' },
+  { id: 'dir-col', name: 'Vacant', title: 'Notionary COL of the Corps', subtitle: '', role: 'officer', photo: '' },
+
+  // Employees
+  { id: 'biz-mgr', name: 'Shane Wolfe', title: 'Business Manager', subtitle: '', role: 'employee', photo: '/ccra/org-chart/shane-wolfe.jpg' },
+  { id: 'gift-mgr', name: 'Kevin Albrecht', title: 'Gift Shop Manager', subtitle: '', role: 'employee', photo: '/ccra/org-chart/kevin-albrecht.jpg' },
+
+  // Chapters (Current)
+  { id: 'ch-lone-star', name: 'BRIG/R Mike Conner', title: 'Lone Star', subtitle: 'Chapter President', role: 'chapter', photo: '/ccra/org-chart/mike-conner.jpg' },
+  { id: 'ch-jblm', name: 'SGM/R William Garcia', title: 'JBLM', subtitle: 'Chapter President', role: 'chapter', photo: '/ccra/org-chart/william-garcia.jpg' },
+  { id: 'ch-wyvern', name: 'Robert Mo.', title: 'Golden Wyvern', subtitle: 'Chapter President', role: 'chapter', photo: '/ccra/org-chart/golden-wyvern.jpg' },
+  { id: 'ch-watson', name: 'Mike Collins', title: 'MG Gerald G. Watson', subtitle: 'Chapter President', role: 'chapter', photo: '/ccra/org-chart/mike-collins.jpg' },
+  { id: 'ch-spoohr', name: 'Vacant', title: 'LTG Toman W. Spoohr', subtitle: 'Chapter President', role: 'chapter-vacant', photo: '' },
+  { id: 'ch-korea', name: 'Vacant', title: 'Morning Calm (Korea)', subtitle: 'Chapter President', role: 'chapter-vacant', photo: '' },
+  { id: 'ch-ozark', name: 'SGM Dolan', title: 'Ozark', subtitle: 'Chapter President', role: 'chapter', photo: '/ccra/org-chart/ozark-dolan.jpg' },
+  { id: 'ch-bragg', name: 'COL Paul Landry', title: 'Ft Bragg', subtitle: 'Chapter President', role: 'chapter', photo: '/ccra/org-chart/paul-landry.jpg' },
+  { id: 'ch-mountain', name: 'Vacant', title: 'Mountain Warrior', subtitle: 'Chapter President', role: 'chapter-vacant', photo: '' },
+  { id: 'ch-area52', name: 'COL Redman', title: 'Area 52 (Dugway)', subtitle: 'Chapter President', role: 'chapter', photo: '/ccra/org-chart/col-redman.jpg' },
+  { id: 'ch-pirates', name: 'Vacant', title: 'Dragon Pirates', subtitle: 'Chapter President', role: 'chapter-vacant', photo: '' },
+  { id: 'ch-bluegrass', name: 'Vacant', title: 'Bluegrass', subtitle: 'Chapter President', role: 'chapter-vacant', photo: '' },
+  { id: 'ch-midamerica', name: 'MAJ Travis Huber', title: 'Mid-America CRE', subtitle: 'Chapter President', role: 'chapter', photo: '/ccra/org-chart/travis-huber.jpg' },
+  { id: 'ch-hawaii', name: 'COL John Stram', title: 'Hawaii', subtitle: 'Chapter President', role: 'chapter', photo: '/ccra/org-chart/john-stram.jpg' },
+  { id: 'ch-yankee', name: 'COL Paul Landry', title: 'Yankee', subtitle: 'Chapter President', role: 'chapter', photo: '/ccra/org-chart/yankee-landry.jpg' },
+];
+
+const roleColors = {
+  sma:            { bg: '#0d1a2e', border: '#2a5aaa', text: '#7ab8ee', label: 'Senior Military Advisor', dot: '#3a7acc' },
+  board:          { bg: '#2a1f00', border: '#c9a84c', text: '#c9a84c', label: 'Board of Directors',       dot: '#c9a84c' },
+  officer:        { bg: '#2a1400', border: '#d07830', text: '#f0a060', label: 'Officers',                 dot: '#e08840' },
+  employee:       { bg: '#1a1a1a', border: '#5a5a5a', text: '#aaaaaa', label: 'Employees',                dot: '#7a7a7a' },
+  chapter:        { bg: '#0f1f0f', border: '#2a6a2a', text: '#7acd7a', label: 'Chapters (Current)',       dot: '#3a8a3a' },
+  'chapter-vacant': { bg: '#1c1c1c', border: '#aaaaaa', text: '#dddddd', label: 'Chapters (Vacant)',      dot: '#cccccc' },
+};
+---
+
+<Layout title="Organizational Chart" description="CCRA leadership and organizational structure — Chemical Corps Regimental Association.">
+
+  <!-- Page Hero -->
+  <section class="pt-36 pb-16 px-6" style="background: linear-gradient(180deg, var(--color-command) 0%, var(--color-void) 100%); border-bottom: 1px solid var(--color-steel);">
+    <div class="max-w-7xl mx-auto text-center">
+      <p class="section-label mb-4">Leadership</p>
+      <h1 class="section-title mb-4">Organizational Chart</h1>
+      <p style="color: var(--color-ash); font-size: 0.85rem; letter-spacing: 0.05em;">Chemical Corps Regimental Association — Command Structure</p>
+    </div>
+  </section>
+
+  <!-- Chart Section -->
+  <section class="py-16 px-4 md:px-6" style="background: var(--color-void);">
+    <div class="max-w-7xl mx-auto">
+
+      <!-- Legend -->
+      <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mb-12">
+        {Object.entries(roleColors).map(([key, c]) => (
+          <div class="flex items-center gap-2">
+            <span style={`width:10px; height:10px; border-radius:2px; background:${c.dot}; display:inline-block; border:1px solid ${c.border};`}></span>
+            <span style={`font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--color-ash);`}>{c.label}</span>
+          </div>
+        ))}
+      </div>
+
+      <!-- Row 1: SMA + Chairman + Dir Emeritus + Museum Director -->
+      <div class="org-row" style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; margin-bottom:0.5rem;">
+        {orgMembers.filter(m => ['sma','chairman','dir-emeritus','museum-dir'].includes(m.id)).map(m => (
+          <div class="org-card" data-photo={m.photo} data-name={m.name} data-title={m.title}
+            style={`background:${roleColors[m.role].bg}; border:1px solid ${roleColors[m.role].border}; border-radius:4px; padding:0.6rem 0.9rem; min-width:140px; max-width:175px; flex:1; position:relative; cursor:default; transition:box-shadow 0.2s, transform 0.2s;`}>
+            <div style={`font-size:0.6rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:${roleColors[m.role].text}; margin-bottom:0.25rem;`}>{m.title}</div>
+            <div style="font-size:0.72rem; color:var(--color-bone); font-weight:500; line-height:1.3;">{m.name}</div>
+            {m.subtitle && <div style="font-size:0.58rem; color:var(--color-ash); margin-top:0.2rem; letter-spacing:0.05em;">{m.subtitle}</div>}
+            <!-- Photo popup -->
+            <div class="photo-popup" style="display:none; position:absolute; bottom:calc(100% + 8px); left:50%; transform:translateX(-50%); z-index:100; pointer-events:none;">
+              <div style="background:var(--color-command); border:1px solid var(--color-gunmetal); border-radius:6px; padding:8px; box-shadow:0 12px 40px rgba(0,0,0,0.7); text-align:center; min-width:120px;">
+                <img class="popup-img" src="" alt={m.name} style="width:90px; height:90px; object-fit:cover; border-radius:4px; border:1px solid var(--color-steel); display:block; margin:0 auto 6px;" onerror="this.src='/ccra/org-chart/placeholder.svg'" />
+                <div style="font-size:0.6rem; color:var(--color-bone); font-weight:600; white-space:nowrap;">{m.name}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Connector line -->
+      <div style="display:flex; justify-content:center; margin:0 auto; width:2px; height:20px; background:var(--color-gunmetal);"></div>
+
+      <!-- Row 2: Vice Chairman + Chaplain -->
+      <div class="org-row" style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; margin-bottom:0.5rem;">
+        {orgMembers.filter(m => ['vice-chairman','chaplain'].includes(m.id)).map(m => (
+          <div class="org-card" data-photo={m.photo} data-name={m.name} data-title={m.title}
+            style={`background:${roleColors[m.role].bg}; border:1px solid ${roleColors[m.role].border}; border-radius:4px; padding:0.6rem 0.9rem; min-width:140px; max-width:175px; flex:0 0 auto; position:relative; cursor:default; transition:box-shadow 0.2s, transform 0.2s;`}>
+            <div style={`font-size:0.6rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:${roleColors[m.role].text}; margin-bottom:0.25rem;`}>{m.title}</div>
+            <div style="font-size:0.72rem; color:var(--color-bone); font-weight:500; line-height:1.3;">{m.name}</div>
+            <div class="photo-popup" style="display:none; position:absolute; bottom:calc(100% + 8px); left:50%; transform:translateX(-50%); z-index:100; pointer-events:none;">
+              <div style="background:var(--color-command); border:1px solid var(--color-gunmetal); border-radius:6px; padding:8px; box-shadow:0 12px 40px rgba(0,0,0,0.7); text-align:center; min-width:120px;">
+                <img class="popup-img" src="" alt={m.name} style="width:90px; height:90px; object-fit:cover; border-radius:4px; border:1px solid var(--color-steel); display:block; margin:0 auto 6px;" onerror="this.src='/ccra/org-chart/placeholder.svg'" />
+                <div style="font-size:0.6rem; color:var(--color-bone); font-weight:600; white-space:nowrap;">{m.name}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div style="display:flex; justify-content:center; margin:0 auto; width:2px; height:20px; background:var(--color-gunmetal);"></div>
+
+      <!-- Row 3: President -->
+      <div class="org-row" style="display:flex; justify-content:center; gap:1rem; margin-bottom:0.5rem;">
+        {orgMembers.filter(m => m.id === 'president').map(m => (
+          <div class="org-card" data-photo={m.photo} data-name={m.name} data-title={m.title}
+            style={`background:${roleColors[m.role].bg}; border:1px solid ${roleColors[m.role].border}; border-radius:4px; padding:0.6rem 0.9rem; min-width:160px; max-width:200px; position:relative; cursor:default; transition:box-shadow 0.2s, transform 0.2s;`}>
+            <div style={`font-size:0.6rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:${roleColors[m.role].text}; margin-bottom:0.25rem;`}>{m.title}</div>
+            <div style="font-size:0.72rem; color:var(--color-bone); font-weight:500; line-height:1.3;">{m.name}</div>
+            <div class="photo-popup" style="display:none; position:absolute; bottom:calc(100% + 8px); left:50%; transform:translateX(-50%); z-index:100; pointer-events:none;">
+              <div style="background:var(--color-command); border:1px solid var(--color-gunmetal); border-radius:6px; padding:8px; box-shadow:0 12px 40px rgba(0,0,0,0.7); text-align:center; min-width:120px;">
+                <img class="popup-img" src="" alt={m.name} style="width:90px; height:90px; object-fit:cover; border-radius:4px; border:1px solid var(--color-steel); display:block; margin:0 auto 6px;" onerror="this.src='/ccra/org-chart/placeholder.svg'" />
+                <div style="font-size:0.6rem; color:var(--color-bone); font-weight:600; white-space:nowrap;">{m.name}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div style="display:flex; justify-content:center; margin:0 auto; width:2px; height:20px; background:var(--color-gunmetal);"></div>
+
+      <!-- Row 4: Secretary -->
+      <div class="org-row" style="display:flex; justify-content:center; gap:1rem; margin-bottom:0.5rem;">
+        {orgMembers.filter(m => m.id === 'secretary').map(m => (
+          <div class="org-card" data-photo={m.photo} data-name={m.name} data-title={m.title}
+            style={`background:${roleColors[m.role].bg}; border:1px solid ${roleColors[m.role].border}; border-radius:4px; padding:0.6rem 0.9rem; min-width:140px; max-width:175px; position:relative; cursor:default; transition:box-shadow 0.2s, transform 0.2s;`}>
+            <div style={`font-size:0.6rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:${roleColors[m.role].text}; margin-bottom:0.25rem;`}>{m.title}</div>
+            <div style="font-size:0.72rem; color:var(--color-bone); font-weight:500; line-height:1.3;">{m.name}</div>
+            <div class="photo-popup" style="display:none; position:absolute; bottom:calc(100% + 8px); left:50%; transform:translateX(-50%); z-index:100; pointer-events:none;">
+              <div style="background:var(--color-command); border:1px solid var(--color-gunmetal); border-radius:6px; padding:8px; box-shadow:0 12px 40px rgba(0,0,0,0.7); text-align:center; min-width:120px;">
+                <img class="popup-img" src="" alt={m.name} style="width:90px; height:90px; object-fit:cover; border-radius:4px; border:1px solid var(--color-steel); display:block; margin:0 auto 6px;" onerror="this.src='/ccra/org-chart/placeholder.svg'" />
+                <div style="font-size:0.6rem; color:var(--color-bone); font-weight:600; white-space:nowrap;">{m.name}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div style="display:flex; justify-content:center; margin:0 auto; width:2px; height:20px; background:var(--color-gunmetal);"></div>
+
+      <!-- Row 5: Directors -->
+      <div class="org-row" style="display:flex; justify-content:center; gap:0.75rem; flex-wrap:wrap; margin-bottom:0.5rem;">
+        {orgMembers.filter(m => ['dir-shirley','dir-duncan','dir-howard','dir-gren','vp-membership','dir-ng','vp-ng','dir-col'].includes(m.id)).map(m => (
+          <div class="org-card" data-photo={m.photo} data-name={m.name} data-title={m.title}
+            style={`background:${roleColors[m.role].bg}; border:1px solid ${roleColors[m.role].border}; border-radius:4px; padding:0.55rem 0.75rem; min-width:120px; max-width:155px; flex:1; position:relative; cursor:default; transition:box-shadow 0.2s, transform 0.2s;`}>
+            <div style={`font-size:0.55rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:${roleColors[m.role].text}; margin-bottom:0.2rem;`}>{m.title}</div>
+            <div style="font-size:0.68rem; color:var(--color-bone); font-weight:500; line-height:1.3;">{m.name}</div>
+            {m.subtitle && <div style="font-size:0.55rem; color:var(--color-ash); margin-top:0.2rem; letter-spacing:0.03em; line-height:1.3;">{m.subtitle}</div>}
+            <div class="photo-popup" style="display:none; position:absolute; bottom:calc(100% + 8px); left:50%; transform:translateX(-50%); z-index:100; pointer-events:none;">
+              <div style="background:var(--color-command); border:1px solid var(--color-gunmetal); border-radius:6px; padding:8px; box-shadow:0 12px 40px rgba(0,0,0,0.7); text-align:center; min-width:120px;">
+                <img class="popup-img" src="" alt={m.name} style="width:90px; height:90px; object-fit:cover; border-radius:4px; border:1px solid var(--color-steel); display:block; margin:0 auto 6px;" onerror="this.src='/ccra/org-chart/placeholder.svg'" />
+                <div style="font-size:0.6rem; color:var(--color-bone); font-weight:600; white-space:nowrap;">{m.name}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div style="display:flex; justify-content:center; margin:0 auto; width:2px; height:20px; background:var(--color-gunmetal);"></div>
+
+      <!-- Row 6: Business Manager + Gift Shop Manager -->
+      <div class="org-row" style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; margin-bottom:0.5rem;">
+        {orgMembers.filter(m => ['biz-mgr','gift-mgr'].includes(m.id)).map(m => (
+          <div class="org-card" data-photo={m.photo} data-name={m.name} data-title={m.title}
+            style={`background:${roleColors[m.role].bg}; border:1px solid ${roleColors[m.role].border}; border-radius:4px; padding:0.6rem 0.9rem; min-width:140px; max-width:175px; position:relative; cursor:default; transition:box-shadow 0.2s, transform 0.2s;`}>
+            <div style={`font-size:0.6rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:${roleColors[m.role].text}; margin-bottom:0.25rem;`}>{m.title}</div>
+            <div style="font-size:0.72rem; color:var(--color-bone); font-weight:500; line-height:1.3;">{m.name}</div>
+            <div class="photo-popup" style="display:none; position:absolute; bottom:calc(100% + 8px); left:50%; transform:translateX(-50%); z-index:100; pointer-events:none;">
+              <div style="background:var(--color-command); border:1px solid var(--color-gunmetal); border-radius:6px; padding:8px; box-shadow:0 12px 40px rgba(0,0,0,0.7); text-align:center; min-width:120px;">
+                <img class="popup-img" src="" alt={m.name} style="width:90px; height:90px; object-fit:cover; border-radius:4px; border:1px solid var(--color-steel); display:block; margin:0 auto 6px;" onerror="this.src='/ccra/org-chart/placeholder.svg'" />
+                <div style="font-size:0.6rem; color:var(--color-bone); font-weight:600; white-space:nowrap;">{m.name}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Divider -->
+      <div style="margin: 2rem 0; height:1px; background:linear-gradient(90deg, transparent, var(--color-steel), transparent);"></div>
+
+      <!-- Row 7: Chapters -->
+      <div style="text-align:center; margin-bottom:1rem;">
+        <span style="font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--color-ash);">Local Chapters</span>
+      </div>
+      <div class="org-row" style="display:flex; justify-content:center; gap:0.75rem; flex-wrap:wrap;">
+        {orgMembers.filter(m => m.role === 'chapter').map(m => (
+          <div class="org-card" data-photo={m.photo} data-name={m.name} data-title={m.title}
+            style={`background:${roleColors[m.role].bg}; border:1px solid ${roleColors[m.role].border}; border-radius:4px; padding:0.55rem 0.75rem; min-width:110px; max-width:145px; flex:1; position:relative; cursor:default; transition:box-shadow 0.2s, transform 0.2s;`}>
+            <div style={`font-size:0.55rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:${roleColors[m.role].text}; margin-bottom:0.2rem; line-height:1.3;`}>{m.title}</div>
+            <div style="font-size:0.65rem; color:var(--color-bone); font-weight:500; line-height:1.3;">{m.name}</div>
+            {m.subtitle && <div style="font-size:0.55rem; color:var(--color-ash); margin-top:0.15rem;">{m.subtitle}</div>}
+            <div class="photo-popup" style="display:none; position:absolute; bottom:calc(100% + 8px); left:50%; transform:translateX(-50%); z-index:100; pointer-events:none;">
+              <div style="background:var(--color-command); border:1px solid var(--color-gunmetal); border-radius:6px; padding:8px; box-shadow:0 12px 40px rgba(0,0,0,0.7); text-align:center; min-width:120px;">
+                <img class="popup-img" src="" alt={m.name} style="width:90px; height:90px; object-fit:cover; border-radius:4px; border:1px solid var(--color-steel); display:block; margin:0 auto 6px;" onerror="this.src='/ccra/org-chart/placeholder.svg'" />
+                <div style="font-size:0.6rem; color:var(--color-bone); font-weight:600; white-space:nowrap;">{m.name}</div>
+                <div style="font-size:0.55rem; color:var(--color-ash);">{m.title}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- View full image link -->
+      <div class="text-center mt-12">
+        <a href="/ccra/CCRA_Org_Chart.png" target="_blank" class="btn-ghost" style="font-size:0.65rem;">
+          View Full Chart Image
+          <svg style="width:0.75rem;height:0.75rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+</Layout>
+
+<!-- Placeholder SVG for missing photos -->
+<script>
+  // Create inline placeholder SVG data URL for missing photos
+  const placeholderSvg = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewBox='0 0 90 90'%3E%3Crect width='90' height='90' fill='%231a1a1a'/%3E%3Ccircle cx='45' cy='32' r='16' fill='%232a2a2a'/%3E%3Cellipse cx='45' cy='75' rx='26' ry='20' fill='%232a2a2a'/%3E%3C/svg%3E`;
+
+  document.querySelectorAll('.org-card').forEach(card => {
+    const photo = card.dataset.photo;
+    const popup = card.querySelector('.photo-popup');
+    const img = card.querySelector('.popup-img');
+
+    // Only show popup for non-vacant members with photos
+    const isVacant = card.dataset.name === 'Vacant';
+
+    card.addEventListener('mouseenter', () => {
+      if (isVacant) return;
+      if (img) {
+        img.src = photo && photo !== '' ? photo : placeholderSvg;
+        img.onerror = () => { img.src = placeholderSvg; };
+      }
+      popup.style.display = 'block';
+      card.style.transform = 'translateY(-2px)';
+      card.style.boxShadow = '0 8px 24px rgba(0,0,0,0.4)';
+    });
+    card.addEventListener('mouseleave', () => {
+      popup.style.display = 'none';
+      card.style.transform = '';
+      card.style.boxShadow = '';
+    });
+  });
+</script>
