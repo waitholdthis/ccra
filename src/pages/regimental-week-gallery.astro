@@ -1,0 +1,168 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const photos = [
+  { src: '/ccra/regimental-week/1.jpg', caption: 'Regimental Week 2026' },
+  { src: '/ccra/regimental-week/2.jpg', caption: 'Regimental Week 2026' },
+  { src: '/ccra/regimental-week/3.jpg', caption: 'Regimental Week 2026' },
+  { src: '/ccra/regimental-week/4.jpg', caption: 'Regimental Week 2026' },
+  { src: '/ccra/regimental-week/5.jpg', caption: 'Regimental Week 2026' },
+  { src: '/ccra/regimental-week/6.jpg', caption: 'Regimental Week 2026' },
+  { src: '/ccra/regimental-week/7.jpg', caption: 'Regimental Week 2026' },
+  { src: '/ccra/regimental-week/8.jpg', caption: 'Regimental Week 2026' },
+  { src: '/ccra/regimental-week/9.jpg', caption: 'Regimental Week 2026' },
+  { src: '/ccra/regimental-week/10.jpg', caption: 'Regimental Week 2026' },
+];
+---
+
+<Layout title="Regimental Week 2026 Gallery | CCRA">
+
+  <!-- HERO -->
+  <section style="background: var(--color-void); padding: 5rem 1.5rem 3rem; text-align: center;">
+    <div style="max-width: 800px; margin: 0 auto;" class="fade-up">
+      <p class="section-label" style="color: var(--color-dragon-gold); text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.875rem; margin-bottom: 0.75rem;">Regimental Week 2026</p>
+      <h1 class="section-title" style="color: var(--color-ivory); font-size: 3rem; font-weight: 700; margin-bottom: 1rem;">Photo Gallery</h1>
+      <div class="gold-line" style="width: 80px; height: 3px; background: var(--color-dragon-gold); margin: 0 auto 1.5rem;"></div>
+      <p style="color: var(--color-ash); font-size: 1.1rem; line-height: 1.7; max-width: 580px; margin: 0 auto;">
+        Highlights from Regimental Week 2026 — Dragon Soldiers, ceremonies, competitions, and camaraderie.
+      </p>
+    </div>
+  </section>
+
+  <!-- CAROUSEL -->
+  <section style="background: var(--color-bunker); padding: 3rem 1.5rem 5rem;">
+    <div style="max-width: 900px; margin: 0 auto;">
+
+      <div id="carousel" style="position: relative; user-select: none;">
+
+        <!-- Main image display -->
+        <div style="position: relative; background: var(--color-void); border: 1px solid var(--color-gunmetal); border-radius: 6px; overflow: hidden; box-shadow: 0 0 60px rgba(0,0,0,0.6);">
+          <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--color-dragon-gold), transparent); z-index: 2;"></div>
+          <img
+            id="carousel-img"
+            src={photos[0].src}
+            alt={photos[0].caption}
+            style="width: 100%; max-height: 600px; object-fit: contain; display: block; transition: opacity 0.35s ease;"
+          />
+          <!-- Caption -->
+          <div id="carousel-caption" style="padding: 1rem 1.5rem; background: var(--color-command); border-top: 1px solid var(--color-gunmetal); text-align: center;">
+            <p style="color: var(--color-ash); font-size: 0.85rem; line-height: 1.6; margin: 0;">{photos[0].caption}</p>
+          </div>
+        </div>
+
+        <!-- Prev / Next buttons -->
+        <button id="prev-btn" aria-label="Previous" style="position: absolute; top: 50%; left: -1.5rem; transform: translateY(-50%); width: 3rem; height: 3rem; border-radius: 50%; background: var(--color-command); border: 1px solid var(--color-gunmetal); color: var(--color-bone); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: border-color 0.2s, color 0.2s; z-index: 3;">
+          <svg style="width:1.1rem;height:1.1rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <button id="next-btn" aria-label="Next" style="position: absolute; top: 50%; right: -1.5rem; transform: translateY(-50%); width: 3rem; height: 3rem; border-radius: 50%; background: var(--color-command); border: 1px solid var(--color-gunmetal); color: var(--color-bone); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: border-color 0.2s, color 0.2s; z-index: 3;">
+          <svg style="width:1.1rem;height:1.1rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
+
+        <!-- Dots -->
+        <div id="dots" style="display: flex; justify-content: center; gap: 0.5rem; margin-top: 1.25rem;">
+          {photos.map((_, i) => (
+            <button
+              class="dot"
+              data-index={i}
+              aria-label={`Go to photo ${i + 1}`}
+              style={`width: 10px; height: 10px; border-radius: 50%; border: none; cursor: pointer; background: ${i === 0 ? 'var(--color-dragon-gold)' : 'var(--color-gunmetal)'}; transition: background 0.2s;`}
+            ></button>
+          ))}
+        </div>
+
+        <!-- Counter -->
+        <p id="counter" style="text-align: center; color: var(--color-ash); font-size: 0.75rem; margin-top: 0.75rem; letter-spacing: 0.1em;">
+          1 / {photos.length}
+        </p>
+      </div>
+
+      <!-- Thumbnail strip -->
+      <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin-top: 2rem;">
+        {photos.map((photo, i) => (
+          <button
+            class="thumb-btn"
+            data-index={i}
+            style={`padding: 0; border: 2px solid ${i === 0 ? 'var(--color-dragon-gold)' : 'var(--color-gunmetal)'}; border-radius: 4px; overflow: hidden; cursor: pointer; background: none; transition: border-color 0.2s; width: 100px; height: 70px; flex-shrink: 0;`}
+          >
+            <img src={photo.src} alt={photo.caption} style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+          </button>
+        ))}
+      </div>
+
+      <!-- Back link -->
+      <div style="text-align: center; margin-top: 3rem;">
+        <a href="/ccra/regimental-week" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--color-ash); font-size: 0.8rem; text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; transition: color 0.2s;" onmouseover="this.style.color='var(--color-dragon-gold)'" onmouseout="this.style.color='var(--color-ash)'">
+          <svg style="width:0.85rem;height:0.85rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+          Back to Regimental Week
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  const photos = [
+    { src: '/ccra/regimental-week/1.jpg', caption: 'Regimental Week 2026' },
+    { src: '/ccra/regimental-week/2.jpg', caption: 'Regimental Week 2026' },
+    { src: '/ccra/regimental-week/3.jpg', caption: 'Regimental Week 2026' },
+    { src: '/ccra/regimental-week/4.jpg', caption: 'Regimental Week 2026' },
+    { src: '/ccra/regimental-week/5.jpg', caption: 'Regimental Week 2026' },
+    { src: '/ccra/regimental-week/6.jpg', caption: 'Regimental Week 2026' },
+    { src: '/ccra/regimental-week/7.jpg', caption: 'Regimental Week 2026' },
+    { src: '/ccra/regimental-week/8.jpg', caption: 'Regimental Week 2026' },
+    { src: '/ccra/regimental-week/9.jpg', caption: 'Regimental Week 2026' },
+    { src: '/ccra/regimental-week/10.jpg', caption: 'Regimental Week 2026' },
+  ];
+
+  let current = 0;
+  let autoTimer: ReturnType<typeof setInterval>;
+
+  const img = document.getElementById('carousel-img') as HTMLImageElement;
+  const caption = document.getElementById('carousel-caption')?.querySelector('p');
+  const counter = document.getElementById('counter');
+  const dots = document.querySelectorAll('.dot');
+  const thumbs = document.querySelectorAll('.thumb-btn');
+
+  function goTo(index: number) {
+    current = (index + photos.length) % photos.length;
+
+    img.style.opacity = '0';
+    setTimeout(() => {
+      img.src = photos[current].src;
+      img.alt = photos[current].caption;
+      if (caption) caption.textContent = photos[current].caption;
+      if (counter) counter.textContent = `${current + 1} / ${photos.length}`;
+      img.style.opacity = '1';
+    }, 175);
+
+    dots.forEach((d, i) => {
+      (d as HTMLElement).style.background = i === current ? 'var(--color-dragon-gold)' : 'var(--color-gunmetal)';
+    });
+    thumbs.forEach((t, i) => {
+      (t as HTMLElement).style.borderColor = i === current ? 'var(--color-dragon-gold)' : 'var(--color-gunmetal)';
+    });
+
+    resetTimer();
+  }
+
+  function resetTimer() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(() => goTo(current + 1), 5000);
+  }
+
+  document.getElementById('prev-btn')?.addEventListener('click', () => goTo(current - 1));
+  document.getElementById('next-btn')?.addEventListener('click', () => goTo(current + 1));
+  dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+  thumbs.forEach((t, i) => t.addEventListener('click', () => goTo(i)));
+
+  // Hover on prev/next buttons
+  ['prev-btn','next-btn'].forEach(id => {
+    const btn = document.getElementById(id);
+    btn?.addEventListener('mouseenter', () => { btn.style.borderColor = 'var(--color-dragon-gold)'; btn.style.color = 'var(--color-dragon-gold)'; });
+    btn?.addEventListener('mouseleave', () => { btn.style.borderColor = 'var(--color-gunmetal)'; btn.style.color = 'var(--color-bone)'; });
+  });
+
+  resetTimer();
+</script>
