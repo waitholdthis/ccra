@@ -74,9 +74,15 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6 fade-up">
-        {['Dawson', 'Teledyne FLIR', 'Precision Proposals', 'Rigaku'].map((name) => (
-          <div class="card-dark p-6 flex items-center justify-center min-h-[100px]">
-            <span class="text-[var(--color-smoke)] text-sm font-semibold tracking-wider uppercase text-center">{name}</span>
+        {[
+          { name: 'Dawson', src: '/ccra/partners/dawson.png' },
+          { name: 'Teledyne FLIR', src: '/ccra/partners/teledyne-flir.png' },
+          { name: 'Precision Proposals', src: '/ccra/partners/precision-proposals.png' },
+          { name: 'Rigaku Analytical Devices', src: '/ccra/partners/rigaku-analytical-devices.jpg' },
+        ].map((org) => (
+          <div class="card-dark p-6 flex flex-col items-center justify-center gap-3 min-h-[120px]">
+            <img src={org.src} alt={org.name} style="max-height: 60px; max-width: 100%; object-fit: contain; filter: brightness(0) invert(1);" onerror="this.style.display='none'" />
+            <span class="text-[var(--color-ash)] text-xs font-semibold tracking-wider uppercase text-center">{org.name}</span>
           </div>
         ))}
       </div>

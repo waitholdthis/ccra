@@ -210,6 +210,34 @@ const partnerAsset = (src: string) => `${assetBase}${src}`;
 
 
   <!-- ═══════════════════════════════════════════════════════════════════
+       UPCOMING EVENTS (live from ccrassn.org)
+       ═══════════════════════════════════════════════════════════════════ -->
+  <section class="py-24 lg:py-32" style="background-color: var(--color-command);">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="text-center mb-14 fade-up">
+        <span class="section-label">Upcoming Events</span>
+        <h2 class="section-title">Events</h2>
+        <div class="gold-line mx-auto mt-6"></div>
+      </div>
+
+      <div id="events-list" class="max-w-3xl mx-auto space-y-4 fade-up">
+        <!-- Loading state -->
+        <div id="events-loading" style="text-align:center; padding: 2rem; color: var(--color-ash); font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;">
+          Loading events...
+        </div>
+      </div>
+
+      <div class="text-center mt-10 fade-up">
+        <a href="https://www.ccrassn.org/events/" target="_blank" rel="noopener noreferrer" class="btn-ghost" style="display:inline-flex; align-items:center; gap:0.5rem;">
+          View All Events
+          <svg style="width:0.85rem;height:0.85rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════
        BEST CBRN WARRIOR SUPPORTERS + CORPORATE MEMBERS
        ═══════════════════════════════════════════════════════════════════ -->
   <section class="py-24 lg:py-32" style="background-color: var(--color-bunker);">
@@ -299,6 +327,61 @@ const partnerAsset = (src: string) => `${assetBase}${src}`;
 </Layout>
 
 <script>
+  // Live events from ccrassn.org API
+  async function loadEvents() {
+    const list = document.getElementById('events-list');
+    const loading = document.getElementById('events-loading');
+    try {
+      const res = await fetch('https://www.ccrassn.org/wp-json/tribe/events/v1/events?per_page=10&status=publish', {
+        headers: { 'Accept': 'application/json' }
+      });
+      if (!res.ok) throw new Error('fetch failed');
+      const data = await res.json();
+      const events = Array.isArray(data) ? data : (data.events || []);
+      if (loading) loading.remove();
+
+      if (!events.length) {
+        list!.innerHTML = '<p style="text-align:center;color:var(--color-ash);font-size:0.9rem;">No upcoming events found.</p>';
+        return;
+      }
+
+      const months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+      events.forEach((ev: any) => {
+        const start = new Date(ev.start_date);
+        const end = new Date(ev.end_date);
+        const mon = months[start.getMonth()];
+        const day = start.getDate();
+        const venue = ev.venue ? [ev.venue.venue, ev.venue.city, ev.venue.stateprovince].filter(Boolean).join(', ') : '';
+        const timeStr = start.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }) +
+          (end.getTime() !== start.getTime() ? ' – ' + end.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }) : '');
+
+        const card = document.createElement('a');
+        card.href = ev.url || 'https://www.ccrassn.org/events/';
+        card.target = '_blank';
+        card.rel = 'noopener noreferrer';
+        card.style.cssText = 'display:flex; align-items:flex-start; gap:1.5rem; padding:1.5rem; border-radius:2px; border:1px solid rgba(191,163,80,0.15); background:rgba(191,163,80,0.03); text-decoration:none; transition:border-color 0.2s, background 0.2s;';
+        card.onmouseenter = () => { card.style.borderColor = 'rgba(191,163,80,0.4)'; card.style.background = 'rgba(191,163,80,0.06)'; };
+        card.onmouseleave = () => { card.style.borderColor = 'rgba(191,163,80,0.15)'; card.style.background = 'rgba(191,163,80,0.03)'; };
+
+        card.innerHTML = `
+          <div style="flex-shrink:0;width:64px;height:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid var(--color-dragon-gold);background:rgba(197,163,85,0.06);">
+            <span style="color:var(--color-dragon-gold);font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;">${mon}</span>
+            <span style="color:var(--color-ivory);font-size:1.6rem;font-weight:900;line-height:1;">${day}</span>
+          </div>
+          <div style="flex:1;">
+            <h3 style="color:var(--color-ivory);font-weight:600;font-size:1rem;margin-bottom:0.3rem;">${ev.title}</h3>
+            <p style="color:var(--color-bone);font-size:0.85rem;margin:0;">${timeStr}${venue ? ' &nbsp;·&nbsp; ' + venue : ''}</p>
+          </div>
+          <svg style="flex-shrink:0;width:1rem;height:1rem;color:var(--color-dragon-gold);align-self:center;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        `;
+        list!.appendChild(card);
+      });
+    } catch {
+      if (loading) loading.textContent = 'Unable to load events. Visit ccrassn.org/events for the latest.';
+    }
+  }
+  loadEvents();
+
   // Intersection Observer for fade-up animations
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
