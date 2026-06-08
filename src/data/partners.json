@@ -70,9 +70,9 @@
     },
     {
       "name": "Columbia Southern University",
-      "src": "partners/columbia-southern-university.png",
-      "source": "https://www.ccrassn.org/wp-content/uploads/2025/12/Columb-South-Logo.png",
-      "bytes": 13369
+      "src": "partners/columbia-southern-university.jpg",
+      "source": "local",
+      "bytes": 0
     },
     {
       "name": "Battelle",

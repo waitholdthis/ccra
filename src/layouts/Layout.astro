@@ -84,13 +84,13 @@ const orgSchema = JSON.stringify({
       <div class="flex items-center justify-between h-20">
 
         <!-- Logo -->
-        <a href="/ccra/" class="flex items-center group" aria-label="Chemical Corps Regimental Association home">
+        <a href="/ccra/" class="flex items-center group ml-4" aria-label="Chemical Corps Regimental Association home">
           <img
             src="/ccra/brand/ccra-logo-text-111.jpg"
             width="342"
             height="111"
             alt="Chemical Corps Regimental Association Logo"
-            class="h-9 w-auto rounded-sm bg-white p-1 opacity-95 shadow-[0_0_18px_rgba(0,0,0,0.55)] transition-opacity group-hover:opacity-100"
+            class="h-11 w-auto rounded-sm bg-white p-1 opacity-95 shadow-[0_0_18px_rgba(0,0,0,0.55)] transition-opacity group-hover:opacity-100"
           />
         </a>
 
@@ -130,6 +130,7 @@ const orgSchema = JSON.stringify({
             <div class="nav-dropdown-menu" style="display: none; position: absolute; top: calc(100% + 0.75rem); left: 50%; transform: translateX(-50%); min-width: 180px; background: var(--color-command); border: 1px solid var(--color-gunmetal); border-radius: 6px; padding: 0.5rem 0; box-shadow: 0 8px 30px rgba(0,0,0,0.5); z-index: 60;">
               <a href="/ccra/programs" style="display: block; padding: 0.6rem 1.25rem; color: var(--color-bone); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; text-decoration: none; transition: all 0.2s; white-space: nowrap;" onmouseover="this.style.color='var(--color-dragon-gold)';this.style.background='rgba(197,163,85,0.06)'" onmouseout="this.style.color='var(--color-bone)';this.style.background='transparent'">Programs</a>
               <a href="/ccra/regimental-week" style="display: block; padding: 0.6rem 1.25rem; color: var(--color-bone); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; text-decoration: none; transition: all 0.2s; white-space: nowrap;" onmouseover="this.style.color='var(--color-dragon-gold)';this.style.background='rgba(197,163,85,0.06)'" onmouseout="this.style.color='var(--color-bone)';this.style.background='transparent'">Regimental Week</a>
+              <a href="https://home.army.mil/wood/units-tenants/USACBRNS/CBRN_units/HQs/SLMP" target="_blank" rel="noopener noreferrer" style="display: block; padding: 0.6rem 1.25rem; color: var(--color-bone); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; text-decoration: none; transition: all 0.2s; white-space: nowrap;" onmouseover="this.style.color='var(--color-dragon-gold)';this.style.background='rgba(197,163,85,0.06)'" onmouseout="this.style.color='var(--color-bone)';this.style.background='transparent'">Mentorship</a>
             </div>
           </div>
           <a href="/ccra/news" class={`nav-link ${currentPath === '/ccra/news/' || currentPath === '/ccra/news' ? 'active' : ''}`}>News</a>
@@ -164,6 +165,7 @@ const orgSchema = JSON.stringify({
         <a href="/ccra/corps-history" class="nav-link" style="padding-left: 1rem; font-size: 0.8rem;">↳ Chemical Corps History</a>
         <a href="/ccra/programs" class="nav-link">Programs</a>
         <a href="/ccra/regimental-week" class="nav-link" style="padding-left: 1rem; font-size: 0.8rem;">↳ Regimental Week</a>
+        <a href="https://home.army.mil/wood/units-tenants/USACBRNS/CBRN_units/HQs/SLMP" target="_blank" rel="noopener noreferrer" class="nav-link" style="padding-left: 1rem; font-size: 0.8rem;">↳ Mentorship</a>
         <a href="/ccra/news" class="nav-link">News</a>
         <a href="/ccra/giftshop" class="nav-link">Gift Shop</a>
         <a href="/ccra/contact" class="nav-link">Contact</a>

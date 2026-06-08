@@ -40,6 +40,9 @@ import Layout from '../layouts/Layout.astro';
         <button class="tab-btn" data-tab="scholarships" style="background: none; border: none; padding: 0.75rem 1.25rem; color: var(--color-ash); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.08em; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all 0.2s;">
           Scholarships
         </button>
+        <button class="tab-btn" data-tab="learning-partner" style="background: none; border: none; padding: 0.75rem 1.25rem; color: var(--color-ash); font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.08em; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all 0.2s;">
+          Learning Partner
+        </button>
       </div>
 
       <!-- HALL OF FAME -->
@@ -246,6 +249,42 @@ import Layout from '../layouts/Layout.astro';
           <p style="color: var(--color-bone); line-height: 1.8;">
             Competitors are evaluated on their mastery of CBRN fundamentals, physical fitness, leadership ability, and tactical proficiency. The competition fosters excellence and readiness among the enlisted ranks of the Chemical Corps, ensuring the highest standards of professional competence.
           </p>
+        </div>
+      </div>
+
+      <!-- LEARNING PARTNER -->
+      <div class="tab-panel" id="learning-partner" style="display: none;">
+        <div class="card-dark" style="background: var(--color-command); border: 1px solid var(--color-gunmetal); border-radius: 8px; padding: 2.5rem;">
+          <h2 style="color: var(--color-dragon-gold); font-size: 1.75rem; font-weight: 700; margin-bottom: 0.75rem;">Learning Partner</h2>
+          <div class="gold-line" style="width: 50px; height: 3px; background: var(--color-dragon-gold); margin-bottom: 1.5rem;"></div>
+
+          <!-- Columbia Southern logo/image -->
+          <div style="display: flex; flex-wrap: wrap; gap: 2.5rem; align-items: flex-start; margin-bottom: 2rem;">
+            <div style="flex: 0 0 auto;">
+              <img
+                src="/ccra/programs/Columbia_Southern.jpg"
+                alt="Columbia Southern University"
+                style="width: 200px; border-radius: 4px; border: 1px solid var(--color-gunmetal); display: block;"
+                onerror="this.style.display='none'"
+              />
+            </div>
+            <div style="flex: 1 1 280px;">
+              <p style="color: var(--color-bone); line-height: 1.8; margin-bottom: 1.25rem;">
+                The CCRA is proud to partner with <strong style="color: var(--color-ivory);">Columbia Southern University</strong> to provide educational opportunities for Chemical Corps Soldiers, veterans, and their families.
+              </p>
+              <p style="color: var(--color-bone); line-height: 1.8;">
+                Columbia Southern University offers flexible, affordable online degree programs designed to fit the demanding schedules of military service members and veterans. Take advantage of this partnership to advance your education and career.
+              </p>
+            </div>
+          </div>
+
+          <!-- Document button -->
+          <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--color-gunmetal);">
+            <a href="/ccra/documents/Columbia_Southern_Flyer.pdf" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:0.5rem; padding:0.65rem 1.25rem; background:rgba(197,163,85,0.1); border:1px solid var(--color-dragon-gold); border-radius:2px; color:var(--color-dragon-gold); font-size:0.65rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; transition:all 0.2s;" onmouseover="this.style.background='rgba(197,163,85,0.2)'" onmouseout="this.style.background='rgba(197,163,85,0.1)'">
+              <svg style="width:0.85rem;height:0.85rem;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              View Columbia Southern Flyer
+            </a>
+          </div>
         </div>
       </div>
 
