@@ -20,6 +20,7 @@ const photos = [
   { src: '/ccra/regimental-week/16.jpg', caption: 'Regimental Week 2026' },
   { src: '/ccra/regimental-week/17.jpg', caption: 'Regimental Week 2026' },
   { src: '/ccra/regimental-week/18.jpg', caption: 'Regimental Week 2026' },
+  { src: '/ccra/regimental-week/19.jpg', caption: 'Regimental Week 2026' },
 ];
 ---
 
@@ -59,15 +60,15 @@ const photos = [
         </div>
 
         <!-- Prev / Next buttons -->
-        <button id="prev-btn" aria-label="Previous" style="position: absolute; top: 50%; left: -1.5rem; transform: translateY(-50%); width: 3rem; height: 3rem; border-radius: 50%; background: var(--color-command); border: 1px solid var(--color-gunmetal); color: var(--color-bone); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: border-color 0.2s, color 0.2s; z-index: 3;">
+        <button id="prev-btn" aria-label="Previous" style="position: absolute; top: 50%; left: 0.5rem; transform: translateY(-50%); width: 2.5rem; height: 2.5rem; border-radius: 50%; background: rgba(10,10,15,0.75); border: 1px solid var(--color-gunmetal); color: var(--color-bone); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: border-color 0.2s, color 0.2s; z-index: 3;">
           <svg style="width:1.1rem;height:1.1rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
         </button>
-        <button id="next-btn" aria-label="Next" style="position: absolute; top: 50%; right: -1.5rem; transform: translateY(-50%); width: 3rem; height: 3rem; border-radius: 50%; background: var(--color-command); border: 1px solid var(--color-gunmetal); color: var(--color-bone); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: border-color 0.2s, color 0.2s; z-index: 3;">
+        <button id="next-btn" aria-label="Next" style="position: absolute; top: 50%; right: 0.5rem; transform: translateY(-50%); width: 2.5rem; height: 2.5rem; border-radius: 50%; background: rgba(10,10,15,0.75); border: 1px solid var(--color-gunmetal); color: var(--color-bone); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: border-color 0.2s, color 0.2s; z-index: 3;">
           <svg style="width:1.1rem;height:1.1rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </button>
 
         <!-- Dots -->
-        <div id="dots" style="display: flex; justify-content: center; gap: 0.5rem; margin-top: 1.25rem;">
+        <div id="dots" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-top: 1.25rem;">
           {photos.map((_, i) => (
             <button
               class="dot"
@@ -130,6 +131,7 @@ const photos = [
     { src: '/ccra/regimental-week/16.jpg', caption: 'Regimental Week 2026' },
     { src: '/ccra/regimental-week/17.jpg', caption: 'Regimental Week 2026' },
     { src: '/ccra/regimental-week/18.jpg', caption: 'Regimental Week 2026' },
+    { src: '/ccra/regimental-week/19.jpg', caption: 'Regimental Week 2026' },
   ];
 
   let current = 0;
@@ -181,4 +183,13 @@ const photos = [
   });
 
   resetTimer();
+
+  // Touch swipe support
+  let touchStartX = 0;
+  const carouselEl = document.getElementById('carousel');
+  carouselEl?.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].clientX; }, { passive: true });
+  carouselEl?.addEventListener('touchend', (e) => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+  }, { passive: true });
 </script>
